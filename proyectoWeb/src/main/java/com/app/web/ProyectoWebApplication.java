@@ -51,7 +51,7 @@ public class ProyectoWebApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		inicial(); //Datos iniciales que existiran previamente en la BD
+		//inicial(); //Datos iniciales que existiran previamente en la BD
 	}
 	
 	private void inicial() {

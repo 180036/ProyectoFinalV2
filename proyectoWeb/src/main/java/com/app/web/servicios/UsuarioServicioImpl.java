@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.app.web.dto.UsuarioRegistroDTO;
 import com.app.web.entidad.ObjetoSkinArma;
 import com.app.web.entidad.Rol;
 import com.app.web.entidad.Usuario;
@@ -47,12 +46,6 @@ public class UsuarioServicioImpl implements UsuarioServicio{
 		// TODO Auto-generated method stub
 		Usuario u = obtenerUsuarioPorId(id);
 		return u.getListaObjetoSkinArmas();
-	}
-
-	@Override
-	public Usuario guardarUsuarioDTO(UsuarioRegistroDTO dto) {
-		Usuario u = new Usuario(dto.getNombre(), dto.getContrasena(), dto.getEmail(), Arrays.asList(new Rol("ROLE_USER")));
-		return repositorio.save(u);
 	}
 
 }

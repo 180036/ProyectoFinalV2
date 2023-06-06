@@ -10,7 +10,7 @@ import com.app.web.servicios.UsuarioServicio;
 
 @Controller
 public class Controlador {
-
+/*
 	@Autowired
 	private UsuarioServicio servicio;
 	
@@ -23,5 +23,5 @@ public class Controlador {
 	public String mostrarFormEditar(@PathVariable Long id, Model modelo) {
 		modelo.addAttribute("inventario",servicio.getInventario(id));
 		return "inventario";
-	}
+	}*/
 }
