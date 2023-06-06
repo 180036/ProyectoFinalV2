@@ -1,0 +1,155 @@
+/* Titulo */
+.title {
+    text-align: center;
+}
+
+/* Root */
+:root {
+    --mainColor: #cda45e;
+}
+
+/* Colaborators */
+.colaborators {
+    width: 100%;
+    height: 100%;
+}
+.colaborators-title {
+    text-align: center;
+}
+.colaborator-image img{
+    margin-top: 10px;
+    height: 520px;
+}
+.colaborator-1 {
+    text-align: right;
+}
+.colaborator-1 img{
+    margin-top: 5px;
+    position: relative;
+    width: 50%;
+}
+
+.colaborator-2 {
+    text-align: left;
+}
+.colaborator-2 img{
+    margin-top: 5px;
+    position: relative;
+    width: 50%;
+}
+
+/* End Colaborators */
+
+/* Cajas */
+.event-box {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.event-box {
+    margin-top: 20px;
+}
+
+.chests-row {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    border-left: 5px;
+    overflow: hidden;
+}
+.border-chests {
+    flex: 1;
+    padding: 10px;
+}
+.chest-link{
+    /* color defecto pagina */
+    margin: auto;
+    color: black;
+}
+.chest-link:hover{
+    /* color defecto pagina */
+    margin: auto;
+    color: var(--mainColor);
+}
+
+
+    /* Cada caja */
+    .chest-1 {
+        text-align: center;
+    }
+    .chest-2 {
+        text-align: center;
+        margin: auto;
+    }
+    .chest-3 {
+        text-align: center;
+        margin: auto;
+    }
+    .chest-4 {
+        text-align: center;
+        margin: auto;
+    }
+.box-img {
+    width: 300px; /* Ancho de la caja */
+    height: 200px; /* Altura de la caja */
+}
+.box-img img {
+    width: 100%; /* Ajusta el tamaño de la imagen al tamaño de la caja */
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen para llenar la caja */
+}
+.box-img img:hover {
+    transform: scale(1.4);
+}
+
+
+/* Carrusel */
+.swiper-container {
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .swiper-wrapper {
+    display: flex;
+    animation: carousel 15s infinite;
+  }
+  
+  .swiper-slide {
+    flex: 0 0 100%;
+  }
+
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .swiper-wrapper:first-child {
+    animation-delay: 1s;
+  }
+  
+  @keyframes carousel {
+    0% {
+      transform: translateX(0);
+    }
+    33% {
+      transform: translateX(-100%);
+    }
+    66% {
+      transform: translateX(-200%);
+    }
+    100% {
+      transform: translateX(-300%);
+    }
+  }
+  /* End Carrusel */
+
+
+  /* Upgrade */
+
+
+ 
+  /* End Upgrade */
