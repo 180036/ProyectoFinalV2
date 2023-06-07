@@ -1,5 +1,7 @@
 package com.app.web.entidad;
 
+import com.app.web.usuarioregistro.User;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,7 +31,7 @@ public class ObjetoSkinArma {
 	
 	@ManyToOne
 	@JoinColumn(name = "idUsuario")
-	private Usuario usuario;
+	private User usuario;
 	
 	@ManyToOne
 	@JoinColumn(name = "estado", nullable = false)
@@ -37,9 +39,7 @@ public class ObjetoSkinArma {
 
 	public ObjetoSkinArma() {}
 
-	
-	
-	public ObjetoSkinArma(String nombre, int precio, Skin skin, Usuario usuario, EstadoArma estado) {
+	public ObjetoSkinArma(String nombre, int precio, Skin skin, User usuario, EstadoArma estado) {
 		this.nombre = nombre;
 		this.precio = precio;
 		this.skin = skin;
@@ -81,11 +81,11 @@ public class ObjetoSkinArma {
 		this.skin = skin;
 	}
 
-	public Usuario getUsuario() {
+	public User getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(User usuario) {
 		this.usuario = usuario;
 	}
 

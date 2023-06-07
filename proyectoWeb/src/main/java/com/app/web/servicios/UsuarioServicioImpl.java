@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.web.entidad.ObjetoSkinArma;
-import com.app.web.entidad.Rol;
 import com.app.web.entidad.Usuario;
 import com.app.web.repositorios.UsuarioRepositorio;
 
@@ -40,12 +39,12 @@ public class UsuarioServicioImpl implements UsuarioServicio{
 		// TODO Auto-generated method stub
 		repositorio.deleteById(id);
 	}
-
+/*
 	@Override
 	public List<ObjetoSkinArma> getInventario(Long id) {
 		// TODO Auto-generated method stub
 		Usuario u = obtenerUsuarioPorId(id);
 		return u.getListaObjetoSkinArmas();
-	}
+	}*/
 
 }

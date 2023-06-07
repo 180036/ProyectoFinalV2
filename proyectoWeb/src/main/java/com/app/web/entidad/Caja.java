@@ -15,13 +15,13 @@ public class Caja {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	 public long id;
 	
 	@Column(name = "nombre", nullable = false)
-	private String nombre;
+	public String nombre;
 	
 	@Column(name = "precio", nullable = false)
-	private int precio;
+	public int precio;
 	
 	@ManyToOne
 	@JoinColumn(name = "skin1")
@@ -79,6 +79,11 @@ public class Caja {
 		this.skin9 = skin9;
 		this.skin10 = skin10;
 	}
+
+	
+	public Caja() {
+	}
+
 
 	@Override
 	public String toString() {

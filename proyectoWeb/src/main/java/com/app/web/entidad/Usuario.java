@@ -18,173 +18,138 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name ="usuarios", uniqueConstraints  = @UniqueConstraint(columnNames ="email"))
+@Table(name ="usuarios")
 public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+//	
+//	@Column(name = "nombre", nullable = false, unique= true)
+//	private String nombre;
+//
+//	@Column(name = "contrasena", nullable = false)
+//	private String contrasena;
+//	
+//	@Column(name = "email", nullable = false, unique = true)
+//	private String email;
+//	
+//	@Column(name = "urlPerfil", nullable = true)
+//	private String urlPerfil;
+//
+//	@Column(name = "puntos", nullable =false )
+//	private int puntos;
+//	
+//	@OneToMany(mappedBy = "usuario")
+//	List<ObjetoSkinArma> inventario;
+//	
+//
+//	public Usuario() {}
+//
+//	public Usuario(String nombre, String contrasena, String email, String urlPerfil) {
+//		this.nombre = nombre;
+//		this.contrasena = contrasena;
+//		this.email = email;
+//		this.urlPerfil = urlPerfil;
+//		this.puntos = 100; //pts default :)
+//	}
+//	
+//	
+//
+//	
+//
+//	public int getPuntos() {
+//		return puntos;
+//	}
+//
+//	public void setPuntos(int puntos) {
+//		this.puntos = puntos;
+//	}
+//
+//	public void sumarPuntos(int puntos) {
+//		this.puntos += puntos;
+//	}
+//	public void restarPuntos(int puntos) {
+//		this.puntos += puntos;
+//	}
+//	public long getId() {
+//		return id;
+//	}
+//
+//
+//
+//	public void setId(long id) {
+//		this.id = id;
+//	}
+//
+//
+//
+//	public String getNombre() {
+//		return nombre;
+//	}
+//
+//
+//
+//	public void setNombre(String nombre) {
+//		this.nombre = nombre;
+//	}
+//
+//
+//
+//	public String getContrasena() {
+//		return contrasena;
+//	}
+//
+//
+//
+//	public void setContrasena(String contrasena) {
+//		this.contrasena = contrasena;
+//	}
+//
+//
+//
+//	public String getEmail() {
+//		return email;
+//	}
+//
+//
+//
+//	public void setEmail(String email) {
+//		this.email = email;
+//	}
+//
+//
+//
+//	public String getUrlPerfil() {
+//		return urlPerfil;
+//	}
+//
+//
+//
+//	public void setUrlPerfil(String urlPerfil) {
+//		this.urlPerfil = urlPerfil;
+//	}
+//
+//
+//
+//	public List<ObjetoSkinArma> getListaObjetoSkinArmas() {
+//		return inventario;
+//	}
+//
+//
+//
+//	public void setListaObjetoSkinArmas(List<ObjetoSkinArma> listaObjetoSkinArmas) {
+//		this.inventario = listaObjetoSkinArmas;
+//	}
+//
+//
+//
+//	@Override
+//	public String toString() {
+//		return "Usuario [id=" + id + ", nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email
+//				+ ", urlPerfil=" + urlPerfil + "]";
+//	}
+//	
 	
-	@Column(name = "nombre", nullable = false, unique= true)
-	private String nombre;
 
-	@Column(name = "contrasena", nullable = false)
-	private String contrasena;
-	
-	@Column(name = "email", nullable = false, unique = true)
-	private String email;
-	
-	@Column(name = "urlPerfil", nullable = true)
-	private String urlPerfil;
-
-	@Column(name = "puntos", nullable =false )
-	private int puntos;
-	
-	@OneToMany(mappedBy = "usuario")
-	List<ObjetoSkinArma> inventario;
-	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "usuarios_roles",
-			  joinColumns = @JoinColumn(
-					  	name = "usuario_id", referencedColumnName = "id"),
-			  inverseJoinColumns = @JoinColumn(name = "rol_id", referencedColumnName = "id")
-					  )
-	private Collection<Rol> roles;
-	
-	
-	public Collection<Rol> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(Collection<Rol> roles) {
-		this.roles = roles;
-	}
-
-	public Usuario() {}
-
-	public Usuario(String nombre, String contrasena, String email, String urlPerfil) {
-		this.nombre = nombre;
-		this.contrasena = contrasena;
-		this.email = email;
-		this.urlPerfil = urlPerfil;
-		this.puntos = 100; //pts default :)
-	}
-	
-	
-
-	public Usuario(String nombre, String contrasena, String email, String urlPerfil, int puntos,
-			List<ObjetoSkinArma> inventario, Collection<Rol> roles) {
-		this.nombre = nombre;
-		this.contrasena = contrasena;
-		this.email = email;
-		this.urlPerfil = urlPerfil;
-		this.puntos = puntos;
-		this.inventario = inventario;
-		this.roles = roles;
-	}
-	
-	
-
-	public Usuario(String nombre, String contrasena, String email, Collection<Rol> roles) {
-		super();
-		this.nombre = nombre;
-		this.contrasena = contrasena;
-		this.email = email;
-		this.roles = roles;
-	}
-
-	public int getPuntos() {
-		return puntos;
-	}
-
-	public void setPuntos(int puntos) {
-		this.puntos = puntos;
-	}
-
-	public void sumarPuntos(int puntos) {
-		this.puntos += puntos;
-	}
-	public void restarPuntos(int puntos) {
-		this.puntos += puntos;
-	}
-	public long getId() {
-		return id;
-	}
-
-
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-
-
-	public String getNombre() {
-		return nombre;
-	}
-
-
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-
-
-	public String getContrasena() {
-		return contrasena;
-	}
-
-
-
-	public void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
-	}
-
-
-
-	public String getEmail() {
-		return email;
-	}
-
-
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-
-
-	public String getUrlPerfil() {
-		return urlPerfil;
-	}
-
-
-
-	public void setUrlPerfil(String urlPerfil) {
-		this.urlPerfil = urlPerfil;
-	}
-
-
-
-	public List<ObjetoSkinArma> getListaObjetoSkinArmas() {
-		return inventario;
-	}
-
-
-
-	public void setListaObjetoSkinArmas(List<ObjetoSkinArma> listaObjetoSkinArmas) {
-		this.inventario = listaObjetoSkinArmas;
-	}
-
-
-
-	@Override
-	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email
-				+ ", urlPerfil=" + urlPerfil + "]";
-	}
-	
-	
-	
 }

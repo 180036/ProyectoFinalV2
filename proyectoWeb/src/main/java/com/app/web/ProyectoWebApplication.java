@@ -1,9 +1,12 @@
 package com.app.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.app.web.entidad.Arma;
 import com.app.web.entidad.Caja;
@@ -12,26 +15,30 @@ import com.app.web.entidad.EstadoArma;
 import com.app.web.entidad.ModeloArma;
 import com.app.web.entidad.ObjetoSkinArma;
 import com.app.web.entidad.Skin;
-import com.app.web.entidad.Usuario;
 import com.app.web.repositorios.ArmaRepositorio;
+import com.app.web.repositorios.AuthorityRepositorio;
 import com.app.web.repositorios.CajaRepositorio;
 import com.app.web.repositorios.CalidadskinRepositorio;
 import com.app.web.repositorios.EstadoarmaRepositorio;
 import com.app.web.repositorios.ModeloarmaRepositorio;
 import com.app.web.repositorios.ObjetoskinarmaRepositorio;
 import com.app.web.repositorios.SkinRepositorio;
+import com.app.web.repositorios.UserRepository;
 import com.app.web.repositorios.UsuarioRepositorio;
+import com.app.web.usuarioregistro.Authority;
+import com.app.web.usuarioregistro.AuthorityName;
+import com.app.web.usuarioregistro.User;
 
 @SpringBootApplication()
-public class ProyectoWebApplication implements CommandLineRunner{
+public class ProyectoWebApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoWebApplication.class, args);
 	}
 
 	
-	@Autowired(required=true)
-	private UsuarioRepositorio repo;
+	/*@Autowired(required=true)
+	private UsuarioRepositorio repo;*/
 	@Autowired(required=true)
 	private SkinRepositorio repoS;
 	@Autowired(required=true)
@@ -47,19 +54,38 @@ public class ProyectoWebApplication implements CommandLineRunner{
 	@Autowired(required=true)
 	private CajaRepositorio repoCa;
 	
+	@Autowired(required=true)
+	private UserRepository userRepo;
+	@Autowired(required=true)
+	private AuthorityRepositorio authRepo;
 	
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		//inicial(); //Datos iniciales que existiran previamente en la BD
+		inicial(); //Datos iniciales que existiran previamente en la BD
 	}
 	
 	private void inicial() {
+
+			this.authRepo.saveAll(List.of(
+					new Authority(AuthorityName.ADMIN),
+					new Authority(AuthorityName.READ),
+					new Authority(AuthorityName.WRITE)
+					));
+		
+
+			User prueba = new User("alejandro", new BCryptPasswordEncoder().encode("123"), List.of(this.authRepo.findByName(AuthorityName.ADMIN).get()),"a@email.com","imagen.jpg");
+			this.userRepo.saveAll(List.of(
+					prueba,
+					new User("oskaras", new BCryptPasswordEncoder().encode("123"), List.of(this.authRepo.findByName(AuthorityName.READ).get()),"a2@email.com","imagen.jpg"),
+					new User("pepe", new BCryptPasswordEncoder().encode("69"), List.of(this.authRepo.findByName(AuthorityName.WRITE).get()),"a3@email.com","imagen.jpg")
+					));
+		
 		//Usuarios
-		Usuario usuario1= new Usuario("Angarona", "1234", "angarona2001@gmail.com", "imagen.jpg");
+		/*Usuario usuario1= new Usuario("Angarona", "1234", "angarona2001@gmail.com", "imagen.jpg");
 		repo.save(usuario1);
 		Usuario usuario2= new Usuario("AlejandroDPZ", "8869", "alejandroxd@omegalul.com", "");
-		repo.save(usuario2);
+		repo.save(usuario2);*/
 		
 		//ModeloArmas
 		ModeloArma ma = new ModeloArma("Pistolas");
@@ -134,7 +160,7 @@ public class ProyectoWebApplication implements CommandLineRunner{
 		repoE.save(ea5);
 		
 		//Relacion mucho a muchos, potente
-		ObjetoSkinArma osa1 = new ObjetoSkinArma("Mi armita reshulona", 10000, skin1, usuario2, ea);
+		ObjetoSkinArma osa1 = new ObjetoSkinArma("Mi armita reshulona", 10000, skin1, prueba, ea);
 		repoO.save(osa1);
 		
 		

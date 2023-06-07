@@ -11,7 +11,7 @@ public interface UsuarioServicio {
 	public Usuario guardarUsuario(Usuario usuario);
 	public Usuario obtenerUsuarioPorId(Long id);
 	public Usuario actualizarUsuario(Usuario usuario);
-	public 	List<ObjetoSkinArma> getInventario(Long id);
+	//public 	List<ObjetoSkinArma> getInventario(Long id);
 	public void eliminarUsuario(Long id);
 	
 
