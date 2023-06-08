@@ -7,9 +7,9 @@ import com.app.web.entidad.Caja;
 public interface CajaServicio {
 	
 	public List<Caja> listarTodasCajas();
-	public Caja guardarEstudiante(Caja caj);
-	public Caja obtenerEstudiantePorId(Long id);
-	public Caja actualizarEstudiante(Caja caja);
-	public void eliminarEstudiante(Long id);
+	public Caja guardarCaja(Caja caj);
+	public Caja obtenerCajaPorId(Long id);
+	public Caja actualizarCaja(Caja caja);
+	public void eliminarCaja(Long id);
 
 }

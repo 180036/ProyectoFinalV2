@@ -24,7 +24,6 @@ import com.app.web.repositorios.ModeloarmaRepositorio;
 import com.app.web.repositorios.ObjetoskinarmaRepositorio;
 import com.app.web.repositorios.SkinRepositorio;
 import com.app.web.repositorios.UserRepository;
-import com.app.web.repositorios.UsuarioRepositorio;
 import com.app.web.usuarioregistro.Authority;
 import com.app.web.usuarioregistro.AuthorityName;
 import com.app.web.usuarioregistro.User;
@@ -35,10 +34,6 @@ public class ProyectoWebApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoWebApplication.class, args);
 	}
-
-	
-	/*@Autowired(required=true)
-	private UsuarioRepositorio repo;*/
 	@Autowired(required=true)
 	private SkinRepositorio repoS;
 	@Autowired(required=true)
@@ -122,16 +117,16 @@ public class ProyectoWebApplication implements CommandLineRunner {
 		repoC.save(cs7);
 		
 		//Skin con su cs
-		Skin skin1 = new Skin("DragonLore", arma1, cs6);
-		Skin skin2 = new Skin("DragonLore", arma1, cs6);
-		Skin skin3 = new Skin("DragonLore", arma1, cs6);
-		Skin skin4 = new Skin("DragonLore", arma1, cs6);
-		Skin skin5 = new Skin("DragonLore", arma1, cs6);
-		Skin skin6 = new Skin("DragonLore", arma1, cs6);
-		Skin skin7 = new Skin("DragonLore", arma1, cs6);
-		Skin skin8 = new Skin("DragonLore", arma1, cs6);
-		Skin skin9 = new Skin("DragonLore", arma1, cs6);
-		Skin skin10 = new Skin("DragonLore", arma1, cs6);
+		Skin skin1 = new Skin("DragonLore", arma1, cs, 2000);
+		Skin skin2 = new Skin("DragonLore", arma1, cs2, 2000);
+		Skin skin3 = new Skin("DragonLore", arma1, cs3, 2000);
+		Skin skin4 = new Skin("DragonLore", arma1, cs4, 2000);
+		Skin skin5 = new Skin("DragonLore", arma1, cs5, 2000);
+		Skin skin6 = new Skin("DragonLore", arma1, cs6, 2000);
+		Skin skin7 = new Skin("DragonLore", arma1, cs2,2000);
+		Skin skin8 = new Skin("DragonLore", arma1, cs2, 2000);
+		Skin skin9 = new Skin("DragonLore", arma1, cs2, 2000);
+		Skin skin10 = new Skin("DragonLore", arma1, cs7, 2000);
 
 		repoS.save(skin1);
 		repoS.save(skin2);
@@ -148,15 +143,15 @@ public class ProyectoWebApplication implements CommandLineRunner {
 		repoCa.save(caja1);
 		
 		//Estado Armas
-		EstadoArma ea = new EstadoArma("Recien Fabricado");
+		EstadoArma ea = new EstadoArma("BATTLE-SCARRED");
 		repoE.save(ea);
-		EstadoArma ea2 = new EstadoArma("Casi Nuevo");
+		EstadoArma ea2 = new EstadoArma("WELL-WORN");
 		repoE.save(ea2);
-		EstadoArma ea3 = new EstadoArma("Algo desgastado");
+		EstadoArma ea3 = new EstadoArma("FIELD-TESTED");
 		repoE.save(ea3);
-		EstadoArma ea4 = new EstadoArma("Bastante desgastado");
+		EstadoArma ea4 = new EstadoArma("MINIMAL WEAR");
 		repoE.save(ea4);
-		EstadoArma ea5 = new EstadoArma("Deplorable");
+		EstadoArma ea5 = new EstadoArma("FACTORY NEW");
 		repoE.save(ea5);
 		
 		//Relacion mucho a muchos, potente

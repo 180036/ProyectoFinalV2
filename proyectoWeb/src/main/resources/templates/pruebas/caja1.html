@@ -1,3 +1,19 @@
 <html>
-	CAJA 1
+
+<form th:action="@{/cajas/{id}(id=${caja.id})}" th:object="${caja}" method="POST">
+
+	<div class="form-group">
+		<label>Nombre de la caja:</label>
+		<label th:text="*{nombre}"></label>
+		<br />
+		<label>Precio de la caja:</label>
+		<label th:text="*{precio}"></label>
+		<button type="submit" class="btn btn-info">Abrir</button>
+
+	</div>
+	<div class="box-footer">
+
+	</div>
+</form>
+
 </html>

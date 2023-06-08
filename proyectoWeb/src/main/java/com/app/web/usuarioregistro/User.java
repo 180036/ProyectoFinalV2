@@ -43,8 +43,15 @@ public class User {
 	@Column(name = "puntos")
 	private int puntos;
 	
+	@Column(name = "cantidadarmas")
+	private int cantidadArmas;
+	
+	@Column(name = "cajasAbiertas")
+	private int cajasAbiertas;
+	
 	@OneToMany(mappedBy = "usuario")
 	List<ObjetoSkinArma> inventario;
+	
 	
 	
 	public User(String name, String passord, List<Authority> authorities) {
@@ -52,6 +59,9 @@ public class User {
 		this.name = name;
 		this.password = passord;
 		this.authorities = authorities;
+		this.cajasAbiertas = 0;
+		this.cantidadArmas = 0;
+		
 	}
 
 	public User(String name, String password, List<Authority> authorities, String email, String urlPerfil) {
@@ -62,10 +72,11 @@ public class User {
 		this.email = email;
 		this.urlPerfil = urlPerfil;
 		this.puntos = 100;
+		this.cajasAbiertas = 0;
+		this.cantidadArmas = 0;
 	}
 
 	public User() {
-		super();
 	}
 
 	public long getId() {

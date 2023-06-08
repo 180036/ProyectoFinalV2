@@ -43,7 +43,7 @@
 	</nav>
 	<div class="container">
 		<div th:each="caja : ${cajas}" class="border">
-			<form th:action="@{/cajas/{id}(id=${caja.id})}" method="POST">
+			<form th:action="@{/cajas/{id}(id=${caja.id})}" method="GET">
 
 				<div class="form-group">
 					<label>Nombre de la caja:</label>
@@ -69,7 +69,7 @@
 			</thead>
 
 			<tr th:each="caja : ${cajas}">
-				<form th:action="@{/cajas/{id}(id=${caja.id})}" method="POST">
+				<form th:action="@{/cajas/{id}(id=${caja.id})}" method="GET">
 					<td th:text="${caja.nombre}">Nombre</td>
 					<td th:text="${caja.precio}">Precio</td>
 					<td>

@@ -5,9 +5,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
+import com.app.web.entidad.Caja;
+import com.app.web.entidad.EstadoArma;
+import com.app.web.entidad.ObjetoSkinArma;
+import com.app.web.entidad.Skin;
 import com.app.web.servicios.CajaServicio;
+import com.app.web.usuarioregistro.User;
+
+import utilidades.AleatorioEstadoArma;
+import utilidades.AleatorioSkins;
+import utilidades.PrecioFinalOSA;
+import utilidades.StatTrak;
 
 @Controller
 public class Controlador {
@@ -39,22 +48,31 @@ public class Controlador {
 		return "cajas.html";
 	}
 	
-	
-	/*@GetMapping("/cajas")
-	public String listarCajas() {
-		return "cajas.html";
-	 }*/
-	
-	
-	@PostMapping("/cajas/{id}")
-	public String devolverCaja(@PathVariable Long id) {
-		if(id == 1) {
+	@GetMapping("/cajas/{id}")
+	public String devolverCaja(@PathVariable Long id, Model modelo) {
+		Caja c = servicioCaja.obtenerCajaPorId(id);
+		Skin s = AleatorioSkins.skinAleatoria(c.getSkins()); //Skin premiada
+		EstadoArma ea = AleatorioEstadoArma.estadoArmaAleatorio(); //EstadoArma aleatorio
+		int precio = PrecioFinalOSA.precioFinal(ea, s.getPrecioBase(), StatTrak.tieneStatTrak());
+		
+		ObjetoSkinArma osa = new ObjetoSkinArma();
+		osa.setEstado(ea);
+		osa.setSkin(s);
+		osa.setPrecio(precio);
+		osa.setUsuario(new User()); //pillar usuario de sesion, por realizar
+		osa.setNombre(s.getNombre()); //Nombre se le pregunta al usuario para cambiarlo
+		
+		
+		modelo.addAttribute("caja", c);
+		modelo.addAttribute("skin", s);		
+		/*if(id == 1) {
 			return "pruebas/caja1.html";
 		}else if(id == 2) {
 			return "pruebas/caja2.html";
 		}else if(id == 3) {
 			return "pruebas/caja3.html";
-		}
-		return "redirect:/index";
+		}*/
+		return "caja";
 	}
+	
 }

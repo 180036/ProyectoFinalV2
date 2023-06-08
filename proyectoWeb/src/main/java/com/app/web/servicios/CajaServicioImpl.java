@@ -20,25 +20,25 @@ public class CajaServicioImpl implements CajaServicio{
 	}
 
 	@Override
-	public Caja guardarEstudiante(Caja caja) {
+	public Caja guardarCaja(Caja caja) {
 		// TODO Auto-generated method stub
 		return repo.save(caja);
 	}
 
 	@Override
-	public Caja obtenerEstudiantePorId(Long id) {
+	public Caja obtenerCajaPorId(Long id) {
 		// TODO Auto-generated method stub
 		return  repo.findById(id).get();
 	}
 
 	@Override
-	public Caja actualizarEstudiante(Caja caja) {
+	public Caja actualizarCaja(Caja caja) {
 		// TODO Auto-generated method stub
 		return repo.save(caja);
 	}
 
 	@Override
-	public void eliminarEstudiante(Long id) {
+	public void eliminarCaja(Long id) {
 		// TODO Auto-generated method stub
 		repo.deleteById(id);
 	}

@@ -22,6 +22,8 @@ public class Skin {
 	
 	@Column(name = "nombre", nullable = false)
 	private String nombre;
+	@Column(name = "precioBase", nullable = false)
+	private int precioBase;
 	
 	@ManyToOne
 	@JoinColumn(name = "idarma")
@@ -36,10 +38,19 @@ public class Skin {
 	
 	public Skin() {}
 
-	public Skin(String nombre, Arma arma, CalidadSkin cs) {
+	public Skin(String nombre, Arma arma, CalidadSkin cs, int precioBase) {
 		this.nombre = nombre;
 		this.arma = arma;
 		this.cs = cs;
+		this.precioBase = precioBase;
+	}
+
+	public int getPrecioBase() {
+		return precioBase;
+	}
+
+	public void setPrecioBase(int precioBase) {
+		this.precioBase = precioBase;
 	}
 
 	public CalidadSkin getCs() {

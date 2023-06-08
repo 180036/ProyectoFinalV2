@@ -1,5 +1,8 @@
 package com.app.web.entidad;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -82,6 +85,150 @@ public class Caja {
 
 	
 	public Caja() {
+	}
+
+	public List<Skin> getSkins(){
+		List<Skin> lista = new ArrayList<>();
+		lista.add(skin1);
+		lista.add(skin2);
+		lista.add(skin3);
+		lista.add(skin4);
+		lista.add(skin5);
+		lista.add(skin6);
+		lista.add(skin7);
+		lista.add(skin8);
+		lista.add(skin9);
+		lista.add(skin10);
+		return lista;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public int getPrecio() {
+		return precio;
+	}
+
+
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+
+
+	public Skin getSkin1() {
+		return skin1;
+	}
+
+
+	public void setSkin1(Skin skin1) {
+		this.skin1 = skin1;
+	}
+
+
+	public Skin getSkin2() {
+		return skin2;
+	}
+
+
+	public void setSkin2(Skin skin2) {
+		this.skin2 = skin2;
+	}
+
+
+	public Skin getSkin3() {
+		return skin3;
+	}
+
+
+	public void setSkin3(Skin skin3) {
+		this.skin3 = skin3;
+	}
+
+
+	public Skin getSkin4() {
+		return skin4;
+	}
+
+
+	public void setSkin4(Skin skin4) {
+		this.skin4 = skin4;
+	}
+
+
+	public Skin getSkin5() {
+		return skin5;
+	}
+
+
+	public void setSkin5(Skin skin5) {
+		this.skin5 = skin5;
+	}
+
+
+	public Skin getSkin6() {
+		return skin6;
+	}
+
+
+	public void setSkin6(Skin skin6) {
+		this.skin6 = skin6;
+	}
+
+
+	public Skin getSkin7() {
+		return skin7;
+	}
+
+
+	public void setSkin7(Skin skin7) {
+		this.skin7 = skin7;
+	}
+
+
+	public Skin getSkin8() {
+		return skin8;
+	}
+
+
+	public void setSkin8(Skin skin8) {
+		this.skin8 = skin8;
+	}
+
+
+	public Skin getSkin9() {
+		return skin9;
+	}
+
+
+	public void setSkin9(Skin skin9) {
+		this.skin9 = skin9;
+	}
+
+
+	public Skin getSkin10() {
+		return skin10;
+	}
+
+
+	public void setSkin10(Skin skin10) {
+		this.skin10 = skin10;
 	}
 
 

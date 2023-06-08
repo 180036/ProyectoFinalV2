@@ -1,0 +1,27 @@
+<html xmlsn:th="http://www.thymeleaf.org">
+	<!-- RECIBE Caja llamada caja y skin premiada llamada skin-->
+<div class="form-group">
+
+
+	    <label th:text="${snombre != null and snombre != '' ? snombre : 'Valor predeterminado'}">aaaaa</label>
+	    <p th:text="${skin}"></p>
+		<label>Nombre de la caja:</label>
+		<label th:text="'Nombre de la caja ' + ${caja.nombre}"></label>
+		<br />
+		<label>Precio de la caja:</label>
+		<label th:text="${caja.precio}"></label>
+		<label th:text="'Calidad skin: ' + ${skin.getCs().getNombre()}"></label>
+		<button type="button" class="btn btn-info">Abrir (pasa la animacion uo)</button> 
+		
+		<form th:action="@{/guardarArma}"th:object="${objetoskinarma}" method="POST">
+	
+				<label>Nombre del arma personalizado</label>
+				<input type="text" th:field="*{nombre}">
+				<button type="">Guardar</button>
+				
+			</form>
+		
+	
+</div>
+
+</html>
