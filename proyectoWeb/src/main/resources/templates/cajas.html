@@ -1,85 +1,209 @@
-<!DOCTYPE html>
-<html xmlsn:th="http://www.thymeleaf.org">
+<!doctype html>
+<html lang="en">
+  <head>
+	<title>Title</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<head>
-	<meta charset="UTF-8">
-	<title>Editar de estudiantes</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!-- Local File CSS -->
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="cajas.css">
+	<!-- scripts -->
+	<script src="https://kit.fontawesome.com/1d143189b2.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" th:href="@{/estudiantes}">Lista Estudiantes</a>
-		<!--
-		 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-			aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button> -->
-		<div class="collapse navbar-collapse" id="navbarNavDropdown">
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="#">Cero <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Uno</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Dos</a>
-				</li>
-				<!-- <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">
-						Dropdown link
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
-						<a class="dropdown-item" href="#">Something else here</a>
-					</div>
-				</li> -->
-			</ul>
+	<!-- Fake Header -->
+    <div class="container-fluid px-md-5 pt-4 pt-md-5">
+        <div class="row justify-content-between">
+            <div class="col-md-8 order-md-last">
+                <div class="row">
+					<!-- Title -->
+                    <div class="col-md-6 text-center">
+                        <a class="navbar-brand" href="#"> SKINGS
+                            <small class="text-dark">
+                                Ganar, Ganar y Ganar.
+                            </small>
+                        </a>
+                    </div>
+                    <!-- End of Title -->
+                    <!-- Search -->
+                    <div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">
+                        <form class="searchform order-lg-last">
+                            <div class="form-group d-flex">
+                                <input type="text" class="form-control pl-3" placeholder="Search">    
+                                </input>    
+                                <button type="submit" placeholder="" class="form-control search"> 
+                                    <span class="fas fa-search text-dark">    
+                                    </span>   
+                                </button>
+                            </div>    
+                        </form>
+                    </div>
+                    <!-- End of Search -->
+                </div>
+            </div>
+            
+            <!-- Redes Sociales -->
+            <div class="col-md-4 d-flex">
+                <div class="social-media">
+                    <p class="mb-0 d-flex">
+                        <a href="#" class="d-flex align-items-center justify-content-center" >
+                            <span class="fab fa-facebook">
+                                <i class="sr-only">Facebook</i>
+                            </span>
+                        </a>
+                        <a href="#" class="d-flex align-items-center justify-content-center" >
+                            <span class="fab fa-twitter">
+                                <i class="sr-only">Twitter</i>
+                            </span>
+                        </a>
+                        <a href="#" class="d-flex align-items-center justify-content-center" >
+                            <span class="fab fa-instagram">
+                                <i class="sr-only">Instagram</i>
+                            </span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <!-- End of Redes Sociales -->            
+        </div>
+    </div>
+    <!-- End Fake Header --> 
+	<!-- NAVBar -->
+	<nav class="navbar navbar-expand-lg navbar-dark main-navbar bg-dark main-navbar-light" id="a-navbar">
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#my-nav" aria-controls="my-nav" aria-expanded="false" aria-label="toggle-navigation">
+				<span class="fa fa-bars">Menu</span>
+			</button>
+            <div class="collapse navbar-collapse" id="my-nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a th:href="@{/home}" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/second}" class="nav-link">WebSite</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item align-right">
+                        <a href="" class="nav-link">Profile</a>
+                    </li>
+                </ul>
+            </div>
 		</div>
 	</nav>
-	<div class="container">
-		<div th:each="caja : ${cajas}" class="border">
-			<form th:action="@{/cajas/{id}(id=${caja.id})}" method="GET">
+	<!-- End of NAVBar -->
+	<!-- Event Section -->
+    <!-- Carrusel -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="./img/eventos/first-event.jpg" alt="Descripción de la imagen 1">
+          </div>
+          <!-- -->
+          <div class="swiper-slide">
+            <img src="./img/eventos/second-event.jpg" alt="Descripción de la imagen 2">
+          </div>
+          <!-- -->
+          <div class="swiper-slide">
+            <img src="./img/eventos/third-event.jpg" alt="Descripción de la imagen 3">
+          </div>
+        </div>
+    </div>
+    <!-- End Carrusel -->  
+    <section class="event d-flex align-items-center justify-content-center">
+        <div class="container">
+            <div class="row justify-content-center mb-3">
+                <div class="col-xl-6 col-lg-8">
+                    <h1>Best Month Events</h1>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-2 col-md-4 col-6">
+                    <div class="category first-event" style="background: url(./img/eventos/first-event.jpg) center;">
+                        <i class="fa-solid fa-pepper-hot "></i>
+                        <h3><a href=""> Mummies Chest</a></h3>
+                    </div>
+                </div>
+                <!-- -->
+                <div class="col-xl-2 col-md-4 col-6 ">
+                    <div class="category second-event" style="background: url(./img/eventos/second-event.jpg) center;">
+                        <i class="fas fa-skull"></i>
+                        <h3><a href=""> Terrorists Death</a></h3>
+                    </div>
+                </div>
+                <!-- -->
+                <div class="col-xl-2 col-md-4 col-6 ">
+                    <div class="category third-event" style="background: url(./img/eventos/third-event.jpg) center;">
+                        <i class="fa-solid fa-shield-virus"></i>
+                        <h3><a href=""> Anti-Terrorists</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Event Section -->
 
-				<div class="form-group">
-					<label>Nombre de la caja:</label>
-					<label th:text="${caja.nombre}"></label>
-					<br/>
-					<label>Precio de la caja:</label>
-					<label th:text="${caja.precio}"></label>
-										<button type="submit" class="btn btn-info">Abrir</button>
-
-				</div>
-				<div class="box-footer">
-
-				</div>
-			</form>
+	<!-- Parte caja -->
+	<div class="block row">
+		<div class="publ col-xl-3">
+			<img class="img-fluid" src="./img/publicidad-1.jpg" alt="">
 		</div>
-		<table class="table table-striped table-bordered">
-			<thead class="thead-dark">
-				<tr>
-					<th>Nombre</th>
-					<th>Precio</th>
-					<th></th>
-				</tr>
-			</thead>
-
-			<tr th:each="caja : ${cajas}">
-				<form th:action="@{/cajas/{id}(id=${caja.id})}" method="GET">
-					<td th:text="${caja.nombre}">Nombre</td>
-					<td th:text="${caja.precio}">Precio</td>
-					<td>
-						<button type="submit" class="btn btn-info">Abrir</button>
-					</td>
-				</form>
-			</tr>
-			</tbody>
-		</table>
+		<div class="block-box col-xl-6">
+			<h2>Titulo de la caja</h2>
+			<div class="box mt-10 md-10 ml-10 mr-10">
+					<img id="mainImage" src="./img/chest-event-1/chest-1.jpg">
+					<button id="startButton" onclick="verform()">
+						Open
+					</button>
+			</div>
+		</div>
+		<div class="publ col-xl-3">
+			<img class="img-fluid" src="./img/publicidad-2.jpg" alt="">
+		</div>
 	</div>
-</body>
+	<!-- end Parte caja -->
 
+	<!-- Contenido cajas -->
+	<div class="guns row justify-content-center">
+		<div class="guns-title col-xl-8">
+		  <h2>Guns in this box</h2>
+		</div>
+		<div class="guns-table col-xl-8">
+		  <table>
+			<tr>
+				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
+				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
+				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
+				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
+			</tr>
+			<tr>
+				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
+				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
+				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
+				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
+			</tr>
+			<tr>
+				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
+				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
+			</tr>
+		  </table>
+		</div>
+	  </div>
+	
+	<!-- Contenido cajas -->
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="cajas.js"></script>
+</body>
 </html>

@@ -1,0 +1,54 @@
+
+
+/* Container Box */
+.block {
+    margin-top: 15px;
+    height: auto;
+    width: 100%;
+}
+.publ {
+    width: 100%;
+    height: 100%;
+}
+.block-box {
+    text-align: center;
+}
+.box {
+    text-align: center;
+    height: 100%; 
+    width: 100%;
+}
+.box img{
+    visibility: visible;
+    text-align: center;
+    height: auto; 
+    width: 50%;
+}
+/* End Container Box */
+
+/* Boton Open */
+#mainImage {
+    display: block;
+    margin: auto;
+}
+  
+.oculto {
+    display: none;
+}
+/* end open */
+
+/* Conatiner Guns in box */
+.guns {
+    margin-top: 15px;
+    height: auto;
+    width: 100%;
+}
+.guns-title {
+    margin-top: 15px;
+}
+.guns-title h2{
+    text-align: center;
+}
+
+
+/* End Conatiner Guns in box */

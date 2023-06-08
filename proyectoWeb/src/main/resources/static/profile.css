@@ -1,0 +1,9 @@
+.profile-header {
+    transform: translateY(5rem);
+}
+.profile-container {
+    background: #cda45e;
+    background: -webkit-linear-gradient(to right, #cda45e, #000);
+    background: linear-gradient(to right, #cda45e, #000);
+    min-height: 100vh;
+}

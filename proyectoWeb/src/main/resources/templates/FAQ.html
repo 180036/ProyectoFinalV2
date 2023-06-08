@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlsn:th="http://www.thymeleaf.org">
+<head>
+    <title>FAQ Accordion</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="./FAQ.css">
+    <link rel="stylesheet" href="./main.css">
+    
+    <!-- scripts -->
+    <script src="https://kit.fontawesome.com/1d143189b2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Fake Header -->
+    <div class="container-fluid px-md-5 pt-4 pt-md-5">
+        <div class="row justify-content-between">
+            <div class="col-md-8 order-md-last">
+                <div class="row">
+                    <!-- Title -->
+                    <div class="col-md-6 text-center">
+                        <a class="navbar-brand" href="#"> SKINGS
+                            <small class="text-dark">
+                                Ganar, Ganar y Ganar.
+                            </small>
+                        </a>
+                    </div>
+                    <!-- End of Title -->
+                    <!-- Search -->
+                    <div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">
+                        <form class="searchform order-lg-last">
+                            <div class="form-group d-flex">
+                                <input type="text" class="form-control pl-3" placeholder="Search">    
+                                </input>    
+                                <button type="submit" placeholder="" class="form-control search"> 
+                                    <span class="fas fa-search text-dark">    
+                                    </span>   
+                                </button>
+                            </div>    
+                        </form>
+                    </div>
+                    <!-- End of Search -->
+                </div>
+            </div>
+            
+            <!-- Redes Sociales -->
+            <div class="col-md-4 d-flex">
+                <div class="social-media">
+                    <p class="mb-0 d-flex">
+                        <a href="#" class="d-flex align-items-center justify-content-center" >
+                            <span class="fab fa-facebook">
+                                <i class="sr-only">Facebook</i>
+                            </span>
+                        </a>
+                        <a href="#" class="d-flex align-items-center justify-content-center" >
+                            <span class="fab fa-twitter">
+                                <i class="sr-only">Twitter</i>
+                            </span>
+                        </a>
+                        <a href="#" class="d-flex align-items-center justify-content-center" >
+                            <span class="fab fa-instagram">
+                                <i class="sr-only">Instagram</i>
+                            </span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <!-- End of Redes Sociales -->            
+        </div>
+    </div>
+    <!-- End Fake Header --> 
+	<!-- NAVBar -->
+	<nav class="navbar navbar-expand-lg navbar-dark main-navbar bg-dark main-navbar-light" id="a-navbar">
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#my-nav" aria-controls="my-nav" aria-expanded="false" aria-label="toggle-navigation">
+				<span class="fa fa-bars">Menu</span>
+			</button>
+            <div class="collapse navbar-collapse" id="my-nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a th:href="@{/home}" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/second}" class="nav-link">WebSite</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item align-right">
+                        <a href="" class="nav-link">Profile</a>
+                    </li>
+                </ul>
+            </div>
+		</div>
+	</nav>
+	<!-- End of NAVBar -->   
+    <!-- Preguntas -->
+    <div class="container">
+        <div class="title">
+            <h1>FAQ</h1>
+        </div>
+        <div class="wrapper">
+            <button class="toggle">
+                What is the return policy?
+                <i class="fas fa-plus icon"></i>
+            </button>
+            <div class="content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta aliquam facere adipisci quod mollitia, aut nemo deleniti fugiat et, corrupti sequi. Omnis dolorem quos eligendi placeat soluta sint corrupti quod.</p>
+            </div>
+        </div>
+        <div class="wrapper">
+            <button class="toggle">
+                How do I apply the coupon?
+                <i class="fas fa-plus icon"></i>
+            </button>
+            <div class="content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores error doloremque, quibusdam qui necessitatibus autem aperiam reprehenderit? Ipsum maiores dolore inventore ea. Accusantium fuga eius laboriosam iusto blanditiis doloremque ullam?</p>
+            </div>
+        </div>
+        <div class="wrapper">
+            <button class="toggle">
+                How do I become a member?
+                <i class="fas fa-plus icon"></i>
+            </button>
+            <div class="content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae consectetur officiis labore commodi sunt ex praesentium dolor magnam asperiores reiciendis. Minus magnam nesciunt aliquid eos ipsam sequi recusandae quos incidunt.</p>
+            </div>
+        </div>
+    </div>
+    <!-- End Preguntas -->
+
+    <!-- Scripts -->
+    <script src="./FAQ.js"></script>
+    <!-- End Scripts -->
+</body>
+</html>

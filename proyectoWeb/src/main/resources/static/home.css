@@ -1,155 +1,115 @@
-/* Titulo */
-.title {
-    text-align: center;
-}
-
 /* Root */
 :root {
     --mainColor: #cda45e;
 }
 
-/* Colaborators */
-.colaborators {
-    width: 100%;
-    height: 100%;
+/* Body */ 
+body {
+    font-family: 'Poppins', sans-serif;
 }
-.colaborators-title {
+
+/* Info Section */
+.about .about-des p{
+    font-size: 16px;
+    color: #000;
+    line-height: 1.6;
+    margin-bottom: 58px;
+    padding-right: 50px;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+    .about .about-des p {
+        padding-right: 20px;
+    }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px){
+    .about .about-des p {
+        padding-right: 0px;
+    }
+}
+@media(max-width: 575px){
+    .about .about-des p {
+        padding-right: 0px;
+    }
+}
+.about .creator h5{
+    color: var(--mainColor);
+    font-size: 60px;
+    font-weight: normal;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+    .about .creator h5{
+        font-size: 42px;
+    }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px){
+    .about .creator h5{
+        font-size: 45px;
+    }
+}
+@media(max-width: 575px){
+    .about .creator h5{
+        font-size: 45px;
+    }
+}
+.about .about-right-sec {
+    position: relative;
+
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+    .about .about-right-sec {
+        padding-top: 50px;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .about .about-right-sec {
+        padding-top: 50px;
+    }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px){
+    .about .about-right-sec {
+        padding-top: 50px;
+    }
+}
+@media(max-width: 575px){
+    .about .about-right-sec {
+        padding-top: 50px;
+    }
+}
+.about .about-right-sec .about-right-img img{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.about .about-right-sec .img-box {
+    position: absolute;
+    bottom: -7px;
+    left: -33px;
+    width: 179px;
+    height: 180px;
+    padding: 31px 10px;
+    background: var(--mainColor);
     text-align: center;
 }
-.colaborator-image img{
-    margin-top: 10px;
-    height: 520px;
-}
-.colaborator-1 {
-    text-align: right;
-}
-.colaborator-1 img{
-    margin-top: 5px;
-    position: relative;
-    width: 50%;
-}
-
-.colaborator-2 {
-    text-align: left;
-}
-.colaborator-2 img{
-    margin-top: 5px;
-    position: relative;
-    width: 50%;
-}
-
-/* End Colaborators */
-
-/* Cajas */
-.event-box {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.event-box {
-    margin-top: 20px;
-}
-
-.chests-row {
-    width: 100%;
-    height: 300px;
-    display: flex;
-    border-left: 5px;
-    overflow: hidden;
-}
-.border-chests {
-    flex: 1;
-    padding: 10px;
-}
-.chest-link{
-    /* color defecto pagina */
-    margin: auto;
-    color: black;
-}
-.chest-link:hover{
-    /* color defecto pagina */
-    margin: auto;
-    color: var(--mainColor);
-}
-
-
-    /* Cada caja */
-    .chest-1 {
-        text-align: center;
-    }
-    .chest-2 {
-        text-align: center;
-        margin: auto;
-    }
-    .chest-3 {
-        text-align: center;
-        margin: auto;
-    }
-    .chest-4 {
-        text-align: center;
-        margin: auto;
-    }
-.box-img {
-    width: 300px; /* Ancho de la caja */
-    height: 200px; /* Altura de la caja */
-}
-.box-img img {
-    width: 100%; /* Ajusta el tamaño de la imagen al tamaño de la caja */
-    height: 100%;
-    object-fit: cover; /* Ajusta la imagen para llenar la caja */
-}
-.box-img img:hover {
-    transform: scale(1.4);
-}
-
-
-/* Carrusel */
-.swiper-container {
+.about .about-right-sec .img-box:before {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 31px 34px;
+    border-color: transparent transparent var(--mainColor) transparent;
     position: absolute;
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
-    z-index: 1;
-  }
-  
-  .swiper-wrapper {
-    display: flex;
-    animation: carousel 15s infinite;
-  }
-  
-  .swiper-slide {
-    flex: 0 0 100%;
-  }
-
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .swiper-wrapper:first-child {
-    animation-delay: 1s;
-  }
-  
-  @keyframes carousel {
-    0% {
-      transform: translateX(0);
+    top: -29px;
+    content: "";
+    right: 0;
+}
+@media (max-width: 575){
+    .about-des{
+        margin-bottom: 35px;
     }
-    33% {
-      transform: translateX(-100%);
-    }
-    66% {
-      transform: translateX(-200%);
-    }
-    100% {
-      transform: translateX(-300%);
-    }
-  }
-  /* End Carrusel */
+}
+/* End Info Section */ 
 
 
-  /* Upgrade */
 
 
- 
-  /* End Upgrade */
+
+
+

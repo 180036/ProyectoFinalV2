@@ -1,34 +1,32 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlsn:th="http://www.thymeleaf.org">
   <head>
-    <title>Sking</title>
+	 <link rel="icon" type="image/png" href="./img/logo-icon.png">
+    <title>Skings</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="viewport" 
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- Local File CSS -->
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="main.css">
-    <!-- Agrega el enlace al archivo CSS de Swiper -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="./main.css">
 
-    <!-- scripts -->
+
     <script src="https://kit.fontawesome.com/1d143189b2.js" crossorigin="anonymous"></script>
 
-</head>
+  </head>
   <body>
-   <!-- Fake Header -->
+    <!-- Fake Header Todos HTML-->
     <div class="container-fluid px-md-5 pt-4 pt-md-5">
         <div class="row justify-content-between">
             <div class="col-md-8 order-md-last">
                 <div class="row">
 					<!-- Title -->
                     <div class="col-md-6 text-center">
-                        <a class="navbar-brand" href="#"> SKINGS
+                        <a class="navbar-brand" th:href="@{/}"> SKINGS
                             <small class="text-dark">
                                 Ganar, Ganar y Ganar.
                             </small>
@@ -56,29 +54,35 @@
             <div class="col-md-4 d-flex">
                 <div class="social-media">
                     <p class="mb-0 d-flex">
+						<!-- 
                         <a href="#" class="d-flex align-items-center justify-content-center" >
                             <span class="fab fa-facebook">
                                 <i class="sr-only">Facebook</i>
                             </span>
                         </a>
-                        <a href="#" class="d-flex align-items-center justify-content-center" >
+                        -->
+                        <!-- -->
+                        <a href="https://twitter.com/OskarasStankev1" class="d-flex align-items-center justify-content-center" >
                             <span class="fab fa-twitter">
                                 <i class="sr-only">Twitter</i>
                             </span>
                         </a>
+                        <!-- 
                         <a href="#" class="d-flex align-items-center justify-content-center" >
                             <span class="fab fa-instagram">
                                 <i class="sr-only">Instagram</i>
                             </span>
                         </a>
+                        -->
                     </p>
                 </div>
             </div>
             <!-- End of Redes Sociales -->            
         </div>
     </div>
-    <!-- End Fake Header -->
-    <!-- NAVBar -->
+    <!-- End Fake Header Todos HTML-->
+
+    <!-- NAVBar Todos HTML-->
 	<nav class="navbar navbar-expand-lg navbar-dark main-navbar bg-dark main-navbar-light" id="a-navbar">
 		<div class="container-fluid">
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#my-nav" aria-controls="my-nav" aria-expanded="false" aria-label="toggle-navigation">
@@ -89,37 +93,37 @@
                     <li class="nav-item active">
                         <a th:href="@{/}" class="nav-link">Home</a>
                     </li>
+                    <!-- -->
                     <li class="nav-item">
-                        <a th:href="@{/second}" class="nav-link">WebSite</a>
+                        <a th:href="@{/index}" class="nav-link">WebSite</a>
                     </li>
                 </ul>
             </div>
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item align-right">
-                        <a href="" class="nav-link">Profile</a>
+                        <a th:href="@{/profile}" class="nav-link">Profile</a>
                     </li>
                 </ul>
             </div>
 		</div>
 	</nav>
-	<!-- End of NAVBar -->
-    
-    <!-- Event Section -->
+	<!-- End of NAVBar Todos HTML-->
+
+    <!-- Event Section Todos HTML-->
     <!-- Carrusel -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="./img/first-event.jpg" alt="Descripción de la imagen 1">
+            <img src="./img/eventos/first-event.jpg" alt="Descripción de la imagen 1">
           </div>
+          <!-- -->
           <div class="swiper-slide">
-            <img src="./img/second-event.jpg" alt="Descripción de la imagen 2">
+            <img src="./img/eventos/second-event.jpg" alt="Descripción de la imagen 2">
           </div>
+          <!-- -->
           <div class="swiper-slide">
-            <img src="./img/third-event.jpg" alt="Descripción de la imagen 3">
-          </div>
-          <div class="swiper-slide">
-            <img src="./img/fourth-event.jpg" alt="Descripción de la imagen 3">
+            <img src="./img/eventos/third-event.jpg" alt="Descripción de la imagen 3">
           </div>
         </div>
       </div>
@@ -128,363 +132,112 @@
         <div class="container">
             <div class="row justify-content-center mb-3">
                 <div class="col-xl-6 col-lg-8">
-                    <h1>Best Month Events</h1>
+                    <h1 >Best Month Events</h1>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-xl-2 col-md-4 col-6">
-                    <div class="category first-event">
+                    <div class="category first-event" style="background: url(./img/eventos/first-event.jpg) center;">
                         <i class="fa-solid fa-pepper-hot "></i>
-                        <h3><a href=""> Mummies Chest</a></h3>
+                        <h3 ><a th:href="@{index}"> Mummies Chest</a></h3>
                     </div>
                 </div>
                 <!-- -->
                 <div class="col-xl-2 col-md-4 col-6 ">
-                    <div class="category second-event">
+                    <div class="category second-event" style="background: url(./img/eventos/second-event.jpg) center;">
                         <i class="fas fa-skull"></i>
-                        <h3><a href=""> Terrorists Death</a></h3>
+                        <h3><a th:href="@{/index}"> Terrorists Death</a></h3>
                     </div>
                 </div>
                 <!-- -->
                 <div class="col-xl-2 col-md-4 col-6 ">
-                    <div class="category third-event">
+                    <div class="category third-event" style="background: url(./img/eventos/third-event.jpg) center;">
                         <i class="fa-solid fa-shield-virus"></i>
-                        <h3><a href=""> Anti-Terrorists</a></h3>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="col-xl-2 col-md-4 col-6 ">
-                    <div class="category fourth-event">
-                        <i class="fa-sharp fa-solid fa-money-bill"></i>
-                        <h3><a href=""> Lost-All Cash</a></h3>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- End Event Section -->
-    <!-- Colaborators -->
-    <section class="colaborators">
-        <div class="colaborators-title">
-            <h1> Colaborators </h1>
-        </div>
-        <div class="row justify-content-center" >
-            <div class="colaborator-text row justify-content-center">
-                <div class="col-xl-12 col-md-6 col-6">
-                    <div class="row justify-content-center">
-                        <div class="col-xl-4 col-md-6 col-6">
-                            <div class="colaborator-image">
-                                <a href="https://twitter.com/Mixwell?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img src="./img/mixwell.jpg" alt="Descripción de la imagen 1"></a>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6 col-6">
-                            <div class="colaborator-1 ">
-                                <h1>Mixwell</h1>
-                                <div>
-                                    <span> Como picker </span>
-                                </div>
-                                <div>
-                                    <img src="./img/first-event.jpg" alt="Descripción de la imagen 1">
-                                </div>
-                                <div>
-                                    <span> Heretic is lost </span>
-                                </div>
-                                <div>
-                                    <img src="./img/first-event.jpg" alt="Descripción de la imagen 1">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-12 col-md-6 col-6">
-                    <div class="row justify-content-center">
-                        <div class="col-xl-4 col-md-6 col-6">
-                            <div class="colaborator-2">
-                                <h1>Mimi</h1>
-                                <div>
-                                    <span> Como picker </span>
-                                </div>
-                                <div>
-                                    <img src="./img/first-event.jpg" alt="Descripción de la imagen 1">
-                                </div>
-                                <div>
-                                    <span> Heretic is lost </span>
-                                </div>
-                                <div>
-                                    <img src="./img/first-event.jpg" alt="Descripción de la imagen 1">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6 col-6">
-                            <div class="colaborator-image">
-                                <a href="https://twitter.com/mimimimichaela?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img src="./img/mimi.jpg" alt="Descripción de la imagen 1"></a>
-                            </div>
-                        </div>
+                        <h3><a th:href="@{/index}"> Anti-Terrorists</a></h3>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- End Event Section Todos HTML-->
     
+    <!-- What about this site? -->
+    <section class="about mt-5">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-xl-6 col-lg-6 col-md-10">
+                    <div class="about-des mb-50">
+                        <div class="about-title mb-35">
+                            <h2>What is the site about?</h2>
+                        </div>
+                        <p>
+                            This site is created for a school project, which is probably still under development until it can be launched.This web page is based on a compilation of pages related to the same world. Video games and gambling. On this page there will be various events, games and above all boxes, boxes and more boxes.
+                        </p>
+                    </div>
+                    <div class="who-title mb-35">
+                        <h2>Who designed/developed this?</h2>
+                    </div>
+                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7">
+                        <div class="creators">
+                            <h5> Alejandro de Pablo Zueco:</h5>
+                            <p> Descripción rápida </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7">
+                        <div class="creators">
+                            <h5> Oskar Stankevicius </h5>
+                            <p> Descripción rápida </p>
+                        </div>
+                    </div>
+                    <div class="which-title mb-35">
+                        <h2>What games are we going to discuss here?</h2>
+                    </div>
+                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7">
+                        <div class="games">
+                            <h5> Counter-Strike: GO:</h5>
+                            <p> Descripción rápida </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7">
+                        <div class="games">
+                            <h5> Rust </h5>
+                            <p> Descripción rápida </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7">
+                        <div class="games">
+                            <h5> And more... </h5>
+                        </div>
+                    </div>                 
+                </div>
+                 <!-- por si queremos poner una imagen al lado -->
+                <div class="col-xl-5 col-lg-6 col-md-9 offset-md-1 offset-sm-1">
+                    <div class="about-right-sec">
+                        <div class="about-right-image">
+                            <img src="img/Dragon_Lore_1.jpg" alt="" class="img-fluid">
+                        </div>
+                        <div class="img-box">
+                            <span> Best CS:GO Skin</span>
+                            <p>Most expensive skin ever in a game: </p>
+                            <p>+100.000$</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+           
+        </div>
+    </section>
+    <!-- End Who we are? -->
 
 
 
-    <!-- 1 -->
-    <div class="event-box" style="background-image: url(./img/first-event.jpg);">
-        <div class="event-name">
-            <h3>Mummies Chest</h3>
-        </div>
-        <div class="chests-row border-chests " >
-            <a class="chest-link"  href="">
-                <div class="chest-1">
-                    <span>Purple One's</span>
-                    <div class="box-img">
-                        <img src="./img/first-event.jpg" alt="Descripción de la imagen">
-                    </div>
-                </div>
-            </a>
-            <a class="chest-link" href="">
-                <div class="chest-2">
-                    <span>Lost Love</span>
-                    <div class="box-img">
-                        <img src="./img/first-event.jpg" alt="Descripción de la imagen">
-                    </div>
-                </div>
-            </a>
-            <a class="chest-link" href="">
-                <div class="chest-3" >
-                    <span>3 meters form skye</span>
-                    <div class="box-img">
-                        <img src="./img/first-event.jpg" alt="Descripción de la imagen">
-                    </div>
-                </div>
-            </a>
-            <a class="chest-link" href="">
-                <div class="chest-4">
-                    <span>Lost on You</span>
-                    <div class="box-img">
-                        <img src="./img/first-event.jpg" alt="Descripción de la imagen">
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <!-- end 1 -->
-    <!-- 2 -->
-    <div class="event-box" style="background-image: url(./img/second-event.jpg);">
-        <div class="event-name">
-            <h3>Mummies Chest</h3>
-        </div>
-        <div class="chests-row border-chests " >
-            <a class="chest-link"  href="">
-                <div class="chest-1">
-                    <span>Purple One's</span>
-                    <div class="box-img">
-                        <img src="./img/second-event.jpg" alt="Descripción de la imagen">
-                    </div>
-                </div>
-            </a>
-            <a class="chest-link" href="">
-                <div class="chest-2">
-                    <span>Lost Love</span>
-                    <div class="box-img">
-                        <img src="./img/second-event.jpg" alt="Descripción de la imagen">
-                    </div>
-                </div>
-            </a>
-            <a class="chest-link" href="">
-                <div class="chest-3" >
-                    <span>3 meters form skye</span>
-                    <div class="box-img">
-                        <img src="./img/second-event.jpg" alt="Descripción de la imagen">
-                    </div>
-                </div>
-            </a>
-            <a class="chest-link" href="">
-                <div class="chest-4">
-                    <span>Lost on You</span>
-                    <div class="box-img">
-                        <img src="./img/second-event.jpg" alt="Descripción de la imagen">
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <!-- end 2 -->
-    <!-- 3 -->
-    <div class="event-box" style="background-image: url(./img/third-event.jpg);">
-        <div class="event-name">
-            <h3>Mummies Chest</h3>
-        </div>
-        <div class="chests-row border-chests " >
-            <a class="chest-link"  href="">
-                <div class="chest-1">
-                    <span>Purple One's</span>
-                    <div class="box-img">
-                        <img src="./img/third-event.jpg" alt="Descripción de la imagen">
-                    </div>
-                </div>
-            </a>
-            <a class="chest-link" href="">
-                <div class="chest-2">
-                    <span>Lost Love</span>
-                    <div class="box-img">
-                        <img src="./img/third-event.jpg" alt="Descripción de la imagen">
-                    </div>
-                </div>
-            </a>
-            <a class="chest-link" href="">
-                <div class="chest-3" >
-                    <span>3 meters form skye</span>
-                    <div class="box-img">
-                        <img src="./img/third-event.jpg" alt="Descripción de la imagen">
-                    </div>
-                </div>
-            </a>
-            <a class="chest-link" href="">
-                <div class="chest-4">
-                    <span>Lost on You</span>
-                    <div class="box-img">
-                        <img src="./img/third-event.jpg" alt="Descripción de la imagen">
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <!-- end 3 -->
-    <!-- 4 -->
-    <div class="event-box" style="background-image: url(./img/fourth-event.jpg);">
-        <div class="event-name">
-            <h3>Mummies Chest</h3>
-        </div>
-        <div class="chests-row border-chests " >
-            <a class="chest-link"  href="">
-                <div class="chest-1">
-                    <span>Purple One's</span>
-                    <div class="box-img">
-                        <img src="./img/fourth-event.jpg" alt="Descripción de la imagen">
-                    </div>
-                </div>
-            </a>
-            <a class="chest-link" href="">
-                <div class="chest-2">
-                    <span>Lost Love</span>
-                    <div class="box-img">
-                        <img src="./img/fourth-event.jpg" alt="Descripción de la imagen">
-                    </div>
-                </div>
-            </a>
-            <a class="chest-link" href="">
-                <div class="chest-3" >
-                    <span>3 meters form skye</span>
-                    <div class="box-img">
-                        <img src="./img/fourth-event.jpg" alt="Descripción de la imagen">
-                    </div>
-                </div>
-            </a>
-            <a class="chest-link" href="">
-                <div class="chest-4">
-                    <span>Lost on You</span>
-                    <div class="box-img">
-                        <img src="./img/fourth-event.jpg" alt="Descripción de la imagen">
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <!-- end 4 -->
-    
-      <div>
-        <p style="text-align: center;"> End</p>
-      </div>
-   
-     
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!-- Agrega el enlace al archivo JS de Swiper -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-
-    <!-- JavaScript -->
-<!-- Carrusel Statico -->
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-            pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-            }
-        });
-    </script>
-
-
-
-    <!-- Carrusel Automatico -->
-<!--    <script>
-        // Inicializa Swiper con autoavance
-        var swiper = new Swiper('.swiper-container', {
-        autoplay: {
-            delay: 3000, // Tiempo en milisegundos entre cada transición
-            disableOnInteraction: false // Permite que el autoavance continúe incluso cuando el usuario interactúa con el carrusel
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-        }
-        });
-    </script> 
--->
-
-
-</body>
+  </body>
 </html>
-
-
-
-
-<!-- Ideas -->
-
-
-<!--
-Carrousel de imágenes: Agrega un carrousel interactivo que muestre varias imágenes o contenido destacado de forma automática o
-controlada por el usuario.
-
-
-Animaciones: Utiliza CSS o bibliotecas de animación como CSS3, Animate.css o JavaScript para agregar efectos de animación a
-elementos específicos en tu página.
-
-
-Menú de navegación desplegable: Crea un menú de navegación que se despliegue o deslice para mostrar submenús o contenido
-adicional cuando el usuario interactúa con él.
-
-
-Efectos de desplazamiento suave: Implementa un desplazamiento suave al hacer clic en enlaces internos para que la página
-se desplace gradualmente hasta la sección correspondiente.
-
-
-Barra de progreso de carga: Muestra una barra de progreso animada mientras se carga la página para indicar al usuario el
-progreso de la carga.
-
-
-Interacción con formularios: Añade validación de formularios en tiempo real o proporciona retroalimentación visual interactiva
-al completar los campos.
-
-
-Integración de redes sociales: Incorpora botones o widgets para compartir contenido en redes sociales o mostrar feeds de
-redes sociales en tiempo real.
-
-
-Mapas interactivos: Agrega mapas interactivos utilizando servicios como Google Maps o Mapbox para mostrar ubicaciones,
-rutas o puntos de interés relevantes.
-
-
-Efectos de paralaje: Crea capas de contenido que se mueven a diferentes velocidades al desplazarse, creando un efecto de
-profundidad y dinamismo.
-
-
-Chat en vivo: Incorpora un widget de chat en vivo para que los visitantes puedan interactuar directamente contigo o con
-tu equipo.
--->
