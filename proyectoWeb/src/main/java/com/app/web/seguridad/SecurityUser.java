@@ -7,15 +7,25 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.app.web.usuarioregistro.User;
 
+/**
+ * Implementación de UserDetails para representar a un usuario en el sistema de seguridad..
+ * 
+ * @author: Oskar Stankevicius
+ * @version: 1.0.6v
+ */
 public class SecurityUser implements UserDetails {
-
 	
+	private final User user;
+	/**
+	 * Crea una instancia de SecurityUser con el usuario proporcionado.
+	 *
+	 * @param user El objeto User que representa al usuario.
+	 */
 	public SecurityUser(User user) {
 		super();
 		this.user = user;
 	}
-
-	private final User user;
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
@@ -25,7 +35,7 @@ public class SecurityUser implements UserDetails {
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return user.getPassord();
+		return user.getPassword();
 	}
 
 	@Override

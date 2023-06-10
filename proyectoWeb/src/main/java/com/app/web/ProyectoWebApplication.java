@@ -87,53 +87,49 @@ public class ProyectoWebApplication implements CommandLineRunner {
 		ModeloArma ma1 = new ModeloArma("Armas Pesadas");
 		ModeloArma ma2 = new ModeloArma("Subfusiles SMG");
 		ModeloArma ma3 = new ModeloArma("Fusiles");
-		ModeloArma ma4 = new ModeloArma("Equipo");
-		ModeloArma ma5 = new ModeloArma("Granadas");
 		repoM.save(ma);
 		repoM.save(ma1);
 		repoM.save(ma2);
 		repoM.save(ma3);
-		repoM.save(ma4);
-		repoM.save(ma5);
 
 		//Arma con su modelo (ma | 1,2,3,4,5)
 			//Pistolas 10 ma1
-			Arma arma1 = new Arma("Glock-18", ma1);
-			Arma arma2 = new Arma("USP-S", ma1);
-			Arma arma3 = new Arma("P2000", ma1);
-			Arma arma4 = new Arma("Dual Berettas", ma1);
-			Arma arma5 = new Arma("P250", ma1);
-			Arma arma6 = new Arma("Tec-9", ma1);
-			Arma arma7 = new Arma("Five-SeveN", ma1);
-			Arma arma8 = new Arma("CZ75-Auto", ma1);
-			Arma arma9 = new Arma("Desert Eagle", ma1);
-			Arma arma10 = new Arma("R8 Revolver", ma1);
+			Arma arma1 = new Arma("Glock-18", ma);
+			Arma arma2 = new Arma("USP-S", ma);
+			Arma arma3 = new Arma("P2000", ma);
+			Arma arma4 = new Arma("Dual Berettas", ma);
+			Arma arma5 = new Arma("P250", ma);
+			Arma arma6 = new Arma("Tec-9", ma);
+			Arma arma7 = new Arma("Five-SeveN", ma);
+			Arma arma8 = new Arma("CZ75-Auto", ma);
+			Arma arma9 = new Arma("Desert Eagle", ma);
+			Arma arma10 = new Arma("R8 Revolver", ma);
 			//Armas Pesadas 6 ma2
-			Arma arma11 = new Arma("M249", ma2);
-			Arma arma12 = new Arma("Negev", ma2);
-			Arma arma13 = new Arma("Nova", ma2);
-			Arma arma14 = new Arma("XM1014", ma2);
-			Arma arma15 = new Arma("Sawed-Off", ma2);
-			Arma arma16 = new Arma("MAG-7", ma2);
+			Arma arma11 = new Arma("M249", ma1);
+			Arma arma12 = new Arma("Negev", ma1);
+			Arma arma13 = new Arma("Nova", ma1);
+			Arma arma14 = new Arma("XM1014", ma1);
+			Arma arma15 = new Arma("Sawed-Off", ma1);
+			Arma arma16 = new Arma("MAG-7", ma1);
 			//Subfusiles 6 ma3
-			Arma arma17 = new Arma("MAC-10", ma3);
-			Arma arma18 = new Arma("MP9",ma3 );
-			Arma arma19 = new Arma("MP7", ma3);
-			Arma arma20 = new Arma("UMP-45", ma3);
-			Arma arma21 = new Arma("P90", ma3);
-			Arma arma22 = new Arma("PP-Bizon", ma3);
+			Arma arma17 = new Arma("MAC-10", ma2);
+			Arma arma18 = new Arma("MP9",ma2 );
+			Arma arma19 = new Arma("MP7", ma2);
+			Arma arma20 = new Arma("UMP-45", ma2);
+			Arma arma21 = new Arma("P90", ma2);
+			Arma arma22 = new Arma("PP-Bizon", ma2);
 			//Rifles de asalto 11
-			Arma arma23 = new Arma("AK-47", ma4);
-			Arma arma24 = new Arma("M4A4", ma4);
-			Arma arma25 = new Arma("M4A1-S", ma4);
-			Arma arma26 = new Arma("AUG", ma4);
-			Arma arma27 = new Arma("SG 553", ma4);
-			Arma arma28 = new Arma("FAMAS", ma4);
-			Arma arma29 = new Arma("Galil AR", ma4);
-			Arma arma30 = new Arma("AWP", ma4);
-			Arma arma31 = new Arma("SSG 08", ma4);
-			Arma arma32 = new Arma("G3SG1", ma4);
-			Arma arma33 = new Arma("SCAR-20", ma4);
+			Arma arma23 = new Arma("AK-47", ma3);
+			Arma arma24 = new Arma("M4A4", ma3);
+			Arma arma25 = new Arma("M4A1-S", ma3);
+			Arma arma26 = new Arma("AUG", ma3);
+			Arma arma27 = new Arma("SG 553", ma3);
+			Arma arma28 = new Arma("FAMAS", ma3);
+			Arma arma29 = new Arma("Galil AR", ma3);
+			Arma arma30 = new Arma("AWP", ma3);
+			Arma arma31 = new Arma("SSG 08", ma3);
+			Arma arma32 = new Arma("G3SG1", ma3);
+			Arma arma33 = new Arma("SCAR-20", ma3);
 			//InsertarArmas
 			repoA.save(arma1);
 			repoA.save(arma2);
@@ -176,23 +172,25 @@ public class ProyectoWebApplication implements CommandLineRunner {
 		CalidadSkin cs4 = new CalidadSkin("Mitico");
 		CalidadSkin cs5 = new CalidadSkin("Legendario");
 		CalidadSkin cs6 = new CalidadSkin("Ancestral");
+		CalidadSkin cs7 = new CalidadSkin("Extremadamente raro");
 		repoC.save(cs);
 		repoC.save(cs2);
 		repoC.save(cs3);
 		repoC.save(cs4);
 		repoC.save(cs5);
 		repoC.save(cs6);
+		repoC.save(cs7);
 		
 		//Skin con su cs
-		Skin skin1 = new Skin("DragonLore", arma1, cs, 2000);
-		Skin skin2 = new Skin("DragonLore", arma1, cs2, 2000);
+		Skin skin1 = new Skin("DragonLore", arma30, cs5, 1750);
+		Skin skin2 = new Skin("Neo Nair", arma1, cs5, 400);
 		Skin skin3 = new Skin("DragonLore", arma1, cs3, 2000);
 		Skin skin4 = new Skin("DragonLore", arma1, cs4, 2000);
 		Skin skin5 = new Skin("DragonLore", arma1, cs5, 2000);
 		Skin skin6 = new Skin("DragonLore", arma1, cs6, 2000);
 		Skin skin7 = new Skin("DragonLore", arma1, cs2,2000);
 		Skin skin8 = new Skin("DragonLore", arma1, cs2, 2000);
-		Skin skin9 = new Skin("DragonLore", arma1, cs2, 2000);
+		Skin skin9 = new Skin("DragonLore", arma1, cs7, 2000);
 		Skin skin10 = new Skin("DragonLore", arma1, cs2, 3000);
 		repoS.save(skin1);
 		repoS.save(skin2);
