@@ -40,4 +40,31 @@
     overflow: hidden;
     transition: all 1s;
 }
+
+.container-text-new{
+	margin-top: 17px;
+}
+.button-new {
+	color: black;
+	background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 15px 40px;
+    border-radius: 5px;
+    box-shadow: 0 15px 25px rgba(0,0,50,0.2);
+}
+.button-new:hover {
+	color: #cda45e;
+	background-color: rgba(0,0,0,0.1);
+}
+
+/* Form */
+.form {
+	text-align: center;
+}
+.textarea {
+	width: 400px;
+	height: 100px;
+}
+/* end Form */
+
 /* End FAQ */

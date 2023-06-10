@@ -7,78 +7,6 @@
 body {
     font-family: 'Poppins', sans-serif;
 }
-
-/* Info Section */
-.about .about-des p{
-    font-size: 16px;
-    color: #000;
-    line-height: 1.6;
-    margin-bottom: 58px;
-    padding-right: 50px;
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px){
-    .about .about-des p {
-        padding-right: 20px;
-    }
-}
-@media only screen and (min-width: 576px) and (max-width: 767px){
-    .about .about-des p {
-        padding-right: 0px;
-    }
-}
-@media(max-width: 575px){
-    .about .about-des p {
-        padding-right: 0px;
-    }
-}
-.about .creator h5{
-    color: var(--mainColor);
-    font-size: 60px;
-    font-weight: normal;
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px){
-    .about .creator h5{
-        font-size: 42px;
-    }
-}
-@media only screen and (min-width: 576px) and (max-width: 767px){
-    .about .creator h5{
-        font-size: 45px;
-    }
-}
-@media(max-width: 575px){
-    .about .creator h5{
-        font-size: 45px;
-    }
-}
-.about .about-right-sec {
-    position: relative;
-
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px){
-    .about .about-right-sec {
-        padding-top: 50px;
-    }
-}
-@media only screen and (min-width: 768px) and (max-width: 991px){
-    .about .about-right-sec {
-        padding-top: 50px;
-    }
-}
-@media only screen and (min-width: 576px) and (max-width: 767px){
-    .about .about-right-sec {
-        padding-top: 50px;
-    }
-}
-@media(max-width: 575px){
-    .about .about-right-sec {
-        padding-top: 50px;
-    }
-}
-.about .about-right-sec .about-right-img img{
-    width: 100%;
-    margin-bottom: 15px;
-}
 .about .about-right-sec .img-box {
     position: absolute;
     bottom: -7px;
@@ -105,7 +33,7 @@ body {
         margin-bottom: 35px;
     }
 }
-/* End Info Section */ 
+
 
 
 

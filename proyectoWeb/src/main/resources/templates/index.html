@@ -20,7 +20,6 @@
 	<script src="https://kit.fontawesome.com/1d143189b2.js" crossorigin="anonymous"></script>
 
 </head>
-
 <body>
 	<!-- Fake Header Todos HTML-->
     <div class="container-fluid px-md-5 pt-4 pt-md-5">
@@ -163,6 +162,7 @@
         </div>
     </section>
     <!-- End Event Section Todos HTML-->
+	
 	<!-- Colaborators -->
 	<section class="colaborators">
 		<div class="colaborators-title">
@@ -175,7 +175,8 @@
 						<div class="col-xl-4 col-md-6 col-6">
 							<div class="colaborator-image-1">
 								<h1>Mixwell</h1>
-								<a href="https://twitter.com/Mixwell?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img
+								<a
+									href="https://twitter.com/Mixwell?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img
 										src="./img/colaborators/mixwell.jpg" alt="Descripción de la imagen 1"></a>
 							</div>
 						</div>
@@ -186,8 +187,9 @@
 										<span>Como picker</span>
 									</div>
 									<div class="ches-img">
-										<a th:href="@{/cajas}"><img src="./img/chest-colaborator-1/chest-2-colaborator-1.png"
-											alt="Descripción de la imagen 1"></a>
+										<a th:href="@{/cajasImagen?url_event_chest=chest-colaborator-1&amp;url_chest_img=chest-2-colaborator-1.png}"><img
+												src="./img/chest-colaborator-1/chest-2-colaborator-1.png"
+												alt="Descripción de la imagen 1"></a>
 									</div>
 								</div>
 								<div class="ches-colaborator-1">
@@ -195,8 +197,9 @@
 										<span>Heretic is lost</span>
 									</div>
 									<div class="ches-img">
-										<a th:href="@{/cajas}"><img src="./img/chest-colaborator-1/chest-1-colaborator-1.jpg"
-											alt="Descripción de la imagen 1"></a>
+										<a th:href="@{/cajasImagen?url_event_chest=chest-colaborator-1&amp;url_chest_img=chest-1-colaborator-1.jpg}"><img
+												src="./img/chest-colaborator-1/chest-1-colaborator-1.jpg"
+												alt="Descripción de la imagen 1"></a>
 									</div>
 								</div>
 							</div>
@@ -215,8 +218,9 @@
 										<span>Clean Game</span>
 									</div>
 									<div class="ches-img">
-										<a th:href="@{/cajas}"><img src="./img/chest-colaborator-2/chest-1-colaborator-2.png"
-											alt="Descripción de la imagen 1"></a>
+										<a th:href="@{/cajasImagen?url_event_chest=chest-colaborator-2&amp;url_chest_img=chest-1-colaborator-2.png}"><img
+												src="./img/chest-colaborator-2/chest-1-colaborator-2.png"
+												alt="Descripción de la imagen 1"></a>
 									</div>
 								</div>
 								<div class="ches-colaborator-2">
@@ -224,8 +228,9 @@
 										<span>Flowing over them </span>
 									</div>
 									<div class="ches-img">
-										<a th:href="@{/cajas}"><img  src="./img/chest-colaborator-2/chest-2-colaborator-2.png"
-											alt="Descripción de la imagen 1"></a>
+										<a th:href="@{/cajasImagen?url_event_chest=chest-colaborator-2&amp;url_chest_img=chest-2-colaborator-2.png}"><img
+												src="./img/chest-colaborator-2/chest-2-colaborator-2.png"
+												alt="Descripción de la imagen 1"></a>
 									</div>
 								</div>
 							</div>
@@ -248,14 +253,15 @@
 
 
 	<!-- 1 -->
-	<div class="event-box" style="background-image: url(./img/eventos/first-event.jpg);">
+	<div class="event-box" style="background-color: rgba(253,54,255,0.2);">
+		<!--  url(./img/eventos/first-event.jpg);" -->
 		<div id="event-1" class="event-chests-title">
 			<button class="event-title">
 				Mummies Chest
 			</button>
 			<div class="event-name">
 				<div class="content chests-row border-chests ">
-					<a class="chest-link" th:href="@{/cajas}">
+					<a class="chest-link" th:href="@{/cajasImagen?url_event_chest=chest-event-1&amp;url_chest_img=chest-1.png}">
 						<div class="content chest-1">
 							<span>Purple One's</span>
 							<div class="box-img">
@@ -263,7 +269,7 @@
 							</div>
 						</div>
 					</a>
-					<a class="chest-link" th:href="@{/cajas}">
+					<a class="chest-link" th:href="@{/cajasImagen?url_event_chest=chest-event-1&amp;url_chest_img=chest-2.png}">
 						<div class="chest-2">
 							<span>Lost Love</span>
 							<div class="box-img">
@@ -271,7 +277,7 @@
 							</div>
 						</div>
 					</a>
-					<a class="chest-link" th:href="@{/cajas}">
+					<a class="chest-link" th:href="@{/cajasImagen?url_event_chest=chest-event-1&amp;url_chest_img=chest-3.png}">
 						<div class="chest-3">
 							<span>3 meters form skye</span>
 							<div class="box-img">
@@ -279,7 +285,7 @@
 							</div>
 						</div>
 					</a>
-					<a class="chest-link" th:href="@{/cajas}">
+					<a class="chest-link" th:href="@{/cajasImagen?url_event_chest=chest-event-1&amp;url_chest_img=chest-4.png}">
 						<div class="chest-4">
 							<span>Lost on You</span>
 							<div class="box-img">
@@ -293,22 +299,23 @@
 	</div>
 	<!-- end 1 -->
 	<!-- 2 -->
-	<div class="event-box" style="background-image: url(./img/second-event.jpg);">
+	<div class="event-box" style="background-color: rgba(228,91,0,0.2);">
+		<!-- style="background-image: url(./img/eventos/second-event.jpg);" -->
 		<div id="event-2" class="event-chests-title">
 			<button class="event-title">
 				Terrorists Death
 			</button>
 			<div class="event-name">
 				<div class="content chests-row border-chests ">
-					<a class="chest-link" th:href="@{/cajas}">
-						<div class="content chest-1">
-							<span>Bomb House</span>
-							<div class="box-img">
-								<img src="./img/chest-event-2/chest-1.png" alt="Descripción de la imagen">
-							</div>
-						</div>
+					<a class="chest-link" th:href="@{/cajasImagen?url_event_chest=chest-event-2&amp;url_chest_img=chest-1.png}">
+					    <div class="content chest-1">
+					        <span>Bomb House</span>
+					        <div class="box-img">
+					            <img src="/img/chest-event-2/chest-1.png" alt="Descripción de la imagen" />
+					        </div>
+					    </div>
 					</a>
-					<a class="chest-link" th:href="@{/cajas}">
+					<a class="chest-link" th:href="@{/cajasImagen?url_event_chest=chest-event-2&amp;url_chest_img=chest-2.png}">
 						<div class="chest-2">
 							<span>Explode level</span>
 							<div class="box-img">
@@ -316,7 +323,7 @@
 							</div>
 						</div>
 					</a>
-					<a class="chest-link" th:href="@{/cajas}">
+					<a class="chest-link" th:href="@{/cajasImagen?url_event_chest=chest-event-2&amp;url_chest_img=chest-3.png}">
 						<div class="chest-3">
 							<span>Kamikaze flying</span>
 							<div class="box-img">
@@ -324,7 +331,7 @@
 							</div>
 						</div>
 					</a>
-					<a class="chest-link" th:href="@{/cajas}">
+					<a class="chest-link" th:href="@{/cajasImagen?url_event_chest=chest-event-2&amp;url_chest_img=chest-4.png}">
 						<div class="chest-4">
 							<span>Lost on smoke</span>
 							<div class="box-img">
@@ -338,14 +345,15 @@
 	</div>
 	<!-- end 2 -->
 	<!-- 3 -->
-	<div class="event-box" style="background-image: url(./img/second-event.jpg);">
+	<div class="event-box" style="background-color: rgba(23,75,111,0.2);">
+		<!-- style="background-image: url(./img/eventos/third-event.jpg);" -->
 		<div id="event-3" class="event-chests-title">
 			<button class="event-title">
 				Anti-Terrorists
 			</button>
 			<div class="event-name">
 				<div class="content chests-row border-chests ">
-					<a class="chest-link" th:href="@{/cajas}">
+					<a class="chest-link" th:href="@{/cajasImagen?url_event_chest=chest-event-3&amp;url_chest_img=chest-1.png}">
 						<div class="content chest-1">
 							<span>Izy Defuse</span>
 							<div class="box-img">
@@ -353,7 +361,7 @@
 							</div>
 						</div>
 					</a>
-					<a class="chest-link" th:href="@{/cajas}">
+					<a class="chest-link" th:href="@{/cajasImagen?url_event_chest=chest-event-3&amp;url_chest_img=chest-2.png}">
 						<div class="chest-2">
 							<span>Super anti-T</span>
 							<div class="box-img">
@@ -361,7 +369,7 @@
 							</div>
 						</div>
 					</a>
-					<a class="chest-link" th:href="@{/cajas}">
+					<a class="chest-link" th:href="@{/cajasImagen?url_event_chest=chest-event-3&amp;url_chest_img=chest-3.png}">
 						<div class="chest-3">
 							<span>Super armor</span>
 							<div class="box-img">
@@ -369,7 +377,7 @@
 							</div>
 						</div>
 					</a>
-					<a class="chest-link" th:href="@{/cajas}">
+					<a class="chest-link" th:href="@{/cajasImagen?url_event_chest=chest-event-3&amp;url_chest_img=chest-4.png}">
 						<div class="chest-4">
 							<span>Lost with bombs</span>
 							<div class="box-img">
@@ -383,34 +391,35 @@
 	</div>
 	<!-- end 3 -->
 
-	<!-- Footer -->
+	<!-- Footer Todos HTML-->
 	<div class="end-container row">
 		<div class="col-xl 6">
 			<div class="certifications-container">
-				<h1>Certificaciones: </h1>
 				<div class="correo">
-					<span>Permiso: </span>
+					<span><img src="./img/logo-icon.png" alt="Descripción de la imagen">sKings.lt © 2023</span>
+					<p><br>You can get your favourite skins at the best prices.
+						<br>All trades are done automatically using Steam bots.
+						<br>Washington D.C (400521) 4 White House, King, Lost cypher.</p>
+
 				</div>
 			</div>
 		</div>
 		<div class="col-xl 6">
 			<div class="infos-container">
-				<h1>Contactanos: </h1>
 				<div class="correo">
-					<span>Correo: </span>
+					<span>210146@iessierradeguara.com </span>
 				</div>
 				<div class="movil">
-					<span>Movil: </span>
+					<span>670180319 </span>
 				</div>
 				<div class="FAQ">
-					<span>FAQ </span>
+					<a th:href="@{/FAQ}"><span> FAQ </span></a>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- End Footer -->
-
-
+	<!-- End Footer Todos HTML-->
+	
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -438,71 +447,5 @@
 	</script>
 
 
-
-	<!-- Carrusel Automatico -->
-	<!--    <script>
-        // Inicializa Swiper con autoavance
-        var swiper = new Swiper('.swiper-container', {
-        autoplay: {
-            delay: 3000, // Tiempo en milisegundos entre cada transición
-            disableOnInteraction: false // Permite que el autoavance continúe incluso cuando el usuario interactúa con el carrusel
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-        }
-        });
-    </script> 
--->
-
-
 </body>
-
 </html>
-
-
-
-
-<!-- Ideas -->
-
-
-<!--
-Carrousel de imágenes: Agrega un carrousel interactivo que muestre varias imágenes o contenido destacado de forma automática o
-controlada por el usuario.
-
-
-Animaciones: Utiliza CSS o bibliotecas de animación como CSS3, Animate.css o JavaScript para agregar efectos de animación a
-elementos específicos en tu página.
-
-
-Menú de navegación desplegable: Crea un menú de navegación que se despliegue o deslice para mostrar submenús o contenido
-adicional cuando el usuario interactúa con él.
-
-
-Efectos de desplazamiento suave: Implementa un desplazamiento suave al hacer clic en enlaces internos para que la página
-se desplace gradualmente hasta la sección correspondiente.
-
-
-Barra de progreso de carga: Muestra una barra de progreso animada mientras se carga la página para indicar al usuario el
-progreso de la carga.
-
-
-Interacción con formularios: Añade validación de formularios en tiempo real o proporciona retroalimentación visual interactiva
-al completar los campos.
-
-
-Integración de redes sociales: Incorpora botones o widgets para compartir contenido en redes sociales o mostrar feeds de
-redes sociales en tiempo real.
-
-
-Mapas interactivos: Agrega mapas interactivos utilizando servicios como Google Maps o Mapbox para mostrar ubicaciones,
-rutas o puntos de interés relevantes.
-
-
-Efectos de paralaje: Crea capas de contenido que se mueven a diferentes velocidades al desplazarse, creando un efecto de
-profundidad y dinamismo.
-
-
-Chat en vivo: Incorpora un widget de chat en vivo para que los visitantes puedan interactuar directamente contigo o con
-tu equipo.
--->

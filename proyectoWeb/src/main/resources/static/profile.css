@@ -7,3 +7,26 @@
     background: linear-gradient(to right, #cda45e, #000);
     min-height: 100vh;
 }
+
+
+/* FORM editProfile */
+.modal-header {
+	background-color: rgba(0,0,0,0.3);
+}
+.container-form {
+	margin: 15px;
+}
+.button-Icon {
+	text-align: center;
+	width: 100px;
+	height: 100px;
+}
+.conatainer-icon {
+	margin: 5px;
+}
+.conatainer-nickname {
+	margin: 5px;
+}
+
+
+/* end FORM editProfile */

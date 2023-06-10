@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlsn:th="http://www.thymeleaf.org">
   <head>
 	<title>Title</title>
 	<!-- Required meta tags -->
@@ -11,19 +11,19 @@
 	<!-- Local File CSS -->
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="main.css">
-	<link rel="stylesheet" href="cajas.css">
+    <link rel="stylesheet" href="./cajas.css">
 	<!-- scripts -->
 	<script src="https://kit.fontawesome.com/1d143189b2.js" crossorigin="anonymous"></script>
 </head>
 <body>
-	<!-- Fake Header -->
+	<!-- Fake Header Todos HTML-->
     <div class="container-fluid px-md-5 pt-4 pt-md-5">
         <div class="row justify-content-between">
             <div class="col-md-8 order-md-last">
                 <div class="row">
 					<!-- Title -->
                     <div class="col-md-6 text-center">
-                        <a class="navbar-brand" href="#"> SKINGS
+                        <a class="navbar-brand" th:href="@{/}"> SKINGS
                             <small class="text-dark">
                                 Ganar, Ganar y Ganar.
                             </small>
@@ -51,29 +51,35 @@
             <div class="col-md-4 d-flex">
                 <div class="social-media">
                     <p class="mb-0 d-flex">
+						<!-- 
                         <a href="#" class="d-flex align-items-center justify-content-center" >
                             <span class="fab fa-facebook">
                                 <i class="sr-only">Facebook</i>
                             </span>
                         </a>
-                        <a href="#" class="d-flex align-items-center justify-content-center" >
+                        -->
+                        <!-- -->
+                        <a href="https://twitter.com/OskarasStankev1" class="d-flex align-items-center justify-content-center" >
                             <span class="fab fa-twitter">
                                 <i class="sr-only">Twitter</i>
                             </span>
                         </a>
+                        <!-- 
                         <a href="#" class="d-flex align-items-center justify-content-center" >
                             <span class="fab fa-instagram">
                                 <i class="sr-only">Instagram</i>
                             </span>
                         </a>
+                        -->
                     </p>
                 </div>
             </div>
             <!-- End of Redes Sociales -->            
         </div>
     </div>
-    <!-- End Fake Header --> 
-	<!-- NAVBar -->
+    <!-- End Fake Header Todos HTML-->
+
+    <!-- NAVBar Todos HTML-->
 	<nav class="navbar navbar-expand-lg navbar-dark main-navbar bg-dark main-navbar-light" id="a-navbar">
 		<div class="container-fluid">
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#my-nav" aria-controls="my-nav" aria-expanded="false" aria-label="toggle-navigation">
@@ -82,24 +88,26 @@
             <div class="collapse navbar-collapse" id="my-nav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a th:href="@{/home}" class="nav-link">Home</a>
+                        <a th:href="@{/}" class="nav-link">Home</a>
                     </li>
+                    <!-- -->
                     <li class="nav-item">
-                        <a th:href="@{/second}" class="nav-link">WebSite</a>
+                        <a th:href="@{/index}" class="nav-link">WebSite</a>
                     </li>
                 </ul>
             </div>
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item align-right">
-                        <a href="" class="nav-link">Profile</a>
+                        <a th:href="@{/profile}" class="nav-link">Profile</a>
                     </li>
                 </ul>
             </div>
 		</div>
 	</nav>
-	<!-- End of NAVBar -->
-	<!-- Event Section -->
+	<!-- End of NAVBar Todos HTML-->
+
+    <!-- Event Section Todos HTML-->
     <!-- Carrusel -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -115,40 +123,40 @@
             <img src="./img/eventos/third-event.jpg" alt="Descripción de la imagen 3">
           </div>
         </div>
-    </div>
+      </div>
     <!-- End Carrusel -->  
     <section class="event d-flex align-items-center justify-content-center">
         <div class="container">
             <div class="row justify-content-center mb-3">
                 <div class="col-xl-6 col-lg-8">
-                    <h1>Best Month Events</h1>
+                    <h1 >Best Month Events</h1>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-xl-2 col-md-4 col-6">
                     <div class="category first-event" style="background: url(./img/eventos/first-event.jpg) center;">
                         <i class="fa-solid fa-pepper-hot "></i>
-                        <h3><a href=""> Mummies Chest</a></h3>
+                        <h3 ><a th:href="@{/index}"> Mummies Chest</a></h3>
                     </div>
                 </div>
                 <!-- -->
                 <div class="col-xl-2 col-md-4 col-6 ">
                     <div class="category second-event" style="background: url(./img/eventos/second-event.jpg) center;">
                         <i class="fas fa-skull"></i>
-                        <h3><a href=""> Terrorists Death</a></h3>
+                        <h3><a th:href="@{/index}"> Terrorists Death</a></h3>
                     </div>
                 </div>
                 <!-- -->
                 <div class="col-xl-2 col-md-4 col-6 ">
                     <div class="category third-event" style="background: url(./img/eventos/third-event.jpg) center;">
                         <i class="fa-solid fa-shield-virus"></i>
-                        <h3><a href=""> Anti-Terrorists</a></h3>
+                        <h3><a th:href="@{/index}"> Anti-Terrorists</a></h3>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End Event Section -->
+    <!-- End Event Section Todos HTML-->
 
 	<!-- Parte caja -->
 	<div class="block row">
@@ -158,10 +166,8 @@
 		<div class="block-box col-xl-6">
 			<h2>Titulo de la caja</h2>
 			<div class="box mt-10 md-10 ml-10 mr-10">
-					<img id="mainImage" src="./img/chest-event-1/chest-1.jpg">
-					<button id="startButton" onclick="verform()">
-						Open
-					</button>
+			    <img id="mainImage" th:src="@{'/img/'+ ${url_event_chest} + '/' + ${url_chest_img}}" />
+			    <button id="startButton" onclick="verform()">Open</button>
 			</div>
 		</div>
 		<div class="publ col-xl-3">
@@ -198,6 +204,35 @@
 	  </div>
 	
 	<!-- Contenido cajas -->
+
+	<!-- Footer Todos HTML-->
+	<div class="end-container row">
+		<div class="col-xl 6">
+			<div class="certifications-container">
+				<div class="correo">
+					<span><img src="./img/logo-icon.png" alt="Descripción de la imagen">sKings.lt © 2023</span>
+					<p><br>You can get your favourite skins at the best prices.
+						<br>All trades are done automatically using Steam bots.
+						<br>Washington D.C (400521) 4 White House, King, Lost cypher.</p>
+
+				</div>
+			</div>
+		</div>
+		<div class="col-xl 6">
+			<div class="infos-container">
+				<div class="correo">
+					<span>210146@iessierradeguara.com </span>
+				</div>
+				<div class="movil">
+					<span>670180319 </span>
+				</div>
+				<div class="FAQ">
+					<a th:href="@{/FAQ}"><span> FAQ </span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Footer Todos HTML-->
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

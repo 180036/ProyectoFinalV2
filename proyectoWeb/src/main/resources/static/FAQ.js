@@ -1,4 +1,5 @@
 let toggles = document.getElementsByClassName('toggle');
+let wrapper = document.getElementsByClassName('wrapper');
 let contentDiv = document.getElementsByClassName('content');
 let icons = document.getElementsByClassName('icon');
 
@@ -8,12 +9,14 @@ for(let i=0; i<toggles.length; i++){
         if( parseInt(contentDiv[i].style.height) != contentDiv[i].scrollHeight){
             contentDiv[i].style.height = contentDiv[i].scrollHeight + "px";
             toggles[i].style.color = "#cda45e";
+            wrapper[i].style.background = "rgba(0,0,0,0.1)";
             icons[i].classList.remove('fa-plus');
             icons[i].classList.add('fa-minus');
         }
         else{
             contentDiv[i].style.height = "0px";
             toggles[i].style.color = "#111130";
+            wrapper[i].style.background = "none";
             icons[i].classList.remove('fa-minus');
             icons[i].classList.add('fa-plus');
         }
@@ -23,6 +26,7 @@ for(let i=0; i<toggles.length; i++){
             if(j!==i){
                 contentDiv[j].style.height = "0px";
                 toggles[j].style.color = "#111130";
+                wrapper[j].style.background = "none";
                 icons[j].classList.remove('fa-minus');
                 icons[j].classList.add('fa-plus');
             }

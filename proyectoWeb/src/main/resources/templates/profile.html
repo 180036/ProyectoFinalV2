@@ -9,13 +9,14 @@
 
 
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="profile.css">
 	<link rel="stylesheet" href="main.css">
-	
+
 	<!-- scripts -->
-    <script src="https://kit.fontawesome.com/1d143189b2.js" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/1d143189b2.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -54,23 +55,27 @@
 			<div class="col-md-4 d-flex">
 				<div class="social-media">
 					<p class="mb-0 d-flex">
-						<a href="#" class="d-flex align-items-center justify-content-center">
-							<span class="fab fa-facebook">
-								<i class="sr-only">Facebook</i>
-							</span>
-						</a>
+						<!-- 
+                        <a href="#" class="d-flex align-items-center justify-content-center" >
+                            <span class="fab fa-facebook">
+                                <i class="sr-only">Facebook</i>
+                            </span>
+                        </a>
+                        -->
 						<!-- -->
-						<a href="#" class="d-flex align-items-center justify-content-center">
+						<a href="https://twitter.com/OskarasStankev1"
+							class="d-flex align-items-center justify-content-center">
 							<span class="fab fa-twitter">
 								<i class="sr-only">Twitter</i>
 							</span>
 						</a>
-						<!-- -->
-						<a href="#" class="d-flex align-items-center justify-content-center">
-							<span class="fab fa-instagram">
-								<i class="sr-only">Instagram</i>
-							</span>
-						</a>
+						<!-- 
+                        <a href="#" class="d-flex align-items-center justify-content-center" >
+                            <span class="fab fa-instagram">
+                                <i class="sr-only">Instagram</i>
+                            </span>
+                        </a>
+                        -->
 					</p>
 				</div>
 			</div>
@@ -100,13 +105,14 @@
 			<div>
 				<ul class="navbar-nav">
 					<li class="nav-item align-right">
-						<a href="" class="nav-link">Profile</a>
+						<a th:href="@{/profile}" class="nav-link">Profile</a>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!-- End of NAVBar Todos HTML-->
+
 	<!-- Profile Container -->
 	<div class="profile-container">
 		<div class="row py-5 px-4">
@@ -115,10 +121,14 @@
 					<!-- Profile -->
 					<div class="px-4 pt-0 pb-4 bg-dark">
 						<div class="media align-items-end profile-header">
-							<div class="profile mr-3"><img
-									src="https://bootstrapious.com/i/snippets/sn-profile/teacher.jpg" alt="..."
-									width="130" class="rounded mb-2 img-thumbnail"><a href="#"
-									class="btn btn-dark btn-sm btn-block">Edit profile</a></div>
+							<div class="profile mr-3">
+								<img src="https://bootstrapious.com/i/snippets/sn-profile/teacher.jpg" alt="..."
+									width="130" class="rounded mb-2 img-thumbnail">
+								<button type="button" class="btn btn-dark btn-sm btn-block" data-toggle="modal"
+									data-target="#exampleModalCenter">
+									Edit Profile
+								</button>
+							</div>
 							<div class="media-body mb-5 text-white">
 								<h4 class="mt-0 mb-0">Nick</h4>
 								<p class="small mb-4"> Puntos</p>
@@ -187,9 +197,74 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- Profile Container -->
+	
+	<!-- Footer Todos HTML-->
+	<div class="end-container row">
+		<div class="col-xl 6">
+			<div class="certifications-container">
+				<div class="correo">
+					<span><img src="./img/logo-icon.png" alt="Descripción de la imagen">sKings.lt © 2023</span>
+					<p><br>You can get your favourite skins at the best prices.
+						<br>All trades are done automatically using Steam bots.
+						<br>Washington D.C (400521) 4 White House, King, Lost cypher.</p>
 
+				</div>
+			</div>
+		</div>
+		<div class="col-xl 6">
+			<div class="infos-container">
+				<div class="correo">
+					<span>210146@iessierradeguara.com </span>
+				</div>
+				<div class="movil">
+					<span>670180319 </span>
+				</div>
+				<div class="FAQ">
+					<a th:href="@{/FAQ}"><span> FAQ </span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Footer Todos HTML-->
+
+
+	<!-- Boostrap -->
+	<!-- Modal Perfil -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Profile Editor</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					Right you just can change your Nickname.
+				</div>
+				<div class="container-form">
+					<form class="form">
+						<div class="conatainer-icon">
+							<span>Change Icon -> will coming soon..</span>
+						</div>
+						<div class="conatainer-nickname">
+							<span>New Nickname:</span>
+							<input type="text" id="newNickname" name="nickname">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-success">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end Modal Perfil -->
+	<!-- end Boostrap -->
+	
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
