@@ -172,12 +172,14 @@ public class ProyectoWebApplication implements CommandLineRunner {
 		CalidadSkin cs4 = new CalidadSkin("Mitico");
 		CalidadSkin cs5 = new CalidadSkin("Legendario");
 		CalidadSkin cs6 = new CalidadSkin("Ancestral");
+		CalidadSkin cs7 = new CalidadSkin("Extremadamente raro");
 		repoC.save(cs);
 		repoC.save(cs2);
 		repoC.save(cs3);
 		repoC.save(cs4);
 		repoC.save(cs5);
 		repoC.save(cs6);
+		repoC.save(cs7);
 		
 		//Skin con su cs
 		Skin skin1 = new Skin("DragonLore", arma30, cs5, 1750);
@@ -188,7 +190,7 @@ public class ProyectoWebApplication implements CommandLineRunner {
 		Skin skin6 = new Skin("DragonLore", arma1, cs6, 2000);
 		Skin skin7 = new Skin("DragonLore", arma1, cs2,2000);
 		Skin skin8 = new Skin("DragonLore", arma1, cs2, 2000);
-		Skin skin9 = new Skin("DragonLore", arma1, cs2, 2000);
+		Skin skin9 = new Skin("DragonLore", arma1, cs7, 2000);
 		Skin skin10 = new Skin("DragonLore", arma1, cs2, 3000);
 		repoS.save(skin1);
 		repoS.save(skin2);
