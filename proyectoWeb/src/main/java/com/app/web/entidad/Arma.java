@@ -12,10 +12,20 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+
+/**
+ * Esta clase define el objeto que hace referencia al Arma, las cuales ya estan metidas en la base de datos de manera
+ * automatica, puesto que siempre son las mismas.
+ * 
+ * @author: Oskar Stankevicius
+ * @version: 1.0.6v
+ */
+
 @Entity
 @Table(name = "armas")
 public class Arma {
 
+	 //Campos de la clase
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -30,41 +40,86 @@ public class Arma {
 	@OneToMany(mappedBy = "arma")
 	List<Skin> listaSkins;
 	
-	public Arma() {}
+	/**
+     * Constructor vacío por defecto de la clase Arma. 
+     */
+    public Arma() {}
 
-	public Arma(String nombre, ModeloArma ma) {
-		this.nombre = nombre;
-		this.ma = ma;
-	}
-	
-	public long getId() {
-		return id;
-	}
+    /**
+     * Constructor con los parametros nombre(String) y ma(ModeloArma) de la clase Arma.
+     *
+     * @param nombre El nombre del arma.
+     * @param ma     El modelo del arma.
+     */
+    public Arma(String nombre, ModeloArma ma) {
+        this.nombre = nombre;
+        this.ma = ma;
+    }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    /**
+     * Obtiene el ID del arma.
+     *
+     * @return El ID del arma.
+     */
+    public long getId() {
+        return id;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    /**
+     * Establece el ID del arma.
+     * No seria neceasario puesto que seria Auto-Incremental
+     *
+     * @param id El ID del arma.
+     */
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	
-	public String getModelo() {
-		return ma.getModelo();
-	}
+    /**
+     * Obtiene el nombre del arma.
+     *
+     * @return El nombre del arma.
+     */
+    public String getNombre() {
+        return nombre;
+    }
 
-	public void setModelo(String s) {
-		this.ma.setModelo(s);
-	}
+    /**
+     * Establece el nombre del arma.
+     *
+     * @param nombre El nombre del arma.
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	@Override
-	public String toString() {
-		return "Arma [id=" + id + ", nombre=" + nombre + ", modelo=" + ma + "]";
-	}
+    /**
+     * Obtiene el modelo del arma.
+     *
+     * @return El modelo del arma.
+     */
+    public String getModelo() {
+        return ma.getModelo();
+    }
+
+    /**
+     * Establece el modelo del arma.
+     *
+     * @param s El modelo del arma.
+     */
+    public void setModelo(String s) {
+        this.ma.setModelo(s);
+    }
+
+    /**
+     * Devuelve una representación en cadena de la instancia Arma.
+     *
+     * @return Una representación en cadena de la instancia Arma.
+     */
+    @Override
+    public String toString() {
+        return "Arma [id=" + id + ", nombre=" + nombre + ", modelo=" + ma + "]";
+    }
 
 	
 
