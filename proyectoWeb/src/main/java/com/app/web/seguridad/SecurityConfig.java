@@ -9,6 +9,12 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+/**
+ * Clase de configuración para la seguridad del sistema.
+ * 
+ * @author: Oskar Stankevicius
+ * @version: 1.0.6v
+ */
 @Configuration
 public class SecurityConfig {
 	
@@ -22,6 +28,12 @@ public class SecurityConfig {
 //		
 //		return new InMemoryUserDetailsManager(user);
 //	}
+	
+	/**
+	 * Configura el codificador de contraseñas a utilizar.
+	 *
+	 * @return El codificador de contraseñas BCryptPasswordEncoder.
+	 */
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
