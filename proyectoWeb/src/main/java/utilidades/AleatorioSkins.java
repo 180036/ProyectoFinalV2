@@ -13,9 +13,6 @@ import com.app.web.entidad.Skin;
  */
 public abstract class AleatorioSkins {
 	static Random random = new Random();
-<<<<<<< HEAD
-	public static Skin skinAleatoria(List<Skin> lista, int rol) {
-=======
 	
 	/**
      * Genera una calidad aleatoria recuperando los datos aleatorios anteriores.
@@ -24,80 +21,37 @@ public abstract class AleatorioSkins {
      * @param lista La lista de skins disponibles.
      * @return La skin generada aleatoriamente.
      */
-    public static Skin skinAleatoria(List<Skin> lista) {
->>>>>>> branch 'master' of git@github.com:180036/ProyectoFinalV2.git
+    public static Skin skinAleatoria(List<Skin> lista,  int rol) {
 
-<<<<<<< HEAD
+
+
 		Skin skinDevolver = new Skin();
 		Skin skinPC = new Skin();
 		Skin skinR = new Skin();
 		Skin skinM= new Skin();
 		Skin skinL= new Skin();
 		Skin skinA= new Skin();
-		
-		// int random = (int)(Math.random()*100) + 1;
-=======
-        Skin skinDevolver = new Skin();
-        Skin skinPC = new Skin();
-        Skin skinR = new Skin();
-        Skin skinM = new Skin();
-        Skin skinL = new Skin();
-        Skin skinA = new Skin();
-        Skin skinER = new Skin();
->>>>>>> branch 'master' of git@github.com:180036/ProyectoFinalV2.git
 
-<<<<<<< HEAD
-		for (Skin s : lista) {
-=======
+
         // Poner pocha a devolver
         for (Skin s : lista) {
-            if (s.getCs().getId() == 1) // A devolver siempre una comun
-                skinDevolver = s;
-            if (s.getCs().getId() == 2)
-                skinPC = s;
-            if (s.getCs().getId() == 3)
-                skinR = s;
-            if (s.getCs().getId() == 4)
-                skinM = s;
-            if (s.getCs().getId() == 5)
-                skinL = s;
-            if (s.getCs().getId() == 6)
-                skinA = s;
-            if (s.getCs().getId() == 7)
-                skinER = s;
+        	if (s.getCs().getId() == 1) // A devolver siempre una comun
+        		skinDevolver = s;
+        	if (s.getCs().getId() == 2)
+        		skinPC = s;
+        	if (s.getCs().getId() == 3)
+        		skinR = s;
+        	if (s.getCs().getId() == 4)
+        		skinM = s;
+        	if (s.getCs().getId() == 5)
+        		skinL = s;
+        	if (s.getCs().getId() == 6)
+        		skinA= s;
+            
         }
->>>>>>> branch 'master' of git@github.com:180036/ProyectoFinalV2.git
+     
 
-<<<<<<< HEAD
-			if (s.getCs().getId() == 1) // A devolver siempre una comun
-				skinDevolver = s;
-			if (s.getCs().getId() == 2)
-				skinPC = s;
-			if (s.getCs().getId() == 3)
-				skinR = s;
-			if (s.getCs().getId() == 4)
-				skinM = s;
-			if (s.getCs().getId() == 5)
-				skinL = s;
-			if (s.getCs().getId() == 6)
-				skinA= s;
-=======
-        if (randomPC())
-            skinDevolver = skinPC;
-        if (randomR())
-            skinDevolver = skinR;
-        if (randomM())
-            skinDevolver = skinM;
-        if (randomL())
-            skinDevolver = skinL;
-        if (randomA())
-            skinDevolver = skinA;
-        if (randomER())
-            skinDevolver = skinER;
->>>>>>> branch 'master' of git@github.com:180036/ProyectoFinalV2.git
-
-<<<<<<< HEAD
-		}
+		
 		
 	
 		
@@ -127,15 +81,6 @@ public abstract class AleatorioSkins {
 		
 		return skinDevolver;
 	}
-	private static boolean randomPC() {
-		return new Random().nextBoolean(); //50% 1/2
-		
-	}
-	private static boolean randomR() {
-		random = new Random();
-=======
-        return skinDevolver;
-    }
 
     /**
      * Genera un valor aleatorio y comprueba si cumple la condición para la skin "PC (Poco-Común)".
@@ -153,7 +98,6 @@ public abstract class AleatorioSkins {
      */
     private static boolean randomR() {
         random = new Random();
->>>>>>> branch 'master' of git@github.com:180036/ProyectoFinalV2.git
         int randomNumber = random.nextInt(5);
         int randomNumber2 = random.nextInt(5);
         return randomNumber == randomNumber2; // 20% 1/5
@@ -192,24 +136,8 @@ public abstract class AleatorioSkins {
         random = new Random();
         int randomNumber = random.nextInt(100);
         int randomNumber2 = random.nextInt(100);
-<<<<<<< HEAD
 		return randomNumber == randomNumber2;  //1% 1/100
 		
-	}
-=======
-        return randomNumber == randomNumber2; // 1% 1/100
     }
-
-    /**
-     * Genera un número aleatorio y comprueba si cumple la condición para la skin "ER(Extremadamente raro)".
-     *
-     * @return true si cumple la condición, false de lo contrario.
-     */
-    private static boolean randomER() {
-        random = new Random();
-        int randomNumber = random.nextInt(500);
-        int randomNumber2 = random.nextInt(500);
-        return randomNumber == randomNumber2; // 0.5% 1/500
-    }
->>>>>>> branch 'master' of git@github.com:180036/ProyectoFinalV2.git
+ 
 }

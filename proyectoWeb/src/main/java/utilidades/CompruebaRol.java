@@ -13,7 +13,7 @@ public abstract class  CompruebaRol {
 			if(a.getName().equals(AuthorityName.ADMIN)) {
 				return 2;
 			}
-			if(a.getName().equals(AuthorityName.UPGRADE)) {
+			if(a.getName().equals(AuthorityName.CREATOR)) {
 				return 1;
 			}
 			

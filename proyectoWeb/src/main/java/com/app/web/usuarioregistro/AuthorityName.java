@@ -7,12 +7,8 @@ package com.app.web.usuarioregistro;
  * @version: 1.0.6v
  */
 public enum AuthorityName {
-<<<<<<< HEAD
-	USER, UPGRADE, ADMIN
-}
-=======
-    READ,      // Autoridad de lectura
-    WRITE,     // Autoridad de escritura
+
+    USER,      // Autoridad de usuario
+    CREATOR,     // Autoridad de creador
     ADMIN      // Autoridad de administrador
 }
->>>>>>> branch 'master' of git@github.com:180036/ProyectoFinalV2.git
