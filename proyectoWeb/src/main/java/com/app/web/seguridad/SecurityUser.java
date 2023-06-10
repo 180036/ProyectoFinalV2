@@ -35,7 +35,7 @@ public class SecurityUser implements UserDetails {
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return user.getPassord();
+		return user.getPassword();
 	}
 
 	@Override
