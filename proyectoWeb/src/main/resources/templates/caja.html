@@ -3,7 +3,7 @@
 <div class="form-group">
 
 
-	    <label th:text="${snombre != null and snombre != '' ? snombre : 'Valor predeterminado'}">aaaaa</label>
+	    <label th:text="${skin.nombre}">aaaaa</label>
 	    <p th:text="${skin}"></p>
 		<label>Nombre de la caja:</label>
 		<label th:text="'Nombre de la caja ' + ${caja.nombre}"></label>
@@ -11,6 +11,7 @@
 		<label>Precio de la caja:</label>
 		<label th:text="${caja.precio}"></label>
 		<label th:text="'Calidad skin: ' + ${skin.getCs().getNombre()}"></label>
+		<label th:text="${objetoskinarma.id}">ID</label>
 		<button type="button" class="btn btn-info">Abrir (pasa la animacion uo)</button> 
 		
 		<form th:action="@{/guardarArma}"th:object="${objetoskinarma}" method="POST">

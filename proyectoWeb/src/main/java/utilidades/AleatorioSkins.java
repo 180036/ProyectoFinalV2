@@ -7,7 +7,7 @@ import com.app.web.entidad.Skin;
 
 public abstract class AleatorioSkins {
 	static Random random = new Random();
-	public static Skin skinAleatoria(List<Skin> lista) {
+	public static Skin skinAleatoria(List<Skin> lista, int rol) {
 
 		Skin skinDevolver = new Skin();
 		Skin skinPC = new Skin();
@@ -15,11 +15,9 @@ public abstract class AleatorioSkins {
 		Skin skinM= new Skin();
 		Skin skinL= new Skin();
 		Skin skinA= new Skin();
-		Skin skinER= new Skin();
 		
 		// int random = (int)(Math.random()*100) + 1;
 
-		// Poner pocha a devolver
 		for (Skin s : lista) {
 
 			if (s.getCs().getId() == 1) // A devolver siempre una comun
@@ -34,23 +32,35 @@ public abstract class AleatorioSkins {
 				skinL = s;
 			if (s.getCs().getId() == 6)
 				skinA= s;
-			if (s.getCs().getId() == 7)
-				skinER= s;
 
 		}
-		if(randomPC())
-			skinDevolver = skinPC;
-		if(randomR())
-			skinDevolver = skinR;
-		if(randomM())
-			skinDevolver = skinM;
-		if(randomL())
-			skinDevolver = skinL;
-		if(randomA())
-			skinDevolver = skinA;
-		if(randomER())
-			skinDevolver = skinER;
-
+		
+	
+		
+		if(rol == 0) {
+			if(randomPC())
+				skinDevolver = skinPC;
+			if(randomR())
+				skinDevolver = skinR;
+			if(randomM())
+				skinDevolver = skinM;
+			if(randomL())
+				skinDevolver = skinL;
+			if(randomA())
+				skinDevolver = skinA;
+			
+		} else if(rol == 1) {
+			skinDevolver = skinR; //Minimo le devuelve una rara
+			if(randomM())
+				skinDevolver = skinM;
+			if(randomL())
+				skinDevolver = skinL;
+			if(randomA())
+				skinDevolver = skinA;
+		} else if(rol == 2) { //Al ser admin devuelve la mejor
+			return skinA;
+		}
+		
 		return skinDevolver;
 	}
 	private static boolean randomPC() {
@@ -83,13 +93,6 @@ public abstract class AleatorioSkins {
         int randomNumber = random.nextInt(100);
         int randomNumber2 = random.nextInt(100);
 		return randomNumber == randomNumber2;  //1% 1/100
-		
-	}
-	private static boolean randomER() {
-		random = new Random();
-        int randomNumber = random.nextInt(500);
-        int randomNumber2 = random.nextInt(500);
-		return randomNumber == randomNumber2;  //0.5% 1/500
 		
 	}
 }

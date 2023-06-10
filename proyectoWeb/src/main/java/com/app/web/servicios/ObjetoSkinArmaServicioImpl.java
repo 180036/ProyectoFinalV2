@@ -2,10 +2,11 @@ package com.app.web.servicios;
 
 import java.util.List;
 
-import com.app.web.entidad.Caja;
+import org.springframework.stereotype.Service;
+
 import com.app.web.entidad.ObjetoSkinArma;
 import com.app.web.repositorios.ObjetoskinarmaRepositorio;
-
+@Service
 public class ObjetoSkinArmaServicioImpl implements ObjetoskinarmaServicio{
 
 	ObjetoskinarmaRepositorio repo;

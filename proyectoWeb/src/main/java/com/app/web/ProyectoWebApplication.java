@@ -64,16 +64,16 @@ public class ProyectoWebApplication implements CommandLineRunner {
 
 			this.authRepo.saveAll(List.of(
 					new Authority(AuthorityName.ADMIN),
-					new Authority(AuthorityName.READ),
-					new Authority(AuthorityName.WRITE)
+					new Authority(AuthorityName.UPGRADE),
+					new Authority(AuthorityName.USER)
 					));
 		
 
 			User prueba = new User("alejandro", new BCryptPasswordEncoder().encode("123"), List.of(this.authRepo.findByName(AuthorityName.ADMIN).get()),"a@email.com","imagen.jpg");
 			this.userRepo.saveAll(List.of(
 					prueba,
-					new User("oskaras", new BCryptPasswordEncoder().encode("123"), List.of(this.authRepo.findByName(AuthorityName.READ).get()),"a2@email.com","imagen.jpg"),
-					new User("pepe", new BCryptPasswordEncoder().encode("69"), List.of(this.authRepo.findByName(AuthorityName.WRITE).get()),"a3@email.com","imagen.jpg")
+					new User("oskaras", new BCryptPasswordEncoder().encode("123"), List.of(this.authRepo.findByName(AuthorityName.UPGRADE).get()),"a2@email.com","imagen.jpg"),
+					new User("pepe", new BCryptPasswordEncoder().encode("69"), List.of(this.authRepo.findByName(AuthorityName.USER).get()),"a3@email.com","imagen.jpg")
 					));
 		
 		//Usuarios

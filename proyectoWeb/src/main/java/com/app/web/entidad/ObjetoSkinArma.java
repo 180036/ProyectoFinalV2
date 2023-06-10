@@ -25,6 +25,9 @@ public class ObjetoSkinArma {
 	@Column(name = "precio", nullable = false)
 	private int precio;
 	
+	@Column(name = "tieneStatTrak", nullable = false)
+	private boolean stattrak;
+	
 	@ManyToOne
 	@JoinColumn(name = "idSkin")
 	private Skin skin;
@@ -97,7 +100,13 @@ public class ObjetoSkinArma {
 		this.estado = estado;
 	}
 
+	public boolean isStattrak() {
+		return stattrak;
+	}
 
+	public void setStattrak(boolean stattrak) {
+		this.stattrak = stattrak;
+	}
 
 	@Override
 	public String toString() {
