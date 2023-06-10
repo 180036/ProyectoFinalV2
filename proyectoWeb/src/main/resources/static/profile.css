@@ -27,6 +27,19 @@
 .conatainer-nickname {
 	margin: 5px;
 }
-
-
 /* end FORM editProfile */
+
+/* Aviso */
+.container-fluid {
+		z-index: 2;	
+}
+
+.alert {
+ 	margin-left: 70%;
+	margin-top: 40px;
+	opacity: 0.70;
+	position: absolute;
+	z-index: 1;
+	transition: 2s;
+}
+/* end Aviso */

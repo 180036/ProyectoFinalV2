@@ -175,6 +175,77 @@ public class User {
 	    this.authorities = authorities;
 	}
 
+	/**
+	 * Obtiene el correo electrónico del usuario.
+	 *
+	 * @return el correo electrónico del usuario.
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * Establece el correo electrónico del usuario.
+	 *
+	 * @param email el correo electrónico a establecer.
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
+	 * Obtiene la cantidad de armas del usuario.
+	 *
+	 * @return la cantidad de armas del usuario.
+	 */
+	public int getCantidadArmas() {
+		return cantidadArmas;
+	}
+
+	/**
+	 * Establece la cantidad de armas del usuario.
+	 *
+	 * @param cantidadArmas la cantidad de armas a establecer.
+	 */
+	public void setCantidadArmas(int cantidadArmas) {
+		this.cantidadArmas = cantidadArmas;
+	}
+
+	/**
+	 * Obtiene la cantidad de cajas abiertas por el usuario.
+	 *
+	 * @return la cantidad de cajas abiertas por el usuario.
+	 */
+	public int getCajasAbiertas() {
+		return cajasAbiertas;
+	}
+
+	/**
+	 * Establece la cantidad de cajas abiertas por el usuario.
+	 *
+	 * @param cajasAbiertas la cantidad de cajas abiertas a establecer.
+	 */
+	public void setCajasAbiertas(int cajasAbiertas) {
+		this.cajasAbiertas = cajasAbiertas;
+	}
+
+	/**
+	 * Obtiene el inventario de objetos de skins y armas del usuario.
+	 *
+	 * @return el inventario de objetos de skins y armas del usuario.
+	 */
+	public List<ObjetoSkinArma> getInventario() {
+		return inventario;
+	}
+
+	/**
+	 * Establece el inventario de objetos de skins y armas del usuario.
+	 *
+	 * @param inventario el inventario de objetos de skins y armas a establecer.
+	 */
+	public void setInventario(List<ObjetoSkinArma> inventario) {
+		this.inventario = inventario;
+	}
 	
 	
 

@@ -87,6 +87,7 @@ public class ProyectoWebApplication implements CommandLineRunner {
 		ModeloArma ma1 = new ModeloArma("Armas Pesadas");
 		ModeloArma ma2 = new ModeloArma("Subfusiles SMG");
 		ModeloArma ma3 = new ModeloArma("Fusiles");
+		//Guardar modeloArmas
 		repoM.save(ma);
 		repoM.save(ma1);
 		repoM.save(ma2);
@@ -94,133 +95,205 @@ public class ProyectoWebApplication implements CommandLineRunner {
 
 		//Arma con su modelo (ma | 1,2,3,4,5)
 			//Pistolas 10 ma1
-			Arma arma1 = new Arma("Glock-18", ma);
-			Arma arma2 = new Arma("USP-S", ma);
-			Arma arma3 = new Arma("P2000", ma);
-			Arma arma4 = new Arma("Dual Berettas", ma);
-			Arma arma5 = new Arma("P250", ma);
-			Arma arma6 = new Arma("Tec-9", ma);
-			Arma arma7 = new Arma("Five-SeveN", ma);
-			Arma arma8 = new Arma("CZ75-Auto", ma);
-			Arma arma9 = new Arma("Desert Eagle", ma);
-			Arma arma10 = new Arma("R8 Revolver", ma);
+			Arma glock18 = new Arma("Glock-18", ma);
+			Arma uspS = new Arma("USP-S", ma);
+			Arma p2000 = new Arma("P2000", ma);
+			Arma dualBerrettas = new Arma("Dual Berettas", ma);
+			Arma p250 = new Arma("P250", ma);
+			Arma tec9 = new Arma("Tec-9", ma);
+			Arma fiveSeveN = new Arma("Five-SeveN", ma);
+			Arma cz75Auto = new Arma("CZ75-Auto", ma);
+			Arma desertEagle = new Arma("Desert Eagle", ma);
+			Arma r8Revolver = new Arma("R8 Revolver", ma);
 			//Armas Pesadas 6 ma2
-			Arma arma11 = new Arma("M249", ma1);
-			Arma arma12 = new Arma("Negev", ma1);
-			Arma arma13 = new Arma("Nova", ma1);
-			Arma arma14 = new Arma("XM1014", ma1);
-			Arma arma15 = new Arma("Sawed-Off", ma1);
-			Arma arma16 = new Arma("MAG-7", ma1);
+			Arma m249 = new Arma("M249", ma1);
+			Arma negev = new Arma("Negev", ma1);
+			Arma nova = new Arma("Nova", ma1);
+			Arma xm1014 = new Arma("XM1014", ma1);
+			Arma sawedOff = new Arma("Sawed-Off", ma1);
+			Arma mag7 = new Arma("MAG-7", ma1);
 			//Subfusiles 6 ma3
-			Arma arma17 = new Arma("MAC-10", ma2);
-			Arma arma18 = new Arma("MP9",ma2 );
-			Arma arma19 = new Arma("MP7", ma2);
-			Arma arma20 = new Arma("UMP-45", ma2);
-			Arma arma21 = new Arma("P90", ma2);
-			Arma arma22 = new Arma("PP-Bizon", ma2);
+			Arma mac10 = new Arma("MAC-10", ma2);
+			Arma mp9 = new Arma("MP9",ma2 );
+			Arma mp7 = new Arma("MP7", ma2);
+			Arma ump45 = new Arma("UMP-45", ma2);
+			Arma p90 = new Arma("P90", ma2);
+			Arma ppBizon = new Arma("PP-Bizon", ma2);
 			//Rifles de asalto 11
-			Arma arma23 = new Arma("AK-47", ma3);
-			Arma arma24 = new Arma("M4A4", ma3);
-			Arma arma25 = new Arma("M4A1-S", ma3);
-			Arma arma26 = new Arma("AUG", ma3);
-			Arma arma27 = new Arma("SG 553", ma3);
-			Arma arma28 = new Arma("FAMAS", ma3);
-			Arma arma29 = new Arma("Galil AR", ma3);
-			Arma arma30 = new Arma("AWP", ma3);
-			Arma arma31 = new Arma("SSG 08", ma3);
-			Arma arma32 = new Arma("G3SG1", ma3);
-			Arma arma33 = new Arma("SCAR-20", ma3);
+			Arma ak47 = new Arma("AK-47", ma3);
+			Arma m4a4 = new Arma("M4A4", ma3);
+			Arma m4a1S = new Arma("M4A1-S", ma3);
+			Arma aug = new Arma("AUG", ma3);
+			Arma sg553 = new Arma("SG 553", ma3);
+			Arma famas = new Arma("FAMAS", ma3);
+			Arma galilAr = new Arma("Galil AR", ma3);
+			Arma awp = new Arma("AWP", ma3);
+			Arma ssg08 = new Arma("SSG 08", ma3);
+			Arma g3sg1 = new Arma("G3SG1", ma3);
+			Arma scar20 = new Arma("SCAR-20", ma3);
 			//InsertarArmas
-			repoA.save(arma1);
-			repoA.save(arma2);
-			repoA.save(arma3);
-			repoA.save(arma4);
-			repoA.save(arma5);
-			repoA.save(arma6);
-			repoA.save(arma7);
-			repoA.save(arma8);
-			repoA.save(arma9);
-			repoA.save(arma10);
-			repoA.save(arma11);
-			repoA.save(arma12);
-			repoA.save(arma13);
-			repoA.save(arma14);
-			repoA.save(arma15);
-			repoA.save(arma16);
-			repoA.save(arma17);
-			repoA.save(arma18);
-			repoA.save(arma19);
-			repoA.save(arma20);
-			repoA.save(arma21);
-			repoA.save(arma22);
-			repoA.save(arma23);
-			repoA.save(arma24);
-			repoA.save(arma25);
-			repoA.save(arma26);
-			repoA.save(arma27);
-			repoA.save(arma28);
-			repoA.save(arma29);
-			repoA.save(arma30);
-			repoA.save(arma31);
-			repoA.save(arma32);
-			repoA.save(arma33);
+			repoA.save(glock18);
+			repoA.save(uspS);
+			repoA.save(p2000);
+			repoA.save(dualBerrettas);
+			repoA.save(p250);
+			repoA.save(tec9);
+			repoA.save(fiveSeveN);
+			repoA.save(cz75Auto);
+			repoA.save(desertEagle);
+			repoA.save(r8Revolver);
+			repoA.save(m249);
+			repoA.save(negev);
+			repoA.save(nova);
+			repoA.save(xm1014);
+			repoA.save(sawedOff);
+			repoA.save(mag7);
+			repoA.save(mac10);
+			repoA.save(mp9);
+			repoA.save(mp7);
+			repoA.save(ump45);
+			repoA.save(p90);
+			repoA.save(ppBizon);
+			repoA.save(ak47);
+			repoA.save(m4a4);
+			repoA.save(m4a1S);
+			repoA.save(aug);
+			repoA.save(sg553);
+			repoA.save(famas);
+			repoA.save(galilAr);
+			repoA.save(awp);
+			repoA.save(ssg08);
+			repoA.save(g3sg1);
+			repoA.save(scar20);
 			
 		//Calidad de las skins
-		CalidadSkin cs = new CalidadSkin("Comun");
-		CalidadSkin cs2 = new CalidadSkin("Poco comun");
-		CalidadSkin cs3 = new CalidadSkin("Raro");
-		CalidadSkin cs4 = new CalidadSkin("Mitico");
-		CalidadSkin cs5 = new CalidadSkin("Legendario");
-		CalidadSkin cs6 = new CalidadSkin("Ancestral");
-		CalidadSkin cs7 = new CalidadSkin("Extremadamente raro");
-		repoC.save(cs);
-		repoC.save(cs2);
-		repoC.save(cs3);
-		repoC.save(cs4);
-		repoC.save(cs5);
-		repoC.save(cs6);
-		repoC.save(cs7);
+		CalidadSkin csC = new CalidadSkin("Comun");
+		CalidadSkin csPC = new CalidadSkin("Poco comun");
+		CalidadSkin csR = new CalidadSkin("Raro");
+		CalidadSkin csM = new CalidadSkin("Mitico");
+		CalidadSkin csL = new CalidadSkin("Legendario");
+		CalidadSkin csA = new CalidadSkin("Ancestral");
+		repoC.save(csC);
+		repoC.save(csPC);
+		repoC.save(csR);
+		repoC.save(csM);
+		repoC.save(csL);
+		repoC.save(csA);
 		
 		//Skin con su cs
-		Skin skin1 = new Skin("DragonLore", arma30, cs5, 1750);
-		Skin skin2 = new Skin("Neo Nair", arma1, cs5, 400);
-		Skin skin3 = new Skin("DragonLore", arma1, cs3, 2000);
-		Skin skin4 = new Skin("DragonLore", arma1, cs4, 2000);
-		Skin skin5 = new Skin("DragonLore", arma1, cs5, 2000);
-		Skin skin6 = new Skin("DragonLore", arma1, cs6, 2000);
-		Skin skin7 = new Skin("DragonLore", arma1, cs2,2000);
-		Skin skin8 = new Skin("DragonLore", arma1, cs2, 2000);
-		Skin skin9 = new Skin("DragonLore", arma1, cs7, 2000);
-		Skin skin10 = new Skin("DragonLore", arma1, cs2, 3000);
-		repoS.save(skin1);
-		repoS.save(skin2);
-		repoS.save(skin3);
-		repoS.save(skin4);
-		repoS.save(skin5);
-		repoS.save(skin6);
-		repoS.save(skin7);
-		repoS.save(skin8);
-		repoS.save(skin9);
-		repoS.save(skin10);
+			//Comun -> Siempre iguales en todas las cajas
+			Skin comun1 = new Skin("DragonLore", awp, csC, 1750);
+			Skin comun2 = new Skin("Storm", aug, csC, 400);
+			Skin comun3 = new Skin("DragonLore", glock18, csC, 2000);
+			Skin comun4 = new Skin("DragonLore", glock18, csC, 2000);
+			Skin comun5 = new Skin("DragonLore", glock18, csC, 2000);
+			//Poco Comun -> Siempre 1 en una caja
+			Skin pocoComun1 = new Skin("DragonLore", glock18, csPC, 2000);
+			Skin pocoComun2 = new Skin("DragonLore", glock18, csPC,2000);
+			Skin pocoComun3 = new Skin("DragonLore", glock18, csPC, 2000);
+			Skin pocoComun4 = new Skin("DragonLore", glock18, csPC, 2000);
+			//Raro -> Siempre 1 en una caja
+			Skin raro1 = new Skin("DragonLore", glock18, csR, 2000);
+			Skin raro2 = new Skin("DragonLore", glock18, csR,2000);
+			Skin raro3 = new Skin("DragonLore", glock18, csR, 2000);
+			Skin raro4 = new Skin("DragonLore", glock18, csR, 2000);
+			//Mitico -> Siempre 1 en una caja
+			Skin mitico1 = new Skin("DragonLore", glock18, csM, 2000);
+			Skin mitico2 = new Skin("DragonLore", glock18, csM,2000);
+			Skin mitico3 = new Skin("DragonLore", glock18, csM, 2000);
+			Skin mitico4 = new Skin("DragonLore", glock18, csM, 2000);
+			//Legendario -> Siempre 1 en una caja
+			Skin legendario1 = new Skin("DragonLore", glock18, csL, 2000);
+			Skin legendario2 = new Skin("DragonLore", glock18, csL,2000);
+			Skin legendario3 = new Skin("DragonLore", glock18, csL, 2000);
+			Skin legendario4 = new Skin("DragonLore", glock18, csL, 2000);
+			//Ancestral -> Siempre 1 en una caja
+			Skin ancestral1 = new Skin("DragonLore", glock18, csA, 2000);
+			Skin ancestral2 = new Skin("DragonLore", glock18, csA,2000);
+			Skin ancestral3 = new Skin("DragonLore", glock18, csA, 2000);
+			Skin ancestral4 = new Skin("DragonLore", glock18, csA, 2000);
+			//Guardar skins
+			repoS.save(comun1);
+			repoS.save(comun2);
+			repoS.save(comun3);
+			repoS.save(comun4);
+			repoS.save(comun5);
+			repoS.save(pocoComun1);
+			repoS.save(pocoComun2);
+			repoS.save(pocoComun3);
+			repoS.save(pocoComun4);
+			repoS.save(raro1);
+			repoS.save(raro2);
+			repoS.save(raro3);
+			repoS.save(raro4);
+			repoS.save(mitico1);
+			repoS.save(mitico2);
+			repoS.save(mitico3);
+			repoS.save(mitico4);
+			repoS.save(legendario1);
+			repoS.save(legendario2);
+			repoS.save(legendario3);
+			repoS.save(legendario4);
+			repoS.save(ancestral1);
+			repoS.save(ancestral2);
+			repoS.save(ancestral3);
+			repoS.save(ancestral4);
 		
 		//Insertar skins en una caja
-		Caja caja1 = new Caja("a",2000,skin1,skin2,skin3,skin4,skin5,skin6,skin7,skin8,skin9,skin10);
-		repoCa.save(caja1);
+			//Evento 1:
+			Caja caja1Evento1 = new Caja("a",2000,comun1,comun2,comun3,comun4,comun5,pocoComun1,raro1,mitico1,legendario1,ancestral1);
+			Caja caja2Evento1 = new Caja("a",2000,comun1,comun2,comun3,comun4,comun5,pocoComun2,raro2,mitico2,legendario2,ancestral2);
+			Caja caja3Evento1 = new Caja("a",2000,comun1,comun2,comun3,comun4,comun5,pocoComun3,raro3,mitico3,legendario3,ancestral3);
+			Caja caja4Evento1 = new Caja("a",2000,comun1,comun2,comun3,comun4,comun5,pocoComun4,raro4,mitico4,legendario4,ancestral4);
+			//Evento 2:
+			Caja caja1Evento2 = new Caja("a",2000,comun1,comun2,comun3,comun4,comun5,pocoComun1,raro2,mitico3,legendario4,ancestral3);
+			Caja caja2Evento2 = new Caja("a",2000,comun1,comun2,comun3,comun4,comun5,pocoComun2,raro3,mitico4,legendario1,ancestral4);
+			Caja caja3Evento2 = new Caja("a",2000,comun1,comun2,comun3,comun4,comun5,pocoComun3,raro4,mitico1,legendario2,ancestral2);
+			Caja caja4Evento2 = new Caja("a",2000,comun1,comun2,comun3,comun4,comun5,pocoComun4,raro1,mitico2,legendario3,ancestral1);
+			//Evento 3:
+			Caja caja1Evento3 = new Caja("a",2000,comun1,comun2,comun3,comun4,comun5,pocoComun1,raro3,mitico4,legendario2,ancestral2);
+			Caja caja2Evento3 = new Caja("a",2000,comun1,comun2,comun3,comun4,comun5,pocoComun2,raro1,mitico3,legendario4,ancestral3);
+			Caja caja3Evento3 = new Caja("a",2000,comun1,comun2,comun3,comun4,comun5,pocoComun3,raro2,mitico2,legendario3,ancestral1);
+			Caja caja4Evento3 = new Caja("a",2000,comun1,comun2,comun3,comun4,comun5,pocoComun4,raro3,mitico1,legendario1,ancestral2);
+			//Colaborador 1:
+			Caja caja1Colaborador1 = new Caja("a",2000,comun1,comun2,comun3,comun4,comun5,pocoComun1,raro4,mitico2,legendario3,ancestral4);
+			Caja caja2Colaborador1 = new Caja("a",2000,comun1,comun2,comun3,comun4,comun5,pocoComun2,raro4,mitico1,legendario3,ancestral1);
+			//Colaborador 2:
+			Caja caja1Colaborador2 = new Caja("a",2000,comun1,comun2,comun3,comun4,comun5,pocoComun3,raro1,mitico4,legendario1,ancestral1);
+			Caja caja2Colaborador2 = new Caja("a",2000,comun1,comun2,comun3,comun4,comun5,pocoComun4,raro2,mitico3,legendario4,ancestral3);
+			//Guardar cajas
+			repoCa.save(caja1Evento1);
+			repoCa.save(caja2Evento1);
+			repoCa.save(caja3Evento1);
+			repoCa.save(caja4Evento1);
+			repoCa.save(caja1Evento2);
+			repoCa.save(caja2Evento2);
+			repoCa.save(caja3Evento2);
+			repoCa.save(caja4Evento2);
+			repoCa.save(caja1Evento3);
+			repoCa.save(caja2Evento3);
+			repoCa.save(caja3Evento3);
+			repoCa.save(caja4Evento3);
+			repoCa.save(caja1Colaborador1);
+			repoCa.save(caja2Colaborador1);
+			repoCa.save(caja1Colaborador2);
+			repoCa.save(caja2Colaborador2);
 		
 		//Estado Armas
-		EstadoArma ea = new EstadoArma("BATTLE-SCARRED");
-		EstadoArma ea2 = new EstadoArma("WELL-WORN");
-		EstadoArma ea3 = new EstadoArma("FIELD-TESTED");
-		EstadoArma ea4 = new EstadoArma("MINIMAL WEAR");
-		EstadoArma ea5 = new EstadoArma("FACTORY NEW");
-		repoE.save(ea);
-		repoE.save(ea2);
-		repoE.save(ea3);		
-		repoE.save(ea4);		
-		repoE.save(ea5);
+		EstadoArma eaBS = new EstadoArma("BATTLE-SCARRED");
+		EstadoArma eWW = new EstadoArma("WELL-WORN");
+		EstadoArma eaFT = new EstadoArma("FIELD-TESTED");
+		EstadoArma eaMW = new EstadoArma("MINIMAL WEAR");
+		EstadoArma eaFN = new EstadoArma("FACTORY NEW");
+		//Guardar estados armas
+		repoE.save(eaBS);
+		repoE.save(eWW);
+		repoE.save(eaFT);		
+		repoE.save(eaMW);		
+		repoE.save(eaFN);
 		
 		//Relacion mucho a muchos, potente
-		ObjetoSkinArma osa1 = new ObjetoSkinArma("Mi armita reshulona", 10000, skin1, prueba, ea);
+		ObjetoSkinArma osa1 = new ObjetoSkinArma("Mi armita reshulona", 10000, ancestral2, prueba, eaBS);
 		repoO.save(osa1);
 		
 		

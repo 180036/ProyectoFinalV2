@@ -19,19 +19,16 @@ public abstract class AleatorioSkins {
      * Basada en una lista de skins.
      *
      * @param lista La lista de skins disponibles.
+     * @param rol El rol para aumentar las posibilidades.
      * @return La skin generada aleatoriamente.
      */
     public static Skin skinAleatoria(List<Skin> lista,  int rol) {
-
-
-
 		Skin skinDevolver = new Skin();
 		Skin skinPC = new Skin();
 		Skin skinR = new Skin();
 		Skin skinM= new Skin();
 		Skin skinL= new Skin();
 		Skin skinA= new Skin();
-
 
         // Poner pocha a devolver
         for (Skin s : lista) {
@@ -49,12 +46,7 @@ public abstract class AleatorioSkins {
         		skinA= s;
             
         }
-     
-
-		
-		
-	
-		
+        
 		if(rol == 0) {
 			if(randomPC())
 				skinDevolver = skinPC;

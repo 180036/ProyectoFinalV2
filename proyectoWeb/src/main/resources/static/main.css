@@ -41,7 +41,12 @@ body {
     color:var(--mainColor);
 }
 /* End NAVBar titulo */
-
+/* NavBar Donacion */
+#payment-img {
+	width: 100%;
+	height: 20px;
+}
+/* end NavBar Donacion */
 /* Social Media */
 .social-media {
     display: inline-block;
