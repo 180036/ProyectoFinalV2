@@ -1,10 +1,11 @@
-package com.app.web.servicios;
+package com.app.web.serviciosImpl;
 
 import java.util.List;
 
 import com.app.web.entidad.Caja;
 import com.app.web.entidad.ObjetoSkinArma;
 import com.app.web.repositorios.ObjetoskinarmaRepositorio;
+import com.app.web.servicios.ObjetoskinarmaServicio;
 
 public class ObjetoSkinArmaServicioImpl implements ObjetoskinarmaServicio{
 

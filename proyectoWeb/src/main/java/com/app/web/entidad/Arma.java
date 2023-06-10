@@ -20,7 +20,6 @@ import jakarta.persistence.Table;
  * @author: Oskar Stankevicius
  * @version: 1.0.6v
  */
-
 @Entity
 @Table(name = "armas")
 public class Arma {
