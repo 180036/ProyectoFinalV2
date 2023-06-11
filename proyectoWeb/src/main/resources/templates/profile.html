@@ -152,8 +152,9 @@
 		<div class="row py-5 px-4">
 			<div class="col-xl-10 col-md-10 col-sm-10 mx-auto">
 				<!-- Aviso -->
-				
-				<div th:switch="${result}" th:classappend="${result != null} ? 'alert alert-primary fade show disposse' : ''" role="alert">
+
+				<div th:switch="${result}"
+					th:classappend="${result != null} ? 'alert alert-primary fade show disposse' : ''" role="alert">
 					<div th:case="'submit'" class="submit">
 						<span>The invoice will be sent to you by post.</span>
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -173,11 +174,11 @@
 					<div class="px-4 pt-0 pb-4 bg-dark">
 						<div class="media align-items-end profile-header">
 							<div class="profile mr-3">
-								<img src="https://thecsgoboosters.weebly.com/uploads/6/0/5/3/60532531/s498439253110013415_p5_i2_w1920.jpeg" alt="..."
-									width="250" class="rounded mb-2 img-thumbnail">
+								<img src="https://thecsgoboosters.weebly.com/uploads/6/0/5/3/60532531/s498439253110013415_p5_i2_w1920.jpeg"
+									alt="..." width="250" class="rounded mb-2 img-thumbnail">
 							</div>
 							<div class="media-body mb-5 text-white">
-								<h4 th:text="${user.name}"class="mt-0 mb-0">Nick</h4>
+								<h4 th:text="${user.name}" class="mt-0 mb-0">Nick</h4>
 								<p th:text="${user.puntos} + ' puntos'" class="small mb-4"> Puntos</p>
 							</div>
 						</div>
@@ -189,16 +190,18 @@
 						<ul class="list-inline mb-0">
 							<li class="list-inline-item">
 								<form id="formEliminar" th:action="@{/eliminarUsuario}" method="post">
-								<button id="eliminarBtn" class="btn btn-primary btn-dark">Eliminar usuario</button>
+									<button id="eliminarBtn" class="btn btn-primary btn-dark">Eliminar usuario</button>
 								</form>
 							</li>
 							<li class="list-inline-item">
-								<h5 th:text="${user.inventario.size()}"class="font-weight-bold mb-0 d-block">Numero Cantidad de armas</h5><small
-									class="text-muted"> <i class="fa fa-picture-o mr-1"></i>Cantidad de armas</small>
+								<h5 th:text="${user.inventario.size()}" class="font-weight-bold mb-0 d-block">Numero
+									Cantidad de armas</h5><small class="text-muted"> <i
+										class="fa fa-picture-o mr-1"></i>Cantidad de armas</small>
 							</li>
 							<li class="list-inline-item">
-								<h5 th:text="${user.cajasAbiertas}" class="font-weight-bold mb-0 d-block">Cantidad de cajas abiertas</h5><small
-									class="text-muted"> <i class="fa fa-user-circle-o mr-1"></i>Cajas abiertas</small>
+								<h5 th:text="${user.cajasAbiertas}" class="font-weight-bold mb-0 d-block">Cantidad de
+									cajas abiertas</h5><small class="text-muted"> <i
+										class="fa fa-user-circle-o mr-1"></i>Cajas abiertas</small>
 							</li>
 						</ul>
 					</div>
@@ -210,18 +213,10 @@
 							<h5 class="mb-0">Inventory Guns</h5>
 						</div>
 						<div class="row">
-							<div class="col-lg-2 mb-2 pr-lg-1"><img
-									src="https://bootstrapious.com/i/snippets/sn-profile/img-3.jpg" alt=""
-									class="img-fluid rounded shadow-sm"></div>
-							<div class="col-lg-2 mb-2 pr-lg-1"><img
-									src="https://bootstrapious.com/i/snippets/sn-profile/img-4.jpg" alt=""
-									class="img-fluid rounded shadow-sm"></div>
-							<div class="col-lg-2 mb-2 pr-lg-1"><img
-									src="https://bootstrapious.com/i/snippets/sn-profile/img-5.jpg" alt=""
-									class="img-fluid rounded shadow-sm"></div>
-							<div class="col-lg-2 mb-2 pr-lg-1"><img
-									src="https://bootstrapious.com/i/snippets/sn-profile/img-6.jpg" alt=""
-									class="img-fluid rounded shadow-sm"></div>
+							<div th:each="skin: ${listaSkins}" class="col-lg-2 mb-2 pr-lg-1">
+								<p th:text="${skin.nombre}"></p><img th:src="@{'/img/skins/'+ ${skin.nombre} +'.png'}"
+									alt="" class="img-fluid rounded shadow-sm">
+							</div>
 						</div>
 						<!-- Inventario -->
 
@@ -229,7 +224,7 @@
 						<!-- End Añadir un paginator -->
 
 						<!-- Valoraciones -->
-						<div class="py-4">
+						<!-- <div class="py-4">
 							<h5 class="mb-3">Valoraciones</h5>
 							<div class="p-4 bg-light rounded shadow-sm">
 								<p class="font-italic mb-0">Mensajes de la gente.</p>
@@ -242,7 +237,7 @@
 									</li>
 								</ul>
 							</div>
-						</div>
+						</div> -->
 						<!-- End Valoraciones -->
 					</div>
 				</div><!-- End profile widget -->
@@ -281,7 +276,8 @@
 	</div>
 	<!-- End Footer Todos HTML-->
 	<!-- Aviso -->
-	<div th:switch="${result}" th:classappend="${result != null} ? 'alert alert-primary fade show disposse' : ''" role="alert">
+	<div th:switch="${result}" th:classappend="${result != null} ? 'alert alert-primary fade show disposse' : ''"
+		role="alert">
 		<p th:case="'submit'">This is a primary alert—check it out!</p>
 		<p th:case="'cancel'">You canceled the donation.</p>
 	</div>

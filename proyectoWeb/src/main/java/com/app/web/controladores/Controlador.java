@@ -23,6 +23,8 @@ import com.app.web.entidad.ObjetoSkinArma;
 import com.app.web.entidad.Pregunta;
 import com.app.web.entidad.Skin;
 import com.app.web.repositorios.AuthorityRepositorio;
+import com.app.web.repositorios.EstadoarmaRepositorio;
+import com.app.web.repositorios.ObjetoskinarmaRepositorio;
 import com.app.web.repositorios.PreguntaRepositorio;
 import com.app.web.servicios.CajaServicio;
 import com.app.web.servicios.UserServicio;
@@ -47,6 +49,10 @@ public class Controlador {
 	private AuthorityRepositorio authRepo;
 	@Autowired
 	private PreguntaRepositorio preguntaRepo;
+	@Autowired
+	private ObjetoskinarmaRepositorio repoO;
+	@Autowired
+	private EstadoarmaRepositorio repoEa;
 
 	/*@GetMapping("/cajas")
 	public String listarEstudiantes(Model modelo) {
@@ -132,6 +138,14 @@ public class Controlador {
 		     u = servicioUser.obtenerUsuarioPorNombre(currentUserName);
 		    System.out.println(u);
 		}
+		List<ObjetoSkinArma> listaSkins = null;
+		if(u != null) {
+			listaSkins = u.getInventario();
+			
+		}
+		
+		model.addAttribute("listaNames", servicioUser.listarTodosUsuarios());
+		model.addAttribute("listaSkins", listaSkins);
 
 		model.addAttribute("user", u);
 		model.addAttribute("result", result);
@@ -159,6 +173,57 @@ public class Controlador {
 		     u = servicioUser.obtenerUsuarioPorNombre(currentUserName);
 		    System.out.println(u);
 		}
+		
+		String texto = url_event_chest;
+		String textoCaja = url_chest_img;
+		String numero = texto.replaceAll("[^0-9]", ""); //Numero de fila de cajas
+		String numeroCaja =textoCaja.replaceAll("[^0-9]", ""); //Numero de fila de cajas
+		
+		String subcadena = "colaborator";
+
+		int indice = texto.indexOf(subcadena);
+
+		if (indice != -1) {
+		    System.out.println("La subcadena '" + subcadena + "' se encontró en la cadena principal.");
+		} else {
+		    System.out.println("La subcadena '" + subcadena + "' no se encontró en la cadena principal.");
+		}
+
+		if(numero.equals("2")) {
+			if(numeroCaja.equals("1"))
+				numeroCaja="5";
+			else if(numeroCaja.equals("2"))
+				numeroCaja="6";
+			else if(numeroCaja.equals("3"))
+				numeroCaja="7";
+			else 
+				numeroCaja="8";
+		}
+		if(numero.equals("3")) {
+			if(numeroCaja.equals("1"))
+				numeroCaja="9";
+			else if(numeroCaja.equals("2"))
+				numeroCaja="10";
+			else if(numeroCaja.equals("3"))
+				numeroCaja="11";
+			else 
+				numeroCaja="12";
+		}
+		if(indice != -1) {
+			if(numeroCaja.equals("1"))
+				numeroCaja="13";
+			else if(numeroCaja.equals("2"))
+				numeroCaja="14";
+			else if(numeroCaja.equals("3"))
+				numeroCaja="15";
+			else 
+				numeroCaja="16";
+		}
+		
+		Caja c = servicioCaja.obtenerCajaPorId(Long.parseLong(numeroCaja));
+		
+		model.addAttribute("listaSkins", c.getSkins());
+		model.addAttribute("idcaja",numeroCaja);
 		model.addAttribute("user", u);
 		model.addAttribute("url_event_chest", url_event_chest);
 		model.addAttribute("url_chest_img", url_chest_img);
@@ -227,33 +292,35 @@ public class Controlador {
 		     u = servicioUser.obtenerUsuarioPorNombre(currentUserName);
 		    System.out.println(u);
 		}
-		ObjetoSkinArma osa = new ObjetoSkinArma();
+		//ObjetoSkinArma osa = new ObjetoSkinArma();
 		//Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
 
 		//User user = (User) principal;
-		osa.setUsuario(u);
 		int rol = CompruebaRol.compruebaRol(u.getAuthorities()); 
 		
 		Caja c = servicioCaja.obtenerCajaPorId(id);
 
 		Skin s = AleatorioSkins.skinAleatoria(c.getSkins(), rol); // Skin premiada
-		EstadoArma ea = AleatorioEstadoArma.estadoArmaAleatorio(); // EstadoArma aleatorio
+		int idE = AleatorioEstadoArma.estadoArmaAleatorio(); // EstadoArma aleatorio
+		EstadoArma ea = repoEa.findById((long)idE).get();
+		
 		boolean tieneST = StatTrak.tieneStatTrak();
 		int precio = PrecioFinalOSA.precioFinal(ea, s.getPrecioBase(), tieneST);
+		
+		ObjetoSkinArma osa = new ObjetoSkinArma(s.getNombre(), precio, s, u, ea);
 
-		osa.setEstado(ea);
-		osa.setSkin(s);
-		osa.setPrecio(precio);
-		osa.setNombre(s.getNombre()); // Nombre se le pregunta al usuario para cambiarlo
 		if (tieneST)
 			osa.setStattrak(true);
 		if(u != null)
 			u.sumarCajaAbierta();
 		
+		ObjetoSkinArma osaFinal = repoO.save(osa);
+		modelo.addAttribute("estado", ea);
+		modelo.addAttribute("stattrak",tieneST);
 		modelo.addAttribute("caja", c);
 		modelo.addAttribute("skin", s);
-		modelo.addAttribute("objetoskinarma", osa);
+		modelo.addAttribute("objetoskinarma", osaFinal);
 		return "caja";
 	}
 	@GetMapping("/pregunta")

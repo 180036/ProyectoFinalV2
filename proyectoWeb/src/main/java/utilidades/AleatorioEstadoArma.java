@@ -20,24 +20,19 @@ public abstract class AleatorioEstadoArma {
      *
      * @return El estado de arma generado aleatoriamente.
      */
-    public static EstadoArma estadoArmaAleatorio() {
-        EstadoArma ea = new EstadoArma("BATTLE-SCARRED"); // 46%
-
-        EstadoArma ea2 = new EstadoArma("WELL-WORN");
-        EstadoArma ea3 = new EstadoArma("FIELD-TESTED");
-        EstadoArma ea4 = new EstadoArma("MINIMAL WEAR");
-        EstadoArma ea5 = new EstadoArma("FACTORY NEW");
+    public static int estadoArmaAleatorio() {
+      
 
         if (randomFieldTested())
-            ea = ea3;
+        	return 3;
         if (randomWellWorn())
-            ea = ea2;
+            return 2;
         if (randomMinimalWear())
-            ea = ea4;
+            return 4;
         if (randomFactoryNew())
-            ea = ea5;
+            return 5;
 
-        return ea;
+        return 1;
     }
 
     /**

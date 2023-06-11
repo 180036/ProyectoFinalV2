@@ -1,43 +1,46 @@
 <!doctype html>
 <html lang="en" xmlsn:th="http://www.thymeleaf.org">
-  <head>
-	  <link rel="icon" type="image/png" href="./img/logo-icon.png">
+
+<head>
+	<link rel="icon" type="image/png" href="./img/logo-icon.png">
 	<title>Title</title>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<!-- Local File CSS -->
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="./cajas.css">
+	<link rel="stylesheet" href="home.css">
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="./cajas.css">
 	<!-- scripts -->
 	<script src="https://kit.fontawesome.com/1d143189b2.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 	<!-- Fake Header Todos HTML-->
-    <div class="container-fluid px-md-5 pt-4 pt-md-5">
-        <div class="row justify-content-between">
-            <div class="col-md-8 order-md-last">
-                <div class="row">
+	<div class="container-fluid px-md-5 pt-4 pt-md-5">
+		<div class="row justify-content-between">
+			<div class="col-md-8 order-md-last">
+				<div class="row">
 					<!-- Title -->
-                    <div class="col-md-6 text-center">
-                        <a class="navbar-brand" th:href="@{/}"> SKINGS
-                            <small class="text-dark">
-                                Ganar, Ganar y Ganar.
-                            </small>
-                        </a>
-                    </div>
-                    <!-- End of Title -->
-                </div>
-            </div>
-            
-            <!-- Redes Sociales -->
-            <div class="col-md-4 d-flex">
-                <div class="social-media">
-                    <p class="mb-0 d-flex">
+					<div class="col-md-6 text-center">
+						<a class="navbar-brand" th:href="@{/}"> SKINGS
+							<small class="text-dark">
+								Ganar, Ganar y Ganar.
+							</small>
+						</a>
+					</div>
+					<!-- End of Title -->
+				</div>
+			</div>
+
+			<!-- Redes Sociales -->
+			<div class="col-md-4 d-flex">
+				<div class="social-media">
+					<p class="mb-0 d-flex">
 						<!-- 
                         <a href="#" class="d-flex align-items-center justify-content-center" >
                             <span class="fab fa-facebook">
@@ -45,121 +48,124 @@
                             </span>
                         </a>
                         -->
-                        <!-- -->
-                        <a target="_blank" href="https://twitter.com/OskarasStankev1" class="d-flex align-items-center justify-content-center" >
-                            <span class="fab fa-twitter">
-                                <i class="sr-only">Twitter</i>
-                            </span>
-                        </a>
-                        <!-- 
+						<!-- -->
+						<a target="_blank" href="https://twitter.com/OskarasStankev1"
+							class="d-flex align-items-center justify-content-center">
+							<span class="fab fa-twitter">
+								<i class="sr-only">Twitter</i>
+							</span>
+						</a>
+						<!-- 
                         <a href="#" class="d-flex align-items-center justify-content-center" >
                             <span class="fab fa-instagram">
                                 <i class="sr-only">Instagram</i>
                             </span>
                         </a>
                         -->
-                    </p>
-                </div>
-            </div>
-            <!-- End of Redes Sociales -->            
-        </div>
-    </div>
-    <!-- End Fake Header Todos HTML-->
+					</p>
+				</div>
+			</div>
+			<!-- End of Redes Sociales -->
+		</div>
+	</div>
+	<!-- End Fake Header Todos HTML-->
 
-    <!-- NAVBar Todos HTML-->
+	<!-- NAVBar Todos HTML-->
 	<nav class="navbar navbar-expand-lg navbar-dark main-navbar bg-dark main-navbar-light" id="a-navbar">
 		<div class="container-fluid">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#my-nav" aria-controls="my-nav" aria-expanded="false" aria-label="toggle-navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#my-nav"
+				aria-controls="my-nav" aria-expanded="false" aria-label="toggle-navigation">
 				<span class="fa fa-bars">Menu</span>
 			</button>
-            <div class="collapse navbar-collapse" id="my-nav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a th:href="@{/}" class="nav-link">Home</a>
-                    </li>
-                    <!-- -->
-                    <li class="nav-item">
-                        <a th:href="@{/index}" class="nav-link">WebSite</a>
-                    </li>
-                    <!-- -->
-                    <li class="nav-item">
-                        <a th:href="@{/FAQ}" class="nav-link">FAQ</a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <ul class="navbar-nav">
+			<div class="collapse navbar-collapse" id="my-nav">
+				<ul class="navbar-nav">
+					<li class="nav-item active">
+						<a th:href="@{/}" class="nav-link">Home</a>
+					</li>
+					<!-- -->
+					<li class="nav-item">
+						<a th:href="@{/index}" class="nav-link">WebSite</a>
+					</li>
+					<!-- -->
+					<li class="nav-item">
+						<a th:href="@{/FAQ}" class="nav-link">FAQ</a>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<ul class="navbar-nav">
 					<li class="nav-item align-right">
-                        <a th:href="@{/payment}" class="nav-link"><img id="payment-img"src="./img/payment/payment_4.png" alt="Donation"></a>
-                    </li>
-                    <li class="nav-item align-right">
-                        <a th:href="@{/profile}" class="nav-link">Profile</a>
-                    </li>
-                    <li th:if="${user != null}" class="nav-item align-right">
-                        <!-- El usuario existe -->
-                        <a th:href="@{/logout}" class="nav-link">Logout</a>
-                    </li>
+						<a th:href="@{/payment}" class="nav-link"><img id="payment-img"
+								src="./img/payment/payment_4.png" alt="Donation"></a>
+					</li>
+					<li class="nav-item align-right">
+						<a th:href="@{/profile}" class="nav-link">Profile</a>
+					</li>
+					<li th:if="${user != null}" class="nav-item align-right">
+						<!-- El usuario existe -->
+						<a th:href="@{/logout}" class="nav-link">Logout</a>
+					</li>
 
-                    <li th:if="${user == null}" class="nav-item align-right">
-                        <!-- El usuario no existe -->
-                        <a th:href="@{/login}" class="nav-link">Iniciar sesion</a>
-                    </li>
-                </ul>
-            </div>
+					<li th:if="${user == null}" class="nav-item align-right">
+						<!-- El usuario no existe -->
+						<a th:href="@{/login}" class="nav-link">Iniciar sesion</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</nav>
 	<!-- End of NAVBar Todos HTML-->
 
-    <!-- Event Section Todos HTML-->
-    <!-- Carrusel -->
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="./img/eventos/first-event.jpg" alt="Descripción de la imagen 1">
-          </div>
-          <!-- -->
-          <div class="swiper-slide">
-            <img src="./img/eventos/second-event.jpg" alt="Descripción de la imagen 2">
-          </div>
-          <!-- -->
-          <div class="swiper-slide">
-            <img src="./img/eventos/third-event.jpg" alt="Descripción de la imagen 3">
-          </div>
-        </div>
-      </div>
-    <!-- End Carrusel -->  
-    <section class="event d-flex align-items-center justify-content-center">
-        <div class="container">
-            <div class="row justify-content-center mb-3">
-                <div class="col-xl-6 col-lg-8">
-                    <h1 >Best Month Events</h1>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-xl-2 col-md-4 col-6">
-                    <div class="category first-event" style="background: url(./img/eventos/first-event.jpg) center;">
-                        <i class="fa-solid fa-pepper-hot "></i>
-                        <h3 ><a th:href="@{/index}"> Mummies Chest</a></h3>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="col-xl-2 col-md-4 col-6 ">
-                    <div class="category second-event" style="background: url(./img/eventos/second-event.jpg) center;">
-                        <i class="fas fa-skull"></i>
-                        <h3><a th:href="@{/index}"> Terrorists Death</a></h3>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="col-xl-2 col-md-4 col-6 ">
-                    <div class="category third-event" style="background: url(./img/eventos/third-event.jpg) center;">
-                        <i class="fa-solid fa-shield-virus"></i>
-                        <h3><a th:href="@{/index}"> Anti-Terrorists</a></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Event Section Todos HTML-->
+	<!-- Event Section Todos HTML-->
+	<!-- Carrusel -->
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<img src="./img/eventos/first-event.jpg" alt="Descripción de la imagen 1">
+			</div>
+			<!-- -->
+			<div class="swiper-slide">
+				<img src="./img/eventos/second-event.jpg" alt="Descripción de la imagen 2">
+			</div>
+			<!-- -->
+			<div class="swiper-slide">
+				<img src="./img/eventos/third-event.jpg" alt="Descripción de la imagen 3">
+			</div>
+		</div>
+	</div>
+	<!-- End Carrusel -->
+	<section class="event d-flex align-items-center justify-content-center">
+		<div class="container">
+			<div class="row justify-content-center mb-3">
+				<div class="col-xl-6 col-lg-8">
+					<h1>Best Month Events</h1>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-xl-2 col-md-4 col-6">
+					<div class="category first-event" style="background: url(./img/eventos/first-event.jpg) center;">
+						<i class="fa-solid fa-pepper-hot "></i>
+						<h3><a th:href="@{/index}"> Mummies Chest</a></h3>
+					</div>
+				</div>
+				<!-- -->
+				<div class="col-xl-2 col-md-4 col-6 ">
+					<div class="category second-event" style="background: url(./img/eventos/second-event.jpg) center;">
+						<i class="fas fa-skull"></i>
+						<h3><a th:href="@{/index}"> Terrorists Death</a></h3>
+					</div>
+				</div>
+				<!-- -->
+				<div class="col-xl-2 col-md-4 col-6 ">
+					<div class="category third-event" style="background: url(./img/eventos/third-event.jpg) center;">
+						<i class="fa-solid fa-shield-virus"></i>
+						<h3><a th:href="@{/index}"> Anti-Terrorists</a></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Event Section Todos HTML-->
 
 	<!-- Parte caja -->
 	<div class="block row">
@@ -169,8 +175,9 @@
 		<div class="block-box col-xl-6">
 			<h2>Titulo de la caja</h2>
 			<div class="box mt-10 md-10 ml-10 mr-10">
-			    <img id="mainImage" th:src="@{'/img/'+ ${url_event_chest} + '/' + ${url_chest_img}}" />
-			    <button id="startButton" onclick="verform()">Open</button>
+				<img id="mainImage" th:src="@{'/img/'+ ${url_event_chest} + '/' + ${url_chest_img}}" />
+				<a class="btn btn-primary" th:href="@{/cajas/{id}(id=${idcaja})}" id="startButton">Open</a>
+
 			</div>
 		</div>
 		<div class="publ col-xl-3">
@@ -182,30 +189,18 @@
 	<!-- Contenido cajas -->
 	<div class="guns row justify-content-center">
 		<div class="guns-title col-xl-8">
-		  <h2>Guns in this box</h2>
+			<h2>Guns in this box</h2>
 		</div>
-		<div class="guns-table col-xl-8">
-		  <table>
-			<tr>
-				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
-				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
-				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
-				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
-			</tr>
-			<tr>
-				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
-				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
-				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
-				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
-			</tr>
-			<tr>
-				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
-				<td><img class="img-fluid" src="./img/publicidad-2.jpg" alt=""></td>
-			</tr>
-		  </table>
+		<div class="guns-table col-xl-8 border">
+			
+			<div class="row">
+				<div th:each="skin: ${listaSkins}" class="col-lg-3 mb-2 pr-lg-1"><img th:src="@{'/img/skins/'+ ${skin.nombre} +'.png'}" alt=""
+						class="img-fluid rounded shadow-sm">
+				</div>
+			</div>
 		</div>
-	  </div>
-	
+	</div>
+
 	<!-- Contenido cajas -->
 
 	<!-- Footer Todos HTML-->
@@ -216,7 +211,8 @@
 					<span><img src="./img/logo-icon.png" alt="Descripción de la imagen">sKings.lt © 2023</span>
 					<p><br>You can get your favourite skins at the best prices.
 						<br>All trades are done automatically using Steam bots.
-						<br>Washington D.C (400521) 4 White House, King, Lost cypher.</p>
+						<br>Washington D.C (400521) 4 White House, King, Lost cypher.
+					</p>
 
 				</div>
 			</div>
@@ -239,9 +235,16 @@
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
 	<script src="cajas.js"></script>
 </body>
+
 </html>

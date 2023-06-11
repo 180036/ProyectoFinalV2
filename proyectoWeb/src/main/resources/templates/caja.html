@@ -1,28 +1,81 @@
 <html xmlsn:th="http://www.thymeleaf.org">
-	<!-- RECIBE Caja llamada caja y skin premiada llamada skin-->
-<div class="form-group">
 
+<head>
+	<link rel="icon" type="image/png" href="./img/logo-icon.png">
+	<title>Title</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	    <label th:text="${skin.nombre}">aaaaa</label>
-	    <p th:text="${skin}"></p>
-		<label>Nombre de la caja:</label>
-		<label th:text="'Nombre de la caja ' + ${caja.nombre}"></label>
-		<br />
-		<label>Precio de la caja:</label>
-		<label th:text="${caja.precio}"></label>
-		<label th:text="'Calidad skin: ' + ${skin.getCs().getNombre()}"></label>
-		<label th:text="${objetoskinarma.id}">ID</label>
-		<button type="button" class="btn btn-info">Abrir (pasa la animacion uo)</button> 
-		
-		<form th:action="@{/guardarArma}"th:object="${objetoskinarma}" method="POST">
-	
-				<label>Nombre del arma personalizado</label>
-				<input type="text" th:field="*{nombre}">
-				<button type="">Guardar</button>
-				
-			</form>
-		
-	
-</div>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!-- Local File CSS -->
+	<link rel="stylesheet" href="home.css">
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="./cajas.css">
+	<!-- scripts -->
+	<script src="https://kit.fontawesome.com/1d143189b2.js" crossorigin="anonymous"></script>
+	<style>
+		.custom-image {
+			max-width: 400px;
+			/* Ajusta el tamaño según tus necesidades */
+			height: auto;
+		}
+
+		body {
+			background-color: violet;
+		}
+
+		#custom-container {
+			background-color: antiquewhite;
+			padding: 20px;
+			border-radius: 10px;
+		}
+
+		.btn-violet {
+			background-color: violet;
+			border-color: black;
+		}
+
+		.btn-violet:hover {
+			background-color:black;
+			border-color: violet;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container" id="custom-container">
+		<div class="row">
+			<div class="col">
+				<div class="form-group text-center">
+					<h1><strong>Te ha tocado:</strong></h1>
+					<img class="img-fluid mx-auto custom-image" th:src="@{'/img/skins/'+ ${skin.nombre} +'.png'}">
+					<h4><strong><span th:text="${skin.getArma().getNombre}">aaa</span></strong><strong
+							th:text="${ ' - ' + skin.nombre}">Nombre de la skin</strong></h4>
+					<br />
+					<div class="row">
+						<div class="col">
+							<label><strong th:text="'Calidad skin: ' + ${skin.getCs().getNombre()}"></strong></label>
+						</div>
+						<div th:if="${objetoskinarma.stattrak}" class="col">
+							<label><strong>Con StatTrak :O</strong></label>
+						</div>
+						<div class="col">
+							<label><strong
+									th:text="'Estado Skin: '+${objetoskinarma.getEstado().getEstado()}">Estado</strong></label>
+						</div>
+					</div>
+					<a class="btn btn-primary btn-violet" th:href="@{/profile}">Ir a inventario</a>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Agrega aquí la referencia a los archivos JavaScript de Bootstrap -->
+
+</body>
 
 </html>
