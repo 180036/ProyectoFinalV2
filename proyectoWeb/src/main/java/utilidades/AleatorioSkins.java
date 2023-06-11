@@ -20,10 +20,14 @@ public abstract class AleatorioSkins {
      * Basada en una lista de skins.
      *
      * @param lista La lista de skins disponibles.
+     * @param rol El rol para aumentar las posibilidades.
      * @return La skin generada aleatoriamente.
      */
     public static Skin skinAleatoria(List<Skin> lista,  int rol) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of git@github.com:180036/ProyectoFinalV2.git
 		Skin skinDevolver = new Skin();
 		Skin skinPC = new Skin();
 		Skin skinR = new Skin();
@@ -31,8 +35,11 @@ public abstract class AleatorioSkins {
 		Skin skinL= new Skin();
 		Skin skinA= new Skin();
 
+<<<<<<< HEAD
 
 	    List<Skin> listComunes = new ArrayList<>();
+=======
+>>>>>>> branch 'master' of git@github.com:180036/ProyectoFinalV2.git
         // Poner pocha a devolver
         for (Skin s : lista) {
         	if (s.getCs().getId() == 1) // A devolver siempre una comun
@@ -50,9 +57,13 @@ public abstract class AleatorioSkins {
         		skinA= s;
             
         }
+<<<<<<< HEAD
      
 		skinDevolver = listComunes.get(random.nextInt(5)); //Asgina una comun a devolver
 		
+=======
+        
+>>>>>>> branch 'master' of git@github.com:180036/ProyectoFinalV2.git
 		if(rol == 0) {
 			if(randomPC())
 				skinDevolver = skinPC;

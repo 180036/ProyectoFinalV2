@@ -35,18 +35,33 @@
 					</div>
 					<!-- End of Title -->
 					<!-- Search -->
+<!--					<div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">-->
+<!--						<select class="custom-select" id="inputGroupSelect01">-->
+<!--							<option selected>Search Profile ...</option>-->
+<!--							<option value="1">One</option>-->
+<!--							<option value="2">Two</option>-->
+<!--							<option value="3">Three</option>-->
+<!--						</select>-->
+<!--					</div>-->
 					<div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">
-						<form class="searchform order-lg-last">
-							<div class="form-group d-flex">
-								<input type="text" class="form-control pl-3" placeholder="Search">
-								</input>
-								<button type="submit" placeholder="" class="form-control search">
-									<span class="fas fa-search text-dark">
-									</span>
-								</button>
-							</div>
-						</form>
+						<select class="custom-select" id="inputGroupSelect01">
+							<option selected>Search Profile ...</option>
+							<option th:each="listaNames : ${listaNames}" th:value="${listaNames}" th:text="${listaNames}">
+							</option>
+						</select>
 					</div>
+
+					<!--					<div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">-->
+					<!--						<form class="searchform order-lg-last">-->
+					<!--							<div class="form-group d-flex">-->
+					<!--								<input type="text" class="form-control pl-3" placeholder="Search Profile ..."></input>-->
+					<!--								<button type="submit" placeholder="" class="form-control search">-->
+					<!--									<span class="fas fa-search text-dark"></span>-->
+					<!--								</button>-->
+					<!--							</div>-->
+					<!--							<ul id="search-results"></ul>-->
+					<!--						</form>-->
+					<!--					</div>-->
 					<!-- End of Search -->
 				</div>
 			</div>
@@ -100,11 +115,19 @@
 					<li class="nav-item">
 						<a th:href="@{/index}" class="nav-link">WebSite</a>
 					</li>
+					<!-- -->
+					<li class="nav-item">
+						<a th:href="@{/FAQ}" class="nav-link">FAQ</a>
+					</li>
 				</ul>
 			</div>
 			<div>
 				<ul class="navbar-nav">
 					<li class="nav-item align-right">
+						<a th:href="@{/payment}" class="nav-link"><img id="payment-img"
+								src="./img/payment/payment_4.png" alt="Donation"></a>
+					</li>
+					<li class="nav-item align-right" hidden>
 						<a th:href="@{/profile}" class="nav-link">Profile</a>
 					</li>
 				</ul>
@@ -117,6 +140,23 @@
 	<div class="profile-container">
 		<div class="row py-5 px-4">
 			<div class="col-xl-10 col-md-10 col-sm-10 mx-auto">
+				<!-- Aviso -->
+
+				<div th:switch="${result}" class="alert alert-primary fade show disposse" role="alert">
+					<div th:case="'submit'" class="submit">
+						<span>The invoice will be sent to you by post.</span>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div th:case="'cancel'" class="submit">
+						<span>You have cancelled the donation.</span>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				</div>
+				<!-- End Aviso -->
 				<div class="bg-white shadow rounded overflow-hidden">
 					<!-- Profile -->
 					<div class="px-4 pt-0 pb-4 bg-dark">
@@ -198,7 +238,7 @@
 		</div>
 	</div>
 	<!-- Profile Container -->
-	
+
 	<!-- Footer Todos HTML-->
 	<div class="end-container row">
 		<div class="col-xl 6">
@@ -207,7 +247,8 @@
 					<span><img src="./img/logo-icon.png" alt="Descripción de la imagen">sKings.lt © 2023</span>
 					<p><br>You can get your favourite skins at the best prices.
 						<br>All trades are done automatically using Steam bots.
-						<br>Washington D.C (400521) 4 White House, King, Lost cypher.</p>
+						<br>Washington D.C (400521) 4 White House, King, Lost cypher.
+					</p>
 
 				</div>
 			</div>
@@ -227,7 +268,12 @@
 		</div>
 	</div>
 	<!-- End Footer Todos HTML-->
-
+	<!-- Aviso -->
+	<div th:switch="${result}" class="alert alert-primary" role="alert">
+		<p th:case="'submit'">This is a primary alert—check it out!</p>
+		<p th:case="'cancel'">You canceled the donation.</p>
+	</div>
+	<!-- End Aviso -->
 
 	<!-- Boostrap -->
 	<!-- Modal Perfil -->
@@ -264,7 +310,11 @@
 	</div>
 	<!-- end Modal Perfil -->
 	<!-- end Boostrap -->
-	
+
+	<!-- Scripts -->
+
+
+
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

@@ -1,5 +1,8 @@
 package com.app.web.controladores;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -10,7 +13,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.servlet.ModelAndView;
+
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 import com.app.web.entidad.Caja;
 import com.app.web.entidad.EstadoArma;
@@ -35,6 +42,7 @@ public class Controlador {
 	private UserServicio servicioUser;
 	
 
+
 	@GetMapping("/cajas")
 	public String listarEstudiantes(Model modelo) {
 		User u = null;
@@ -47,6 +55,72 @@ public class Controlador {
 		modelo.addAttribute("cajas", servicioCaja.listarTodasCajas());
 		modelo.addAttribute("user", u);
 		return "cajas";
+	}
+	//Home links
+	@GetMapping("/")
+	public String paginaWebHome(Model model) {
+		return "home";
+	}
+	//Index links
+	@GetMapping({"/index"})
+	public String paginaWebIndex(Model model) {
+		return "index";
+	}
+	//FAQ links
+	@GetMapping({"/FAQ"})
+	public String paginaWebFAQ(Model model) {
+		return "FAQ";
+	}
+	//Profile links
+	@GetMapping({"/profile"})
+	public String paginaWebProfile(Model model) {
+	/*	User u = null;
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+		    String currentUserName = authentication.getName();
+		     u = servicioUser.obtenerUsuarioPorNombre(currentUserName);
+		    System.out.println(u);
+		}
+		List<ObjetoSkinArma> listaSkins = u.getInventario();
+		for(ObjetoSkinArma osa: listaSkins) {
+			System.out.println("------------------------------------------------");
+			System.out.println("------------------------------------------------");
+			System.out.println("------------------------------------------------");
+			System.out.println("------------------------------------------------");
+			System.out.println("------------------------------------------------");
+			System.out.println("------------------------------------------------");
+			System.out.println("------------------------------------------------"); 
+			System.out.println(osa.getNombre());
+		}*/
+		List<String> listaNames = new ArrayList<>();
+		listaNames.add("Oskar");
+		listaNames.add("Alejandro");
+		listaNames.add("Pepe");		
+		model.addAttribute("listaNames", listaNames);
+		return "profile";
+	}
+	@GetMapping({"/profileSubmit"})
+	public String paginaWebProfileSumit(@RequestParam("result") String result, Model model) {
+		model.addAttribute("result", result);
+		return "profile";
+	}
+	@GetMapping({"/editProfile"})
+	public String paginaWebEditProfile(Model model) {
+		return "editProfile";
+	}
+	//PaymentLinks
+	@GetMapping({"/payment"})
+	public String paginaPayment( Model model) {
+		
+		return "payment";
+	}
+	
+	@GetMapping("/cajasImagen")
+	public String mostrarCaja(@RequestParam("url_event_chest") String url_event_chest, @RequestParam("url_chest_img") String url_chest_img,  Model model) {
+		model.addAttribute("url_event_chest", url_event_chest);
+		model.addAttribute("url_chest_img", url_chest_img);
+	    return "cajas";
+
 	}
 	
 	

@@ -161,10 +161,20 @@ public class ObjetoSkinArma {
         return estado;
     }
 
+    /**
+     * Establece el stattrak asociado al objeto de skin de arma.
+     *
+     * @param estado El estado del arma asociado al objeto de skin de arma.
+     */
 	public boolean isStattrak() {
 		return stattrak;
 	}
 
+	 /**
+     * Establece el stattrak asociado al objeto de skin de arma.
+     *
+     * @param estado El estado del arma asociado al objeto de skin de arma.
+     */
 	public void setStattrak(boolean stattrak) {
 		this.stattrak = stattrak;
 	}
