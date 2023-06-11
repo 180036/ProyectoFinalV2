@@ -172,26 +172,24 @@ public class ProyectoWebApplication implements CommandLineRunner {
 		CalidadSkin cs4 = new CalidadSkin("Mitico");
 		CalidadSkin cs5 = new CalidadSkin("Legendario");
 		CalidadSkin cs6 = new CalidadSkin("Ancestral");
-		CalidadSkin cs7 = new CalidadSkin("Extremadamente raro");
 		repoC.save(cs);
 		repoC.save(cs2);
 		repoC.save(cs3);
 		repoC.save(cs4);
 		repoC.save(cs5);
 		repoC.save(cs6);
-		repoC.save(cs7);
 		
 		//Skin con su cs
 		Skin skin1 = new Skin("DragonLore", arma30, cs5, 1750);
-		Skin skin2 = new Skin("Neo Nair", arma1, cs5, 400);
-		Skin skin3 = new Skin("DragonLore", arma1, cs3, 2000);
-		Skin skin4 = new Skin("DragonLore", arma1, cs4, 2000);
-		Skin skin5 = new Skin("DragonLore", arma1, cs5, 2000);
-		Skin skin6 = new Skin("DragonLore", arma1, cs6, 2000);
-		Skin skin7 = new Skin("DragonLore", arma1, cs2,2000);
-		Skin skin8 = new Skin("DragonLore", arma1, cs2, 2000);
-		Skin skin9 = new Skin("DragonLore", arma1, cs7, 2000);
-		Skin skin10 = new Skin("DragonLore", arma1, cs2, 3000);
+		Skin skin2 = new Skin("Neo Nair", arma1, cs6, 400);
+		Skin skin3 = new Skin("DragonLore", arma1, cs4, 2000);
+		Skin skin4 = new Skin("DragonLore", arma1, cs3, 2000);
+		Skin skin5 = new Skin("DragonLore", arma1, cs2, 2000);
+		Skin skin6 = new Skin("DragonLore", arma1, cs, 2000);
+		Skin skin7 = new Skin("DragonLore", arma1, cs,2000);
+		Skin skin8 = new Skin("DragonLore", arma1, cs, 2000);
+		Skin skin9 = new Skin("DragonLore", arma1, cs, 2000);
+		Skin skin10 = new Skin("DragonLore", arma1, cs, 3000);
 		repoS.save(skin1);
 		repoS.save(skin2);
 		repoS.save(skin3);
@@ -204,7 +202,7 @@ public class ProyectoWebApplication implements CommandLineRunner {
 		repoS.save(skin10);
 		
 		//Insertar skins en una caja
-		Caja caja1 = new Caja("a",2000,skin1,skin2,skin3,skin4,skin5,skin6,skin7,skin8,skin9,skin10);
+		Caja caja1 = new Caja("Caja 1",2000,skin1,skin2,skin3,skin4,skin5,skin6,skin7,skin8,skin9,skin10);
 		repoCa.save(caja1);
 		
 		//Estado Armas

@@ -1,5 +1,6 @@
 package utilidades;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -23,8 +24,6 @@ public abstract class AleatorioSkins {
      */
     public static Skin skinAleatoria(List<Skin> lista,  int rol) {
 
-
-
 		Skin skinDevolver = new Skin();
 		Skin skinPC = new Skin();
 		Skin skinR = new Skin();
@@ -33,10 +32,12 @@ public abstract class AleatorioSkins {
 		Skin skinA= new Skin();
 
 
+	    List<Skin> listComunes = new ArrayList<>();
         // Poner pocha a devolver
         for (Skin s : lista) {
         	if (s.getCs().getId() == 1) // A devolver siempre una comun
-        		skinDevolver = s;
+        		listComunes.add(s);
+        		//skinDevolver = s;
         	if (s.getCs().getId() == 2)
         		skinPC = s;
         	if (s.getCs().getId() == 3)
@@ -50,10 +51,7 @@ public abstract class AleatorioSkins {
             
         }
      
-
-		
-		
-	
+		skinDevolver = listComunes.get(random.nextInt(5)); //Asgina una comun a devolver
 		
 		if(rol == 0) {
 			if(randomPC())
@@ -97,7 +95,6 @@ public abstract class AleatorioSkins {
      * @return true si cumple la condición, false de lo contrario.
      */
     private static boolean randomR() {
-        random = new Random();
         int randomNumber = random.nextInt(5);
         int randomNumber2 = random.nextInt(5);
         return randomNumber == randomNumber2; // 20% 1/5
@@ -109,7 +106,6 @@ public abstract class AleatorioSkins {
      * @return true si cumple la condición, false de lo contrario.
      */
     private static boolean randomM() {
-        random = new Random();
         int randomNumber = random.nextInt(20);
         int randomNumber2 = random.nextInt(20);
         return randomNumber == randomNumber2; // 5% 1/20
@@ -121,7 +117,6 @@ public abstract class AleatorioSkins {
      * @return true si cumple la condición, false de lo contrario.
      */
     private static boolean randomL() {
-        random = new Random();
         int randomNumber = random.nextInt(50);
         int randomNumber2 = random.nextInt(50);
         return randomNumber == randomNumber2; // 2% 1/50
@@ -133,11 +128,11 @@ public abstract class AleatorioSkins {
      * @return true si cumple la condición, false de lo contrario.
      */
     private static boolean randomA() {
-        random = new Random();
         int randomNumber = random.nextInt(100);
         int randomNumber2 = random.nextInt(100);
 		return randomNumber == randomNumber2;  //1% 1/100
 		
     }
+
  
 }

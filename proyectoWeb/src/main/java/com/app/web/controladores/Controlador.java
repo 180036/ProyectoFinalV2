@@ -3,11 +3,14 @@ package com.app.web.controladores;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.app.web.entidad.Caja;
 import com.app.web.entidad.EstadoArma;
@@ -25,18 +28,6 @@ import utilidades.StatTrak;
 
 @Controller
 public class Controlador {
-	/*
-	 * @Autowired private UsuarioServicio servicio;
-	 * 
-	 * @GetMapping("/") public String getIndex() { return "index"; }
-	 * 
-	 * @GetMapping("/inventario/{id}") public String mostrarFormEditar(@PathVariable
-	 * Long id, Model modelo) {
-	 * modelo.addAttribute("inventario",servicio.getInventario(id)); return
-	 * "inventario"; }
-	 */
-	// serviciocaja;
-	// modelo.addAttribute("estudiantes", servicio.listarTodosEstudiantes());
 
 	@Autowired
 	private CajaServicio servicioCaja;
@@ -44,13 +35,34 @@ public class Controlador {
 	private UserServicio servicioUser;
 	
 
-	@GetMapping({ "/cajas", "/" })
+	@GetMapping("/cajas")
 	public String listarEstudiantes(Model modelo) {
-		// mostrar todas las cajas
+		User u = null;
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+		    String currentUserName = authentication.getName();
+		     u = servicioUser.obtenerUsuarioPorNombre(currentUserName);
+		    System.out.println(u);
+		}
 		modelo.addAttribute("cajas", servicioCaja.listarTodasCajas());
-		return "cajas.html";
+		modelo.addAttribute("user", u);
+		return "cajas";
 	}
+	
+	
+	//BORRARRRRR
+	/*@GetMapping("/admin")
+	public ModelAndView rolePage(@AuthenticationPrincipal UserDetails user) {
+		ModelAndView nextPage = new ModelAndView("borrarAdmin");
+		nextPage.addObject("user", user);
+		return nextPage;
+	}*/
 
+	@GetMapping("/login")
+	public String muestraLogin() {
+		return "login";
+	}
+	
 	@GetMapping("/cajas/{id}")
 	public String devolverCaja(@PathVariable Long id, Model modelo) {
 		User u = null;
