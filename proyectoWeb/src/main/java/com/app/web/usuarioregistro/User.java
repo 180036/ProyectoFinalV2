@@ -211,23 +211,6 @@ public class User {
 		this.cantidadArmas = cantidadArmas;
 	}
 
-	/**
-	 * Obtiene la cantidad de cajas abiertas por el usuario.
-	 *
-	 * @return la cantidad de cajas abiertas por el usuario.
-	 */
-	public int getCajasAbiertas() {
-		return cajasAbiertas;
-	}
-
-	/**
-	 * Establece la cantidad de cajas abiertas por el usuario.
-	 *
-	 * @param cajasAbiertas la cantidad de cajas abiertas a establecer.
-	 */
-	public void setCajasAbiertas(int cajasAbiertas) {
-		this.cajasAbiertas = cajasAbiertas;
-	}
 
 	/**
 	 * Obtiene el inventario de objetos de skins y armas del usuario.
@@ -245,6 +228,10 @@ public class User {
 	 */
 	public void setInventario(List<ObjetoSkinArma> inventario) {
 		this.inventario = inventario;
+	}
+	
+	public void sumarCajaAbierta() {
+		this.cajasAbiertas++;
 	}
 	
 	

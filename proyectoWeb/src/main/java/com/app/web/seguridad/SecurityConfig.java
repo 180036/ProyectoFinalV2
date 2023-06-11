@@ -66,12 +66,12 @@ public class SecurityConfig {
 		http.authorizeRequests().
 		requestMatchers("/cajas").permitAll().requestMatchers("**.css","/img/**.png","/img/**.jpg","/img/chest-colaborator-1/**.jpg","/img/chest-colaborator-1/**.png",
 				"/img/chest-colaborator-2/**.png","/img/chest-event-1/**.png", "/img/chest-event-2/**.png","/img/chest-event-3/**.png","/img/colaborators/**.jpg",
-				"/img/eventos/**.jpg", "**.js","**.html").permitAll().requestMatchers("/").permitAll()
+				"/img/eventos/**.jpg", "/img/payment/**.png","**.js","**.html").permitAll().requestMatchers("/").permitAll().requestMatchers("/FAQ").permitAll()
             .anyRequest().authenticated() 
             .and()
         .formLogin()
             .loginPage("/login")
-            .defaultSuccessUrl("/").permitAll();
+            .defaultSuccessUrl("/index").permitAll();
             
 		
         http.logout()

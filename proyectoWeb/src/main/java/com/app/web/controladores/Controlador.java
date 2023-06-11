@@ -43,7 +43,7 @@ public class Controlador {
 	
 
 
-	@GetMapping("/cajas")
+	/*@GetMapping("/cajas")
 	public String listarEstudiantes(Model modelo) {
 		User u = null;
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -52,36 +52,65 @@ public class Controlador {
 		     u = servicioUser.obtenerUsuarioPorNombre(currentUserName);
 		    System.out.println(u);
 		}
-		modelo.addAttribute("cajas", servicioCaja.listarTodasCajas());
 		modelo.addAttribute("user", u);
+		modelo.addAttribute("cajas", servicioCaja.listarTodasCajas());
 		return "cajas";
-	}
+	}*/
 	//Home links
 	@GetMapping("/")
 	public String paginaWebHome(Model model) {
-		return "home";
-	}
-	//Index links
-	@GetMapping({"/index"})
-	public String paginaWebIndex(Model model) {
-		return "index";
-	}
-	//FAQ links
-	@GetMapping({"/FAQ"})
-	public String paginaWebFAQ(Model model) {
-		return "FAQ";
-	}
-	//Profile links
-	@GetMapping({"/profile"})
-	public String paginaWebProfile(Model model) {
-	/*	User u = null;
+		User u = null;
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
 		    String currentUserName = authentication.getName();
 		     u = servicioUser.obtenerUsuarioPorNombre(currentUserName);
 		    System.out.println(u);
 		}
-		List<ObjetoSkinArma> listaSkins = u.getInventario();
+		model.addAttribute("user", u);
+		return "home";
+	}
+	//Index links
+	@GetMapping("/index")
+	public String paginaWebIndex(Model model) {
+		User u = null;
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+		    String currentUserName = authentication.getName();
+		     u = servicioUser.obtenerUsuarioPorNombre(currentUserName);
+		    System.out.println(u);
+		}
+		model.addAttribute("user", u);
+		return "index";
+	}
+	//FAQ links
+	@GetMapping("/FAQ")
+	public String paginaWebFAQ(Model model) {
+		User u = null;
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+		    String currentUserName = authentication.getName();
+		     u = servicioUser.obtenerUsuarioPorNombre(currentUserName);
+		    System.out.println(u);
+		}
+		model.addAttribute("user", u);
+		return "FAQ";
+	}
+	//Profile links
+	@GetMapping("/profile")
+	public String paginaWebProfile(Model model) {
+		
+		User u = null;
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+		    String currentUserName = authentication.getName();
+		     u = servicioUser.obtenerUsuarioPorNombre(currentUserName);
+		    System.out.println(u);
+		}
+		List<ObjetoSkinArma> listaSkins = null;
+		if(u != null) {
+			listaSkins = u.getInventario();
+			
+		}
 		for(ObjetoSkinArma osa: listaSkins) {
 			System.out.println("------------------------------------------------");
 			System.out.println("------------------------------------------------");
@@ -91,16 +120,24 @@ public class Controlador {
 			System.out.println("------------------------------------------------");
 			System.out.println("------------------------------------------------"); 
 			System.out.println(osa.getNombre());
-		}*/
-		List<String> listaNames = new ArrayList<>();
-		listaNames.add("Oskar");
-		listaNames.add("Alejandro");
-		listaNames.add("Pepe");		
-		model.addAttribute("listaNames", listaNames);
+		}
+		
+		model.addAttribute("listaNames", servicioUser.listarTodosUsuarios());
+		model.addAttribute("listaSkins", listaSkins);
+		model.addAttribute("user", u);
+		
 		return "profile";
 	}
 	@GetMapping({"/profileSubmit"})
 	public String paginaWebProfileSumit(@RequestParam("result") String result, Model model) {
+		User u = null;
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+		    String currentUserName = authentication.getName();
+		     u = servicioUser.obtenerUsuarioPorNombre(currentUserName);
+		    System.out.println(u);
+		}
+		model.addAttribute("user", u);
 		model.addAttribute("result", result);
 		return "profile";
 	}
@@ -117,6 +154,14 @@ public class Controlador {
 	
 	@GetMapping("/cajasImagen")
 	public String mostrarCaja(@RequestParam("url_event_chest") String url_event_chest, @RequestParam("url_chest_img") String url_chest_img,  Model model) {
+		User u = null;
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+		    String currentUserName = authentication.getName();
+		     u = servicioUser.obtenerUsuarioPorNombre(currentUserName);
+		    System.out.println(u);
+		}
+		model.addAttribute("user", u);
 		model.addAttribute("url_event_chest", url_event_chest);
 		model.addAttribute("url_chest_img", url_chest_img);
 	    return "cajas";
@@ -132,6 +177,12 @@ public class Controlador {
 		return nextPage;
 	}*/
 
+	
+	@GetMapping("/loginNuestro")
+	public String muestraLoginNuestro() {
+		return "loginNuestro";
+	}
+	
 	@GetMapping("/login")
 	public String muestraLogin() {
 		return "login";
@@ -152,7 +203,7 @@ public class Controlador {
 
 		//User user = (User) principal;
 		osa.setUsuario(u);
-		int rol = CompruebaRol.compruebaRol(u.getAuthorities()); // NO entra¿?
+		int rol = CompruebaRol.compruebaRol(u.getAuthorities()); 
 		
 		Caja c = servicioCaja.obtenerCajaPorId(id);
 
@@ -167,7 +218,9 @@ public class Controlador {
 		osa.setNombre(s.getNombre()); // Nombre se le pregunta al usuario para cambiarlo
 		if (tieneST)
 			osa.setStattrak(true);
-
+		if(u != null)
+			u.sumarCajaAbierta();
+		
 		modelo.addAttribute("caja", c);
 		modelo.addAttribute("skin", s);
 		modelo.addAttribute("objetoskinarma", osa);

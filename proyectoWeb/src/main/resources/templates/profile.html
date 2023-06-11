@@ -35,18 +35,20 @@
 					</div>
 					<!-- End of Title -->
 					<!-- Search -->
-<!--					<div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">-->
-<!--						<select class="custom-select" id="inputGroupSelect01">-->
-<!--							<option selected>Search Profile ...</option>-->
-<!--							<option value="1">One</option>-->
-<!--							<option value="2">Two</option>-->
-<!--							<option value="3">Three</option>-->
-<!--						</select>-->
-<!--					</div>-->
+					<!--					<div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">-->
+					<!--						<select class="custom-select" id="inputGroupSelect01">-->
+					<!--							<option selected>Search Profile ...</option>-->
+					<!--							<option value="1">One</option>-->
+					<!--							<option value="2">Two</option>-->
+					<!--							<option value="3">Three</option>-->
+					<!--						</select>-->
+					<!--					</div>-->
+
 					<div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">
 						<select class="custom-select" id="inputGroupSelect01">
 							<option selected>Search Profile ...</option>
-							<option th:each="listaNames : ${listaNames}" th:value="${listaNames}" th:text="${listaNames}">
+							<option th:each="listaName : ${listaNames}" th:value="${listaName.name}"
+								th:text="${listaName.name}">
 							</option>
 						</select>
 					</div>
@@ -78,7 +80,7 @@
                         </a>
                         -->
 						<!-- -->
-						<a href="https://twitter.com/OskarasStankev1"
+						<a target="_blank" href="https://twitter.com/OskarasStankev1"
 							class="d-flex align-items-center justify-content-center">
 							<span class="fab fa-twitter">
 								<i class="sr-only">Twitter</i>
@@ -129,6 +131,15 @@
 					</li>
 					<li class="nav-item align-right" hidden>
 						<a th:href="@{/profile}" class="nav-link">Profile</a>
+					</li>
+					<li th:if="${user != null}" class="nav-item align-right">
+						<!-- El usuario existe -->
+						<a th:href="@{/logout}" class="nav-link">Logout</a>
+					</li>
+
+					<li th:if="${user == null}" class="nav-item align-right">
+						<!-- El usuario no existe -->
+						<a th:href="@{/login}" class="nav-link">Iniciar sesion</a>
 					</li>
 				</ul>
 			</div>
