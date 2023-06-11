@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.app.web.entidad.ObjetoSkinArma;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -50,13 +51,13 @@ public class User {
 	@Column(name = "puntos")
 	private int puntos;
 	
-	@Column(name = "cantidadarmas")
-	private int cantidadArmas;
+	/*@Column(name = "cantidadarmas") //No hace falta ya que usamos DAO. inventario.size();
+	private int cantidadArmas;*/
 	
 	@Column(name = "cajasAbiertas")
 	private int cajasAbiertas;
 	
-	@OneToMany(mappedBy = "usuario")
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true )
 	List<ObjetoSkinArma> inventario;
 		
 	/**
@@ -72,7 +73,7 @@ public class User {
 	    this.password = password;
 	    this.authorities = authorities;
 	    this.cajasAbiertas = 0;
-	    this.cantidadArmas = 0;
+	    this.puntos=100;
 	}
 
 	/**
@@ -94,7 +95,32 @@ public class User {
 	    this.urlPerfil = urlPerfil;
 	    this.puntos = 100;
 	    this.cajasAbiertas = 0;
-	    this.cantidadArmas = 0;
+	}
+	
+	/**
+	 * Crea un nuevo objeto User con el nombre, la contraseña, las autoridades, el correo electrónico
+	 * y la URL del perfil especificados.
+	 *
+	 * @param name         Nombre del usuario.
+	 * @param password     Contraseña del usuario.
+	 * @param email        Correo electrónico del usuario.
+	 */
+
+	public User(String name, String password, String email) {
+		super();
+		this.name = name;
+		this.password = password;
+		this.email = email;
+		this.puntos=100;
+	}
+	
+
+	public User(String name, String password, String email, List<Authority> authorities) {
+		super();
+		this.name = name;
+		this.password = password;
+		this.authorities = authorities;
+		this.email = email;
 	}
 
 	/**
@@ -194,25 +220,6 @@ public class User {
 	}
 
 	/**
-	 * Obtiene la cantidad de armas del usuario.
-	 *
-	 * @return la cantidad de armas del usuario.
-	 */
-	public int getCantidadArmas() {
-		return cantidadArmas;
-	}
-
-	/**
-	 * Establece la cantidad de armas del usuario.
-	 *
-	 * @param cantidadArmas la cantidad de armas a establecer.
-	 */
-	public void setCantidadArmas(int cantidadArmas) {
-		this.cantidadArmas = cantidadArmas;
-	}
-
-
-	/**
 	 * Obtiene el inventario de objetos de skins y armas del usuario.
 	 *
 	 * @return el inventario de objetos de skins y armas del usuario.
@@ -230,9 +237,36 @@ public class User {
 		this.inventario = inventario;
 	}
 	
+	//COMENTAR
+	
 	public void sumarCajaAbierta() {
 		this.cajasAbiertas++;
 	}
+
+	public String getUrlPerfil() {
+		return urlPerfil;
+	}
+
+	public void setUrlPerfil(String urlPerfil) {
+		this.urlPerfil = urlPerfil;
+	}
+
+	public int getPuntos() {
+		return puntos;
+	}
+
+	public void setPuntos(int puntos) {
+		this.puntos = puntos;
+	}
+
+	public int getCajasAbiertas() {
+		return cajasAbiertas;
+	}
+
+	public void setCajasAbiertas(int cajasAbiertas) {
+		this.cajasAbiertas = cajasAbiertas;
+	}
+	
 	
 	
 

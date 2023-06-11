@@ -1,32 +1,34 @@
 package com.app.web.controladores;
 
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-import org.springframework.web.servlet.ModelAndView;
-
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.multipart.MultipartFile;
 
 import com.app.web.entidad.Caja;
 import com.app.web.entidad.EstadoArma;
+import com.app.web.entidad.Image;
 import com.app.web.entidad.ObjetoSkinArma;
 import com.app.web.entidad.Skin;
+import com.app.web.repositorios.AuthorityRepositorio;
+import com.app.web.repositorios.ImageRepository;
 import com.app.web.servicios.CajaServicio;
 import com.app.web.servicios.UserServicio;
+import com.app.web.usuarioregistro.AuthorityName;
 import com.app.web.usuarioregistro.User;
 
+import jakarta.servlet.http.HttpSession;
 import utilidades.AleatorioEstadoArma;
 import utilidades.AleatorioSkins;
 import utilidades.CompruebaRol;
@@ -40,7 +42,10 @@ public class Controlador {
 	private CajaServicio servicioCaja;
 	@Autowired
 	private UserServicio servicioUser;
-	
+	@Autowired(required=true)
+	private AuthorityRepositorio authRepo;
+	@Autowired
+	private ImageRepository imageRepo;
 
 
 	/*@GetMapping("/cajas")
@@ -111,17 +116,10 @@ public class Controlador {
 			listaSkins = u.getInventario();
 			
 		}
-		for(ObjetoSkinArma osa: listaSkins) {
-			System.out.println("------------------------------------------------");
-			System.out.println("------------------------------------------------");
-			System.out.println("------------------------------------------------");
-			System.out.println("------------------------------------------------");
-			System.out.println("------------------------------------------------");
-			System.out.println("------------------------------------------------");
-			System.out.println("------------------------------------------------"); 
-			System.out.println(osa.getNombre());
-		}
+		//Crear usuario 1 con la imagen 1. Asi el usuario 4 le corresponde el id de la imagen 4 :)
+		Image image = imageRepo.findById(u.getId()).orElse(null);
 		
+	    model.addAttribute("image", image);
 		model.addAttribute("listaNames", servicioUser.listarTodosUsuarios());
 		model.addAttribute("listaSkins", listaSkins);
 		model.addAttribute("user", u);
@@ -137,14 +135,17 @@ public class Controlador {
 		     u = servicioUser.obtenerUsuarioPorNombre(currentUserName);
 		    System.out.println(u);
 		}
+
 		model.addAttribute("user", u);
 		model.addAttribute("result", result);
 		return "profile";
 	}
+	
 	@GetMapping({"/editProfile"})
 	public String paginaWebEditProfile(Model model) {
 		return "editProfile";
 	}
+	
 	//PaymentLinks
 	@GetMapping({"/payment"})
 	public String paginaPayment( Model model) {
@@ -187,6 +188,38 @@ public class Controlador {
 	public String muestraLogin() {
 		return "login";
 	}
+	@GetMapping("/guardarUsuario")
+	public String mostrarFormGuardarUsuario() {
+		return "guardarUsuario";
+	}
+	@PostMapping("/eliminarUsuario")
+	public String eliminarUsuario(HttpSession session) {
+		User u = null;
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+		    String currentUserName = authentication.getName();
+		     u = servicioUser.obtenerUsuarioPorNombre(currentUserName);
+		    System.out.println(u);
+		}
+		
+		if(u!= null) {
+			servicioUser.eliminarUsuario(u.getId());
+			session.invalidate();	
+		}
+					
+		 
+		return "redirect:/login?logout";
+	}
+	
+	@PostMapping("/guardarUser")
+	public String guardarUser(@RequestParam("nombre") String nombre, @RequestParam("email") String email, @RequestParam("contrasena") String contrasena) {
+		//User u = new User(nombre, new BCryptPasswordEncoder().encode(contrasena), email, List.of(this.authRepo.findByName(AuthorityName.USER).get()));
+		//System.out.println(List.of(this.authRepo.findByName(AuthorityName.USER).get()));
+		
+		User u = new User(nombre, new BCryptPasswordEncoder().encode(contrasena), email, List.of(this.authRepo.findByName(AuthorityName.USER).get()));
+		servicioUser.guardarUsuario(u);
+		return "redirect:/login";
+	}
 	
 	@GetMapping("/cajas/{id}")
 	public String devolverCaja(@PathVariable Long id, Model modelo) {
@@ -226,5 +259,7 @@ public class Controlador {
 		modelo.addAttribute("objetoskinarma", osa);
 		return "caja";
 	}
+	
+
 
 }

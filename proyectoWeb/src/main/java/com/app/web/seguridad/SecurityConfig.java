@@ -2,6 +2,7 @@ package com.app.web.seguridad;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -66,7 +67,8 @@ public class SecurityConfig {
 		http.authorizeRequests().
 		requestMatchers("/cajas").permitAll().requestMatchers("**.css","/img/**.png","/img/**.jpg","/img/chest-colaborator-1/**.jpg","/img/chest-colaborator-1/**.png",
 				"/img/chest-colaborator-2/**.png","/img/chest-event-1/**.png", "/img/chest-event-2/**.png","/img/chest-event-3/**.png","/img/colaborators/**.jpg",
-				"/img/eventos/**.jpg", "/img/payment/**.png","**.js","**.html").permitAll().requestMatchers("/").permitAll().requestMatchers("/FAQ").permitAll()
+				"/img/eventos/**.jpg", "/img/payment/**.png","**.js","**.html").permitAll().requestMatchers("/").permitAll().requestMatchers("/FAQ").permitAll().
+		requestMatchers("/guardarUsuario").permitAll().requestMatchers(HttpMethod.POST,"/guardarUser").permitAll()
             .anyRequest().authenticated() 
             .and()
         .formLogin()

@@ -152,8 +152,8 @@
 		<div class="row py-5 px-4">
 			<div class="col-xl-10 col-md-10 col-sm-10 mx-auto">
 				<!-- Aviso -->
-
-				<div th:switch="${result}" class="alert alert-primary fade show disposse" role="alert">
+				
+				<div th:switch="${result}" th:classappend="${result != null} ? 'alert alert-primary fade show disposse' : ''" role="alert">
 					<div th:case="'submit'" class="submit">
 						<span>The invoice will be sent to you by post.</span>
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -181,8 +181,8 @@
 								</button>
 							</div>
 							<div class="media-body mb-5 text-white">
-								<h4 class="mt-0 mb-0">Nick</h4>
-								<p class="small mb-4"> Puntos</p>
+								<h4 th:text="${user.name}"class="mt-0 mb-0">Nick</h4>
+								<p th:text="${user.puntos} + ' puntos'" class="small mb-4"> Puntos</p>
 							</div>
 						</div>
 					</div>
@@ -192,11 +192,16 @@
 					<div class="bg-light p-4 d-flex justify-content-end text-center">
 						<ul class="list-inline mb-0">
 							<li class="list-inline-item">
-								<h5 class="font-weight-bold mb-0 d-block">Numero Cantidad de armas</h5><small
+								<form id="formEliminar" th:action="@{/eliminarUsuario}" method="post">
+								<button id="eliminarBtn" class="btn btn-primary btn-dark">Eliminar usuario</button>
+								</form>
+							</li>
+							<li class="list-inline-item">
+								<h5 th:text="${user.inventario.size()}"class="font-weight-bold mb-0 d-block">Numero Cantidad de armas</h5><small
 									class="text-muted"> <i class="fa fa-picture-o mr-1"></i>Cantidad de armas</small>
 							</li>
 							<li class="list-inline-item">
-								<h5 class="font-weight-bold mb-0 d-block">Cantidad de cajas abiertas</h5><small
+								<h5 th:text="${user.cajasAbiertas}" class="font-weight-bold mb-0 d-block">Cantidad de cajas abiertas</h5><small
 									class="text-muted"> <i class="fa fa-user-circle-o mr-1"></i>Cajas abiertas</small>
 							</li>
 						</ul>
@@ -280,7 +285,7 @@
 	</div>
 	<!-- End Footer Todos HTML-->
 	<!-- Aviso -->
-	<div th:switch="${result}" class="alert alert-primary" role="alert">
+	<div th:switch="${result}" th:classappend="${result != null} ? 'alert alert-primary fade show disposse' : ''" role="alert">
 		<p th:case="'submit'">This is a primary alert—check it out!</p>
 		<p th:case="'cancel'">You canceled the donation.</p>
 	</div>
@@ -336,6 +341,19 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+		<script>
+        $(document).ready(function() {
+            $('#eliminarBtn').click(function() {
+                // Mostrar la ventana de confirmación
+                var confirmacion = confirm('¿Estás seguro de eliminar al usuario?');
+                
+                // Si el usuario confirma, enviar el formulario
+                if (confirmacion) {
+                    $(this).closest('#formEliminar').submit();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

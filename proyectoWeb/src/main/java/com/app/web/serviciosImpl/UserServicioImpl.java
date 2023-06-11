@@ -1,4 +1,4 @@
-package com.app.web.servicios;
+package com.app.web.serviciosImpl;
 
 import java.util.List;
 
@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.web.repositorios.UserRepository;
+import com.app.web.servicios.UserServicio;
 import com.app.web.usuarioregistro.User;
 
 @Service

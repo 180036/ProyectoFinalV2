@@ -1,5 +1,7 @@
 package com.app.web.usuarioregistro;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -14,7 +16,7 @@ import jakarta.persistence.Id;
  * @version: 1.0.6v
  */
 @Entity(name = "autorities")
-public class Authority {
+public class Authority implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
