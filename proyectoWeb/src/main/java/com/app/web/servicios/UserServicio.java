@@ -12,5 +12,5 @@ public interface UserServicio {
 	public User actualizarUsuario(User usuario);
 	public void eliminarUsuario(Long id);
 	public User obtenerUsuarioPorNombre(String nombre);
-
+	public User obtenerUsuarioPorEmail(String email);
 }

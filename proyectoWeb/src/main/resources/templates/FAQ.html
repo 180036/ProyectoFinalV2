@@ -115,6 +115,10 @@
 	<!-- End of NAVBar Todos HTML-->
 
 	<!-- Preguntas -->
+
+	<div th:if="${param.pregunta}">
+		<p class="text-danger">La pregunta no se ha enviado</p>
+	</div>
 	<div class="container">
 		<div class="title">
 			<h1>FAQ</h1>
@@ -180,19 +184,23 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<div class="modal-body">
-					Riht over here your question, thank you:
-				</div>
-				<div class="container-form">
-					<form class="form">
-						<textarea id="miTextArea" class="textarea" maxlength="75"
-							placeholder="Write your question, please."></textarea>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-success">Save changes</button>
-				</div>
+				<form th:action="@{/pregunta}">
+
+					<div class="modal-body">
+						Right over here your question, thank you:
+					</div>
+					<div class="container-form">
+						
+							<textarea name="pregunta" id="miTextArea" class="textarea" maxlength="75"
+								placeholder="Write your question, please."></textarea>
+					
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+						<button type="sumbit" class="btn btn-success">Save changes</button>
+					</div>
+				</form>
+
 			</div>
 		</div>
 	</div>

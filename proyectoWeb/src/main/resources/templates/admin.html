@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlsn:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Editar de estudiantes</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="row">
+			<h1>Funciones de admin</h1>
+		</div>
+		
+		 <div th:if="${param.errorUsuario}">
+				<p class="text-danger">No se puede crear/editar el usuario con el mismo nombre o email</p>
+			</div> 
+			 <div th:if="${param.creado}">
+				<p class="text-success">Se guardo el usuario perfectamente :D</p>
+			</div> 
+			
+		<table class="table table-striped table-bordered">
+			<tbody>
+				<tr>
+					<td> <a th:href="@{/admin/listar}" class="btn btn-primary" style="text-align: center;">Lista de usuarios</a>
+					</td>
+					<td>
+						<a th:href="@{/admin/nuevo}" class="btn btn-primary">Agregar usuario</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</body>

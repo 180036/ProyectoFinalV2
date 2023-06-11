@@ -69,6 +69,7 @@ public class SecurityConfig {
 				"/img/chest-colaborator-2/**.png","/img/chest-event-1/**.png", "/img/chest-event-2/**.png","/img/chest-event-3/**.png","/img/colaborators/**.jpg",
 				"/img/eventos/**.jpg", "/img/payment/**.png","**.js","**.html").permitAll().requestMatchers("/").permitAll().requestMatchers("/FAQ").permitAll().
 		requestMatchers("/guardarUsuario").permitAll().requestMatchers(HttpMethod.POST,"/guardarUser").permitAll()
+		.requestMatchers("/admin").hasAuthority("ADMIN")
             .anyRequest().authenticated() 
             .and()
         .formLogin()

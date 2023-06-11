@@ -57,4 +57,16 @@ public class UserServicioImpl implements UserServicio{
 		return null;
 	}
 
+	@Override
+	public User obtenerUsuarioPorEmail(String email) {
+		// TODO Auto-generated method stub
+		List<User> lista = listarTodosUsuarios(); 
+		for(User s: lista) {
+			if(s.getEmail().equalsIgnoreCase(email)) {
+				return s;
+			}
+		}
+		return null;
+	}
+
 }

@@ -1,12 +1,13 @@
 package com.app.web.controladores;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,15 +15,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.app.web.entidad.Caja;
 import com.app.web.entidad.EstadoArma;
-import com.app.web.entidad.Image;
 import com.app.web.entidad.ObjetoSkinArma;
+import com.app.web.entidad.Pregunta;
 import com.app.web.entidad.Skin;
 import com.app.web.repositorios.AuthorityRepositorio;
-import com.app.web.repositorios.ImageRepository;
+import com.app.web.repositorios.PreguntaRepositorio;
 import com.app.web.servicios.CajaServicio;
 import com.app.web.servicios.UserServicio;
 import com.app.web.usuarioregistro.AuthorityName;
@@ -45,8 +46,7 @@ public class Controlador {
 	@Autowired(required=true)
 	private AuthorityRepositorio authRepo;
 	@Autowired
-	private ImageRepository imageRepo;
-
+	private PreguntaRepositorio preguntaRepo;
 
 	/*@GetMapping("/cajas")
 	public String listarEstudiantes(Model modelo) {
@@ -116,10 +116,7 @@ public class Controlador {
 			listaSkins = u.getInventario();
 			
 		}
-		//Crear usuario 1 con la imagen 1. Asi el usuario 4 le corresponde el id de la imagen 4 :)
-		Image image = imageRepo.findById(u.getId()).orElse(null);
 		
-	    model.addAttribute("image", image);
 		model.addAttribute("listaNames", servicioUser.listarTodosUsuarios());
 		model.addAttribute("listaSkins", listaSkins);
 		model.addAttribute("user", u);
@@ -169,20 +166,14 @@ public class Controlador {
 
 	}
 	
-	
-	//BORRARRRRR
-	/*@GetMapping("/admin")
+	@GetMapping("/admin")
 	public ModelAndView rolePage(@AuthenticationPrincipal UserDetails user) {
-		ModelAndView nextPage = new ModelAndView("borrarAdmin");
+		ModelAndView nextPage = new ModelAndView("admin");
 		nextPage.addObject("user", user);
 		return nextPage;
-	}*/
+	}
 
 	
-	@GetMapping("/loginNuestro")
-	public String muestraLoginNuestro() {
-		return "loginNuestro";
-	}
 	
 	@GetMapping("/login")
 	public String muestraLogin() {
@@ -215,11 +206,17 @@ public class Controlador {
 	public String guardarUser(@RequestParam("nombre") String nombre, @RequestParam("email") String email, @RequestParam("contrasena") String contrasena) {
 		//User u = new User(nombre, new BCryptPasswordEncoder().encode(contrasena), email, List.of(this.authRepo.findByName(AuthorityName.USER).get()));
 		//System.out.println(List.of(this.authRepo.findByName(AuthorityName.USER).get()));
+	
+		if(servicioUser.obtenerUsuarioPorNombre(nombre)== null && servicioUser.obtenerUsuarioPorEmail(email) == null)
+		{
+			User u = new User(nombre, new BCryptPasswordEncoder().encode(contrasena), email, List.of(this.authRepo.findByName(AuthorityName.USER).get()));
+			
+			servicioUser.guardarUsuario(u);
+			return "redirect:/login";
+		}
+		return "redirect:/";						
 		
-		User u = new User(nombre, new BCryptPasswordEncoder().encode(contrasena), email, List.of(this.authRepo.findByName(AuthorityName.USER).get()));
-		servicioUser.guardarUsuario(u);
-		return "redirect:/login";
-	}
+	 }
 	
 	@GetMapping("/cajas/{id}")
 	public String devolverCaja(@PathVariable Long id, Model modelo) {
@@ -259,7 +256,14 @@ public class Controlador {
 		modelo.addAttribute("objetoskinarma", osa);
 		return "caja";
 	}
-	
+	@GetMapping("/pregunta")
+	public String guardarPregunta(@RequestParam("pregunta") String pregunta) {
+		if(!pregunta.isBlank()) {
+			preguntaRepo.save(new Pregunta(pregunta));
+			return "redirect:/FAQ";
+		}
+		return "redirect:/FAQ?pregunta";
+	}
 
 
 }

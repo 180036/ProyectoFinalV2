@@ -14,6 +14,7 @@ import com.app.web.entidad.CalidadSkin;
 import com.app.web.entidad.EstadoArma;
 import com.app.web.entidad.ModeloArma;
 import com.app.web.entidad.ObjetoSkinArma;
+import com.app.web.entidad.Pregunta;
 import com.app.web.entidad.Skin;
 import com.app.web.repositorios.ArmaRepositorio;
 import com.app.web.repositorios.AuthorityRepositorio;
@@ -22,6 +23,7 @@ import com.app.web.repositorios.CalidadskinRepositorio;
 import com.app.web.repositorios.EstadoarmaRepositorio;
 import com.app.web.repositorios.ModeloarmaRepositorio;
 import com.app.web.repositorios.ObjetoskinarmaRepositorio;
+import com.app.web.repositorios.PreguntaRepositorio;
 import com.app.web.repositorios.SkinRepositorio;
 import com.app.web.repositorios.UserRepository;
 import com.app.web.usuarioregistro.Authority;
@@ -53,11 +55,14 @@ public class ProyectoWebApplication implements CommandLineRunner {
 	private UserRepository userRepo;
 	@Autowired(required=true)
 	private AuthorityRepositorio authRepo;
+	@Autowired(required=true)
+	private PreguntaRepositorio preguntaRepo;
+
 	
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		//inicial(); //Datos iniciales que existiran previamente en la BD
+		inicial(); //Datos iniciales que existiran previamente en la BD
 	}
 	
 	private void inicial() {
@@ -295,6 +300,9 @@ public class ProyectoWebApplication implements CommandLineRunner {
 		//Relacion mucho a muchos, potente
 		ObjetoSkinArma osa1 = new ObjetoSkinArma("Mi armita reshulona", 10000, ancestral2, prueba, eaBS);
 		repoO.save(osa1);
+		
+		Pregunta p1= new Pregunta("Una preguntilla profezo");
+		preguntaRepo.save(p1);
 		
 		
 	}
