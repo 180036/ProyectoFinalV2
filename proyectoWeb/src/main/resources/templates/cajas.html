@@ -3,7 +3,7 @@
 
 <head>
 	<link rel="icon" type="image/png" href="./img/logo-icon.png">
-	<title>Title</title>
+	<title>Skings</title>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -192,10 +192,10 @@
 			<h2>Guns in this box</h2>
 		</div>
 		<div class="guns-table col-xl-8 border">
-			
+
 			<div class="row">
-				<div th:each="skin: ${listaSkins}" class="col-lg-3 mb-2 pr-lg-1"><img th:src="@{'/img/skins/'+ ${skin.nombre} +'.png'}" alt=""
-						class="img-fluid rounded shadow-sm">
+				<div th:each="skin: ${listaSkins}" class="col-lg-3 mb-2 pr-lg-1"><img
+						th:src="@{'/img/skins/'+ ${skin.nombre} +'.png'}" alt="" class="img-fluid rounded shadow-sm">
 				</div>
 			</div>
 		</div>

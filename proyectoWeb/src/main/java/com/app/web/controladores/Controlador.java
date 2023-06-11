@@ -68,6 +68,12 @@ public class Controlador {
 		return "cajas";
 	}*/
 	//Home links
+	/**
+	 * Muestra la página de inicio + se comprueba que exista el usuario.
+	 *
+	 * @param model El modelo de la vista.
+	 * @return El nombre de la vista "home".
+	 */
 	@GetMapping("/")
 	public String paginaWebHome(Model model) {
 		User u = null;
@@ -81,6 +87,12 @@ public class Controlador {
 		return "home";
 	}
 	//Index links
+	/**
+	 * Muestra la página de índice + se comprueba que exista el usuario.
+	 *
+	 * @param model El modelo de la vista.
+	 * @return El nombre de la vista "index".
+	 */
 	@GetMapping("/index")
 	public String paginaWebIndex(Model model) {
 		User u = null;
@@ -94,6 +106,12 @@ public class Controlador {
 		return "index";
 	}
 	//FAQ links
+	/**
+	 * Muestra la página de preguntas frecuentes + se comprueba que exista el usuario..
+	 *
+	 * @param model El modelo de la vista.
+	 * @return El nombre de la vista "FAQ".
+	 */
 	@GetMapping("/FAQ")
 	public String paginaWebFAQ(Model model) {
 		User u = null;
@@ -107,6 +125,12 @@ public class Controlador {
 		return "FAQ";
 	}
 	//Profile links
+	/**
+	 * Muestra la página de perfil del usuario .
+	 *
+	 * @param model El modelo de la vista.
+	 * @return El nombre de la vista "profile".
+	 */
 	@GetMapping("/profile")
 	public String paginaWebProfile(Model model) {
 		
@@ -129,6 +153,13 @@ public class Controlador {
 		
 		return "profile";
 	}
+	/**
+	 * Muestra la página de perfil del usuario después de enviar un formulario.
+	 *
+	 * @param result El resultado del formulario.
+	 * @param model  El modelo de la vista.
+	 * @return El nombre de la vista "profile".
+	 */
 	@GetMapping({"/profileSubmit"})
 	public String paginaWebProfileSumit(@RequestParam("result") String result, Model model) {
 		User u = null;
@@ -152,18 +183,27 @@ public class Controlador {
 		return "profile";
 	}
 	
-	@GetMapping({"/editProfile"})
-	public String paginaWebEditProfile(Model model) {
-		return "editProfile";
-	}
-	
 	//PaymentLinks
+	/**
+	 * Muestra la página de pago.
+	 *
+	 * @param model El modelo de la vista.
+	 * @return El nombre de la vista "payment".
+	 */
 	@GetMapping({"/payment"})
 	public String paginaPayment( Model model) {
 		
 		return "payment";
 	}
 	
+	/**
+	 * Muestra la página de cajas con imágenes.
+	 *
+	 * @param url_event_chest La URL del evento de la caja.
+	 * @param url_chest_img    La URL de la imagen de la caja.
+	 * @param model           El modelo de la vista.
+	 * @return El nombre de la vista "cajas".
+	 */
 	@GetMapping("/cajasImagen")
 	public String mostrarCaja(@RequestParam("url_event_chest") String url_event_chest, @RequestParam("url_chest_img") String url_chest_img,  Model model) {
 		User u = null;
@@ -231,23 +271,30 @@ public class Controlador {
 
 	}
 	
-	@GetMapping("/admin")
-	public ModelAndView rolePage(@AuthenticationPrincipal UserDetails user) {
-		ModelAndView nextPage = new ModelAndView("admin");
-		nextPage.addObject("user", user);
-		return nextPage;
-	}
-
-	
-	
+	/**
+	 * Muestra la página de inicio de sesión.
+	 *
+	 * @return El nombre de la vista "login".
+	 */
 	@GetMapping("/login")
 	public String muestraLogin() {
 		return "login";
 	}
+	/**
+	 * Muestra el formulario para guardar un usuario.
+	 *
+	 * @return El nombre de la vista "guardarUsuario".
+	 */
 	@GetMapping("/guardarUsuario")
 	public String mostrarFormGuardarUsuario() {
 		return "guardarUsuario";
 	}
+	/**
+	 * Elimina el usuario actualmente autenticado.
+	 *
+	 * @param session La sesión HTTP.
+	 * @return Redirige a la página de inicio de sesión con el mensaje de cierre de sesión.
+	 */
 	@PostMapping("/eliminarUsuario")
 	public String eliminarUsuario(HttpSession session) {
 		User u = null;
@@ -267,6 +314,15 @@ public class Controlador {
 		return "redirect:/login?logout";
 	}
 	
+	/**
+	 * Guarda un nuevo usuario en el sistema.
+	 *
+	 * @param nombre     El nombre del usuario.
+	 * @param email      El correo electrónico del usuario.
+	 * @param contrasena La contraseña del usuario.
+	 * @return Redirige a la página de inicio de sesión.
+	 */
+	
 	@PostMapping("/guardarUser")
 	public String guardarUser(@RequestParam("nombre") String nombre, @RequestParam("email") String email, @RequestParam("contrasena") String contrasena) {
 		//User u = new User(nombre, new BCryptPasswordEncoder().encode(contrasena), email, List.of(this.authRepo.findByName(AuthorityName.USER).get()));
@@ -282,7 +338,13 @@ public class Controlador {
 		return "redirect:/";						
 		
 	 }
-	
+	/**
+	 * Abre una caja y devuelve un objeto SkinArma aleatorio.
+	 *
+	 * @param id     El ID de la caja a abrir.
+	 * @param modelo El modelo de la vista.
+	 * @return El nombre de la vista "caja".
+	 */
 	@GetMapping("/cajas/{id}")
 	public String devolverCaja(@PathVariable Long id, Model modelo) {
 		User u = null;
@@ -323,6 +385,11 @@ public class Controlador {
 		modelo.addAttribute("objetoskinarma", osaFinal);
 		return "caja";
 	}
+	/**
+	 * Sirve para guardar la sugerencia del usuario en la BD
+	 * @param pregunta
+	 * @return
+	 */
 	@GetMapping("/pregunta")
 	public String guardarPregunta(@RequestParam("pregunta") String pregunta) {
 		if(!pregunta.isBlank()) {

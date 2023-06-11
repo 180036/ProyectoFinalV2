@@ -3,6 +3,8 @@ package com.app.web.controladores;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.app.web.repositorios.AuthorityRepositorio;
 import com.app.web.servicios.UserServicio;
@@ -32,6 +35,17 @@ public class AdminController {
 		modelo.addAttribute("usuarios", userServicio.listarTodosUsuarios());
 		return "lista";
 		
+	}
+	/**
+	 *  Muestra la ventana de configuracion de admin
+	 * @param user
+	 * @return
+	 */
+	@GetMapping("/")
+	public ModelAndView rolePage(@AuthenticationPrincipal UserDetails user) {
+		ModelAndView nextPage = new ModelAndView("admin");
+		nextPage.addObject("user", user);
+		return nextPage;
 	}
 	@GetMapping("/nuevo")
 	public String crearUsuarioFormulario(Model modelo) {
