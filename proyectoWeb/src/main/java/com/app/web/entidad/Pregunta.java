@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="preguntas")
+@Table(name="sugerencias")
 public class Pregunta {
 	
 	 //Campos de la clase
